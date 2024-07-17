@@ -1,7 +1,6 @@
-package com.onlineShop.model.entity;
+package com.onlineshop.model.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,12 +10,14 @@ public class Order extends BaseEntity {
     private LocalDate orderDate;
     private double totalAmount;
     private String status;
+    private String deliveryAddress;
+    private String contactPhone;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "order_products",
             joinColumns = @JoinColumn(name = "order_id"),
@@ -25,6 +26,7 @@ public class Order extends BaseEntity {
     private List<Product> products;
 
     public Order() {
+        status = "Ordered";
     }
 
     public LocalDate getOrderDate() {
@@ -65,5 +67,21 @@ public class Order extends BaseEntity {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
     }
 }

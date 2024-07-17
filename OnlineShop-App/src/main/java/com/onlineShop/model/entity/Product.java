@@ -1,25 +1,32 @@
-package com.onlineShop.model.entity;
+package com.onlineshop.model.entity;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
 public class Product extends BaseEntity {
     private String name;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
     private double price;
     private int stockQuantity;
+    @Column(columnDefinition = "TEXT")
     private String imageUrl;
     @Enumerated(EnumType.STRING)
     private Category category;
     private String brand;
-    private double rating;
-    private LocalDateTime createdAt;
+
+    @ManyToMany(mappedBy = "products")
+    private List<Cart> carts;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<Review> reviews;
+    @ManyToMany(mappedBy = "products" ,cascade = CascadeType.ALL)
+    private List<Order> orders;
 
     public Product() {
-        this.createdAt = LocalDateTime.now();
     }
 
     public String getName() {
@@ -78,19 +85,27 @@ public class Product extends BaseEntity {
         this.brand = brand;
     }
 
-    public double getRating() {
-        return rating;
+    public List<Cart> getCarts() {
+        return carts;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }

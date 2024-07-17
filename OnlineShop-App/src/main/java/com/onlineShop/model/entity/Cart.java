@@ -1,13 +1,14 @@
-package com.onlineShop.model.entity;
+package com.onlineshop.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "carts")
 public class Cart extends BaseEntity {
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 
@@ -17,7 +18,7 @@ public class Cart extends BaseEntity {
             joinColumns = @JoinColumn(name = "cart_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     public Cart() {
     }
