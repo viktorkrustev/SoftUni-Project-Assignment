@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{title}">Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="header-container">
+            <h1 th:text="#{welcome.message}">Welcome to my store</h1>
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
+                    <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
+
+
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
+                    <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
+
+
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <form th:action="@{/users/logout}" method="post">
+                            <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
+                        </form>
+                    </li>
+                    <div class="language-switcher">
+                        <button class="language-button" onclick="changeLang('en')">
+                            <img src="https://e7.pngegg.com/pngimages/764/991/png-clipart-flag-of-england-flag-of-the-united-kingdom-english-flag-of-great-britain-england-english-flag.png" alt="English Flag">
+                        </button>
+                        <button class="language-button" onclick="changeLang('bg')">
+                            <img src="https://e7.pngegg.com/pngimages/867/495/png-clipart-flag-of-bulgaria-bulgarian-language-flag-miscellaneous-flag-thumbnail.png" alt="Bulgarian Flag">
+                        </button>
+
+                    </div>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h2 th:text="#{explore.message}">Explore the Latest in Electronics</h2>
+            <p th:text="#{upgrade.message}">Upgrade your lifestyle with our electronic marvels.</p>
+            <div class="buttons" sec:authorize="isAnonymous()">
+                <button onclick="location.href='/users/login'" th:text="#{login.button}">Login</button>
+                <button onclick="location.href='/users/register'" th:text="#{register.button}">Register</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="additional-images">
+        <div class="image-card">
+            <img src="https://www.smithcorona.com/blog/wp-content/uploads/2022/07/5229-1200x632.jpg" alt="Additional Image 3">
+        </div>
+
+        <div class="image-card">
+            <img src="https://a.storyblok.com/f/79434/1600x800/ac66ce5b3f/cover.png" alt="Additional Image 2">
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 My Online Store. All rights reserved.</p>
+</footer>
+<script>
+    function changeLang(lang) {
+        window.location.href = '?lang=' + lang;
+    }
+</script>
+</body>
+</html>
