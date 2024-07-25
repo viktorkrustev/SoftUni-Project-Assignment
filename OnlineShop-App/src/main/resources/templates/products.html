@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{products.title}">Products</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/products.css">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="header-container">
+            <h1 th:text="#{products.title}">Products</h1>
+            <form id="searchForm" action="/products" method="get">
+                <div class="container">
+                    <input id="searchInput" type="text" name="name" th:placeholder="#{search.link}">
+                    <div class="search"></div>
+                </div>
+            </form>
+
+
+
+            <nav>
+                <ul>
+                    <li><a href="/" th:text="#{home.link}">Home</a></li>
+                    <li><a href="/products" th:text="#{products.title}">Products</a></li>
+
+
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
+                    <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
+
+
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <form th:action="@{/users/logout}" method="post">
+                            <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
+                        </form>
+                    </li>
+                    <div class="language-switcher">
+                        <button class="language-button" onclick="changeLang('en')">
+                            <img src="/static/img/english.png" alt="English Flag">
+                        </button>
+                        <button class="language-button" onclick="changeLang('bg')">
+                            <img src="/static/img/bg.png" alt="Bulgarian Flag">
+                        </button>
+
+                    </div>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="color-stripe"></div>
+    </header>
+
+    <main>
+        <section class="filter-section">
+            <div th:if="${isAdmin}">
+                <a th:href="@{/products/add-product}" class="add-product-button">Add Product</a>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn" th:text="#{products.sort.by.price}">Sort by Price</button>
+                <div class="dropdown-content">
+                    <a th:href="@{/products(sort='asc', category=${currentCategory})}" th:text="#{products.sort.low.to.high}">Low to High</a>
+                    <a th:href="@{/products(sort='desc', category=${currentCategory})}" th:text="#{products.sort.high.to.low}">High to Low</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn" th:text="#{products.filter.by.category}">Filter by Category</button>
+                <div class="dropdown-content">
+                    <a th:href="@{/products(category='ALL', sort=${currentSort})}" th:text="#{products.filter.all}">All</a>
+                    <a th:href="@{/products(category='LAPTOPS', sort=${currentSort})}" th:text="#{products.filter.laptops}">Laptops</a>
+                    <a th:href="@{/products(category='WATCHES', sort=${currentSort})}" th:text="#{products.filter.watches}">Watches</a>
+                    <a th:href="@{/products(category='PHONES', sort=${currentSort})}" th:text="#{products.filter.phones}">Phones</a>
+                    <a th:href="@{/products(category='HEADPHONES', sort=${currentSort})}" th:text="#{products.filter.headphones}">Headphones</a>
+                    <a th:href="@{/products(category='TELEVISIONS', sort=${currentSort})}" th:text="#{products.filter.televisions}">Televisions</a>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="products-list">
+            <div th:each="product : ${products}" class="product-card" th:data-price="${product.price}" th:data-category="${product.category}">
+                <a th:href="@{/products/{productId}(productId=${product.id})}">
+                    <img th:src="${product.imageUrl}" alt="Product Image">
+                    <div class="product-details">
+                        <h3 th:text="${product.name}"></h3>
+                        <p th:text="'Price: $' + ${product.price}"></p>
+                        <p th:text="#{products.brand} + ${product.brand}"></p>
+                    </div>
+                </a>
+
+                <form th:action="@{/cart/add}" method="post">
+                    <input type="hidden" th:name="productId" th:value="${product.id}" />
+                    <button type="submit" class="add-to-cart-btn" th:text="#{products.add.to.cart}">Add to Cart</button>
+                </form>
+            </div>
+        </section>
+
+        <div class="pagination">
+            <button class="prev-page" onclick="prevPage()">Previous</button>
+            <span class="page-numbers"></span>
+            <button class="next-page" onclick="nextPage()">Next</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Online Shop. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    function changeLang(lang) {
+        window.location.href = '?lang=' + lang;
+    }
+
+    const productsPerPage = 12;
+    let currentPage = 1;
+    let totalPages = 1;
+
+    function updatePagination() {
+        const productCards = Array.from(document.querySelectorAll('.product-card'));
+        totalPages = Math.ceil(productCards.length / productsPerPage);
+
+        const pageNumbers = document.querySelector('.page-numbers');
+        pageNumbers.innerHTML = '';
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageNumber = document.createElement('span');
+            pageNumber.textContent = i;
+            pageNumber.classList.add('page-number');
+            if (i === currentPage) {
+                pageNumber.classList.add('current');
+            }
+            pageNumber.onclick = () => {
+                currentPage = i;
+                updatePagination();
+            };
+            pageNumbers.appendChild(pageNumber);
+        }
+
+        if (totalPages === 0) {
+            pageNumbers.textContent = 'No products available';
+        }
+
+        productCards.forEach((card, index) => {
+            if (index >= (currentPage - 1) * productsPerPage && index < currentPage * productsPerPage) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        const prevPageButton = document.querySelector('.prev-page');
+        const nextPageButton = document.querySelector('.next-page');
+
+        prevPageButton.disabled = currentPage === 1 || totalPages === 0;
+        nextPageButton.disabled = currentPage === totalPages || totalPages === 0;
+
+        prevPageButton.classList.toggle('disabled', currentPage === 1 || totalPages === 0);
+        nextPageButton.classList.toggle('disabled', currentPage === totalPages || totalPages === 0);
+    }
+
+    function nextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            updatePagination();
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            updatePagination();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        updatePagination();
+    });
+
+</script>
+
+</body>
+</html>

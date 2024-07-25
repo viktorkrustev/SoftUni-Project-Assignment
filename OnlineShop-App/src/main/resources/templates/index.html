@@ -14,7 +14,7 @@
 <div class="wrapper">
     <header>
         <div class="header-container">
-            <h1 th:text="#{welcome.message}">Welcome to my store</h1>
+            <h1 th:text="#{welcome.message}"></h1>
             <nav>
                 <ul>
                     <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
@@ -44,8 +44,11 @@
                 </ul>
             </nav>
         </div>
+        <div class="color-stripe"></div>
     </header>
 </div>
+
+
 
 <main>
     <section class="hero">
@@ -65,7 +68,8 @@
         </div>
 
         <div class="image-card">
-            <img src="/static/img/index_img2.png" alt="Additional Image 2">
+
+            <img src="https://img.freepik.com/premium-photo/toy-shopping-cart-smartphone_135649-2325.jpg" alt="Additional Image 2">
         </div>
     </section>
 </main>

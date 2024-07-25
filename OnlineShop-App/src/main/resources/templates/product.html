@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/product.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .star {
+            font-size: 2rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star.active {
+            color: #f1c40f;
+        }
+
+        .star-rating {
+            display: flex;
+        }
+
+        .star-rating .fas,
+        .star-rating .far {
+            color: #ffcc00;
+            margin-right: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="header-container">
+            <h1 th:text="#{welcome.message}">Welcome to my store</h1>
+            <nav>
+                <ul>
+                    <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
+                    <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
+
+
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
+                    <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
+
+
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <form th:action="@{/users/logout}" method="post">
+                            <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
+                        </form>
+                    </li>
+                    <div class="language-switcher">
+                        <button class="language-button" onclick="changeLang('en')">
+                            <img src="/static/img/english.png" alt="English Flag">
+                        </button>
+                        <button class="language-button" onclick="changeLang('bg')">
+                            <img src="/static/img/bg.png" alt="Bulgarian Flag">
+                        </button>
+
+                    </div>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="color-stripe"></div>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <div class="product-card">
+                <img th:src="${product.imageUrl}" alt="Product Image">
+                <h3 th:text="${product.name}"></h3>
+                <p th:text="'Price: $' + ${product.price}"></p>
+                <p th:text="'Brand: ' + ${product.brand}"></p>
+
+                <p th:text="'Description: ' + ${product.description}"></p>
+
+                <form th:action="@{/cart/add}" method="post">
+                    <input type="hidden" th:name="productId" th:value="${product.id}" />
+                    <button type="submit" class="add-to-cart">Add to Cart</button>
+                </form>
+
+
+                <div th:if="${isAdmin}">
+                    <a th:href="@{/products/{productId}/edit(productId=${product.id})}" class="admin-button edit-button">Edit Product</a>
+                    <form th:action="@{/products/{productId}/delete(productId=${product.id})}" method="post">
+                        <button type="submit" class="admin-button delete-button">Delete Product</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-reviews" th:if="${not #lists.isEmpty(reviews)}">
+            <h2>Reviews for Product: <span th:text="${product.name}"></span></h2>
+            <ul>
+                <li th:each="review : ${reviews}" class="review-card">
+                    <div class="review-details">
+                        <h4 th:text="${review.getUser().username}"></h4>
+                        <div class="star-rating">
+                            <span th:each="i : ${#numbers.sequence(1, review.rating)}"><i class="fas fa-star"></i></span>
+                        </div>
+                        <p th:text="${review.comment}"></p>
+                    </div>
+
+                    <form th:if="${isAdmin}" th:action="@{/reviews/{reviewId}/delete(reviewId=${review.id}, productId=${productId})}" method="post">
+                        <button type="submit" class="admin-button delete-button">Delete Review</button>
+                    </form>
+                </li>
+            </ul>
+        </section>
+
+
+        <section class="add-review" th:if="${#authorization.expression('isAuthenticated()')}">
+            <h2>Add Review:</h2>
+            <form th:action="@{/products/{productId}/add-review(productId=${product.id})}" method="post" th:object="${reviewDTO}">
+                <input type="hidden" th:name="productId" th:value="${product.id}" />
+                <label for="rating">Rating:</label>
+                <div class="rating">
+
+                    <span class="star" data-value="1"><i class="far fa-star"></i></span>
+                    <span class="star" data-value="2"><i class="far fa-star"></i></span>
+                    <span class="star" data-value="3"><i class="far fa-star"></i></span>
+                    <span class="star" data-value="4"><i class="far fa-star"></i></span>
+                    <span class="star" data-value="5"><i class="far fa-star"></i></span>
+                </div>
+                <input type="hidden" id="rating" name="rating" />
+                <br/>
+                <label for="comment">Comment:</label><br/>
+                <textarea id="comment" name="comment" rows="4" cols="50" required></textarea>
+                <br/>
+                <button type="submit" class="submit-review">Submit Review</button>
+            </form>
+        </section>
+
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Online Shop. All rights reserved.</p>
+    </footer>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+
+        stars.forEach(star => {
+            star.addEventListener('mouseenter', function() {
+                const value = this.getAttribute('data-value');
+                highlightStars(value);
+            });
+
+            star.addEventListener('mouseleave', function() {
+                const value = ratingInput.value;
+                highlightStars(value);
+            });
+
+            star.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+                ratingInput.value = value;
+                highlightStars(value);
+            });
+        });
+
+        function highlightStars(value) {
+            stars.forEach(star => {
+                const starValue = star.getAttribute('data-value');
+                if (starValue <= value) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
