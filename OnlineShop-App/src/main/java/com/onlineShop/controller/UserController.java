@@ -2,6 +2,7 @@ package com.onlineshop.controller;
 
 import com.onlineshop.model.dto.LoginDTO;
 import com.onlineshop.model.dto.RegisterDTO;
+import com.onlineshop.model.dto.UserViewDTO;
 import com.onlineshop.model.entity.Order;
 import com.onlineshop.model.entity.User;
 import com.onlineshop.service.OrderService;
@@ -10,6 +11,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 import java.util.Base64;
@@ -27,6 +30,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final OrderService orderService;
+
 
     public UserController(UserService userService, OrderService orderService) {
         this.userService = userService;
@@ -72,14 +76,24 @@ public class UserController {
         User user = userService.getCurrentUser();
         List<Order> orders = orderService.getOrdersByUser(user);
 
-        model.addAttribute("user", user);
-        model.addAttribute("orders", orders);
+        // Преобразуване на User в UserViewDTO
+        UserViewDTO userViewDTO = new UserViewDTO();
+        userViewDTO.setEmail(user.getEmail());
+        userViewDTO.setFirstName(user.getFirstName());
+        userViewDTO.setLastName(user.getLastName());
+        userViewDTO.setUsername(user.getUsername());
+
+        // Добавяне на Base64 картината
         if (user.getProfilePicture() != null) {
             String base64Image = Base64.getEncoder().encodeToString(user.getProfilePicture());
-            model.addAttribute("profilePicture", base64Image);
+            userViewDTO.setProfilePicture(base64Image);
         }
+
+        model.addAttribute("user", userViewDTO);
+        model.addAttribute("orders", orders);
         return "profile";
     }
+
 
     @PostMapping("/users/uploadProfilePicture")
     public String uploadProfilePicture(@RequestParam("profilePicture") MultipartFile profilePicture,
@@ -102,4 +116,27 @@ public class UserController {
         }
         return "redirect:/users/profile";
     }
+
+    @PostMapping("/users/updateProfile")
+    public String updateProfile(@RequestParam("first_name") String firstName,
+                                @RequestParam("last_name") String lastName,
+                                @RequestParam("email") String email,
+                                @RequestParam("username") String username,
+                                RedirectAttributes redirectAttributes) {
+        try {
+            User user = userService.getCurrentUser();
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setEmail(email);
+            user.setUsername(username);
+            userService.saveUser(user);
+            redirectAttributes.addFlashAttribute("message", "Profile updated successfully");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error updating profile");
+        }
+
+        return "redirect:/users/profile";
+    }
+
+
 }
