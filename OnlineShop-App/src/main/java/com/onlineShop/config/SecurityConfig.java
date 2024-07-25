@@ -6,8 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Configuration
 @EnableWebSecurity
@@ -19,8 +17,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
                 .authorizeHttpRequests(authorizeRequests -> {
                     authorizeRequests
+                            .requestMatchers("/static/**", "/css/**", "/js/**", "/img/**").permitAll()
                             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                            .requestMatchers("/", "/users/login", "/users/register", "/products", "/about").permitAll()
+                            .requestMatchers("/", "/users/login", "/users/register", "/products","/products/*", "/about").permitAll()
                             .requestMatchers("/api/**").permitAll()
                             .anyRequest().authenticated();
                 })
