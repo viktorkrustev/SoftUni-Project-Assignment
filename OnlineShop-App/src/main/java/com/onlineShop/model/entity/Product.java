@@ -23,7 +23,13 @@ public class Product extends BaseEntity {
     private List<Cart> carts;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Review> reviews;
-    @ManyToMany(mappedBy = "products" ,cascade = CascadeType.ALL)
+
+    @ManyToMany
+    @JoinTable(
+            name = "order_products",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id")
+    )
     private List<Order> orders;
 
     public Product() {

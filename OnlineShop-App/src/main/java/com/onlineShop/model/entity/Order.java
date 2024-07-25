@@ -8,7 +8,7 @@ import java.util.List;
 @Table(name = "orders")
 public class Order extends BaseEntity {
     private LocalDate orderDate;
-    private double totalAmount;
+    private Double totalAmount;
     private String status;
     private String deliveryAddress;
     private String contactPhone;
@@ -37,11 +37,11 @@ public class Order extends BaseEntity {
         this.orderDate = orderDate;
     }
 
-    public double getTotalAmount() {
+    public Double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
@@ -51,22 +51,6 @@ public class Order extends BaseEntity {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     public String getDeliveryAddress() {
@@ -83,5 +67,21 @@ public class Order extends BaseEntity {
 
     public void setContactPhone(String contactPhone) {
         this.contactPhone = contactPhone;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

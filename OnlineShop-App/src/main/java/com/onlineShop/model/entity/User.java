@@ -7,8 +7,11 @@ import jakarta.persistence.*;
 public class User extends BaseEntity {
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String username;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String email;
     @Lob
     @Column(name = "profile_picture", columnDefinition = "LONGBLOB")
