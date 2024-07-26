@@ -4,9 +4,11 @@ import com.onlineshop.model.dto.RegisterDTO;
 import com.onlineshop.model.entity.Role;
 import com.onlineshop.model.entity.User;
 import com.onlineshop.repository.UserRepository;
+import com.onlineshop.util.CustomUserDetails;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -42,16 +44,8 @@ public class UserService {
         return userRepository.findByUsername(username).orElse(null);
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
-    public User saveUser(User user) {
-        return userRepository.save(user);
-    }
-
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public void saveUser(User user) {
+        userRepository.save(user);
     }
 
     public boolean isAdmin(Authentication authentication) {
@@ -59,11 +53,19 @@ public class UserService {
                 .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
     }
 
+
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        return userRepository.findByUsername(username).orElse(null);
+        if (authentication == null || !authentication.isAuthenticated()) {
+            throw new RuntimeException("No authenticated user found");
+        }
+
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+        Long userId = userDetails.getId();
+
+        return userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found with ID: " + userId));
     }
+
 
     public List<User> findUserByRole(Role role) {
         return userRepository.findByRole(role);
@@ -72,4 +74,5 @@ public class UserService {
     public User findUserByEmail(String to) {
         return userRepository.findByEmail(to).orElse(null);
     }
+
 }
