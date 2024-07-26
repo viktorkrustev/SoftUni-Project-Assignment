@@ -85,16 +85,6 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    @PostMapping("/cart/add")
-    public String addToCart(@RequestParam("productId") Long productId, RedirectAttributes redirectAttributes) {
-        boolean addedToCart = productService.addToCart(productId);
-        if (!addedToCart) {
-            redirectAttributes.addFlashAttribute("error", "Sorry, this product is currently out of stock.");
-            return "redirect:/product-unavailable";
-        }
-        return "redirect:/products";
-    }
-
     @GetMapping("/product-unavailable")
     public String showProductUnavailablePage() {
         return "product-unavailable";
@@ -140,20 +130,13 @@ public class ProductController {
 
     @PostMapping("/products/{productId}/edit")
     public String editProduct(@PathVariable Long productId, @ModelAttribute("product") ProductViewAdminDTO productDTO) {
-        Product existingProduct = productService.getProductById(productId);
-        if (existingProduct == null) {
+        Product updatedProduct = productService.updateProduct(productId, productDTO);
+        if (updatedProduct == null) {
             return "redirect:/products";
         }
-        existingProduct.setImageUrl(productDTO.getImageUrl());
-        existingProduct.setName(productDTO.getName());
-        existingProduct.setPrice(productDTO.getPrice());
-        existingProduct.setBrand(productDTO.getBrand());
-        existingProduct.setDescription(productDTO.getDescription());
-
-        productService.saveProduct(existingProduct);
-
         return "redirect:/products/" + productId;
     }
+
 
     @PostMapping("/products/{productId}/delete")
     public String deleteProduct(@PathVariable Long productId) {

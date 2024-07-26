@@ -31,11 +31,9 @@ public class OrderController {
 
     @GetMapping("/checkout")
     public String checkout(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        User user = userService.findByUsername(username);
+        User user = userService.getCurrentUser();
 
-        List<ProductsDTO> cartItems = cartService.getCartItemsForUser(username);
+        List<ProductsDTO> cartItems = cartService.getCartItemsForUser(user.getUsername());
         if (cartItems.isEmpty()) {
             return "redirect:/cart";
         }
@@ -54,37 +52,26 @@ public class OrderController {
 
     @PostMapping("/confirm-order")
     public String confirmOrder(@Valid @ModelAttribute("orderDTO") OrderDTO orderDTO, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            String username = authentication.getName();
-            User user = userService.findByUsername(username);
-
-            List<ProductsDTO> cartItems = cartService.getCartItemsForUser(username);
-            double totalPrice = cartItems.stream()
-                    .mapToDouble(ProductsDTO::getPrice)
-                    .sum();
-
-            model.addAttribute("user", user);
-            model.addAttribute("cartItems", cartItems);
-            model.addAttribute("totalPrice", String.format("%.2f", totalPrice));
-            model.addAttribute("orderDTO", orderDTO);
-
-            return "checkout";
-        }
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        User user = userService.findByUsername(username);
-
-        List<ProductsDTO> cartItems = cartService.getCartItemsForUser(username);
+        User user = userService.getCurrentUser();
+        List<ProductsDTO> cartItems = cartService.getCartItemsForUser(user.getUsername());
         double totalPrice = cartItems.stream()
                 .mapToDouble(ProductsDTO::getPrice)
                 .sum();
+
+        model.addAttribute("user", user);
+        model.addAttribute("cartItems", cartItems);
+        model.addAttribute("totalPrice", String.format("%.2f", totalPrice));
+        model.addAttribute("orderDTO", orderDTO);
+
+        if (result.hasErrors()) {
+            return "checkout";
+        }
 
         orderService.createOrder(user, cartItems, totalPrice, orderDTO);
         cartService.deleteAllProductsFromCart(user.getCart().getId());
 
         return "redirect:/cart";
     }
+
 
 }

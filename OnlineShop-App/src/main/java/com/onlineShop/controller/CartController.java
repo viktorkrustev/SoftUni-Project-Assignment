@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -32,10 +33,9 @@ public class CartController {
 
     @GetMapping("/cart")
     public String viewCart(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
+        User user = userService.getCurrentUser();
 
-        List<ProductsDTO> cartItems = cartService.getCartItemsForUser(username);
+        List<ProductsDTO> cartItems = cartService.getCartItemsForUser(user.getUsername());
 
         double totalPrice = cartItems.stream()
                 .mapToDouble(ProductsDTO::getPrice)
@@ -45,6 +45,16 @@ public class CartController {
         model.addAttribute("totalPrice", totalPrice);
 
         return "cart";
+    }
+
+    @PostMapping("/cart/add")
+    public String addToCart(@RequestParam("productId") Long productId, RedirectAttributes redirectAttributes) {
+        boolean addedToCart = productService.addToCart(productId);
+        if (!addedToCart) {
+            redirectAttributes.addFlashAttribute("error", "Sorry, this product is currently out of stock.");
+            return "redirect:/product-unavailable";
+        }
+        return "redirect:/products";
     }
 
     @DeleteMapping("/cart/remove/{productId}")

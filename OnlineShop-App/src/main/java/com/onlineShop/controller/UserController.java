@@ -59,7 +59,6 @@ public class UserController {
             return "register";
         }
 
-        // Запис на новия потребител
         userService.save(registerDTO);
         return "redirect:/users/login";
     }
@@ -73,43 +72,18 @@ public class UserController {
     @Transactional
     @GetMapping("/users/profile")
     public String getProfile(Model model) {
-        User user = userService.getCurrentUser();
-        List<Order> orders = orderService.getOrdersByUser(user);
-
-        // Преобразуване на User в UserViewDTO
-        UserViewDTO userViewDTO = new UserViewDTO();
-        userViewDTO.setEmail(user.getEmail());
-        userViewDTO.setFirstName(user.getFirstName());
-        userViewDTO.setLastName(user.getLastName());
-        userViewDTO.setUsername(user.getUsername());
-
-        // Добавяне на Base64 картината
-        if (user.getProfilePicture() != null) {
-            String base64Image = Base64.getEncoder().encodeToString(user.getProfilePicture());
-            userViewDTO.setProfilePicture(base64Image);
-        }
-
+        UserViewDTO userViewDTO = userService.getCurrentUserProfile();
+        List<Order> orders = orderService.getOrdersForCurrentUser();
         model.addAttribute("user", userViewDTO);
         model.addAttribute("orders", orders);
         return "profile";
     }
 
-
     @PostMapping("/users/uploadProfilePicture")
-    public String uploadProfilePicture(@RequestParam("profilePicture") MultipartFile profilePicture,
-                                       @AuthenticationPrincipal UserDetails userDetails, Model model) {
+    public String uploadProfilePicture(@RequestParam("profilePicture") MultipartFile profilePicture, Model model) {
         if (!profilePicture.isEmpty()) {
             try {
-                User user = userService.findByUsername(userDetails.getUsername());
-                user.setProfilePicture(profilePicture.getBytes());
-                userService.saveUser(user);
-
-                model.addAttribute("user", user);
-                if (user.getProfilePicture() != null) {
-                    String base64Image = Base64.getEncoder().encodeToString(user.getProfilePicture());
-                    model.addAttribute("profilePicture", base64Image);
-                }
-
+                userService.uploadProfilePicture(profilePicture);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -124,19 +98,12 @@ public class UserController {
                                 @RequestParam("username") String username,
                                 RedirectAttributes redirectAttributes) {
         try {
-            User user = userService.getCurrentUser();
-            user.setFirstName(firstName);
-            user.setLastName(lastName);
-            user.setEmail(email);
-            user.setUsername(username);
-            userService.saveUser(user);
+            userService.updateUserProfile(firstName, lastName, email, username);
             redirectAttributes.addFlashAttribute("message", "Profile updated successfully");
         } catch (Exception e) {
             redirectAttributes.addFlashAttribute("error", "Error updating profile");
         }
-
         return "redirect:/users/profile";
     }
-
 
 }
