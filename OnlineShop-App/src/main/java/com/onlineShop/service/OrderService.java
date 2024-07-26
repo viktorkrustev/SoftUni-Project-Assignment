@@ -26,11 +26,13 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductService productService;
     private final EmailService emailService;
+    private final UserService userService;
 
-    public OrderService(OrderRepository orderRepository, ProductService productService, @Lazy EmailService emailService) {
+    public OrderService(OrderRepository orderRepository, ProductService productService, @Lazy EmailService emailService, UserService userService) {
         this.orderRepository = orderRepository;
         this.productService = productService;
         this.emailService = emailService;
+        this.userService = userService;
     }
 
     @Transactional
@@ -58,6 +60,7 @@ public class OrderService {
         return savedOrder;
     }
 
+
     private List<Product> convertToProducts(List<ProductsDTO> dtos) {
         List<Product> products = new ArrayList<>();
 
@@ -83,5 +86,10 @@ public class OrderService {
 
     public List<Order> findOrderByOrderDate(LocalDate today) {
         return orderRepository.findByOrderDate(today);
+    }
+
+    public List<Order> getOrdersForCurrentUser() {
+        User user = userService.getCurrentUser();
+        return getOrdersByUser(user);
     }
 }

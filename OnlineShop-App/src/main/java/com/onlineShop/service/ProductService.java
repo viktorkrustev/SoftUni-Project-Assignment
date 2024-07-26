@@ -1,6 +1,7 @@
 package com.onlineshop.service;
 
 import com.onlineshop.model.dto.AddProductDTO;
+import com.onlineshop.model.dto.ProductViewAdminDTO;
 import com.onlineshop.model.dto.ProductsDTO;
 import com.onlineshop.model.entity.Category;
 import com.onlineshop.model.entity.Product;
@@ -19,7 +20,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Service
 public class ProductService {
-    private static final int PAGE_SIZE = 10;
     private final ProductRepository productRepository;
     private final CartService cartService;
     private final ModelMapper modelMapper;
@@ -111,6 +111,21 @@ public class ProductService {
     public List<ProductsDTO> searchProductsByName(String name) {
         return productRepository.findByNameContainingIgnoreCase(name).stream().map(p -> modelMapper.map(p, ProductsDTO.class)).collect(Collectors.toList());
     }
+
+    @Transactional
+    public Product updateProduct(Long productId, ProductViewAdminDTO productDTO) {
+        Product existingProduct = productRepository.findById(productId).orElse(null);
+        if (existingProduct != null) {
+            existingProduct.setImageUrl(productDTO.getImageUrl());
+            existingProduct.setName(productDTO.getName());
+            existingProduct.setPrice(productDTO.getPrice());
+            existingProduct.setBrand(productDTO.getBrand());
+            existingProduct.setDescription(productDTO.getDescription());
+            return productRepository.save(existingProduct);
+        }
+        return null;
+    }
+
 
 
 }

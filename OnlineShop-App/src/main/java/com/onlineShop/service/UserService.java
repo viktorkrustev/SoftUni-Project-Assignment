@@ -1,6 +1,7 @@
 package com.onlineshop.service;
 
 import com.onlineshop.model.dto.RegisterDTO;
+import com.onlineshop.model.dto.UserViewDTO;
 import com.onlineshop.model.entity.Role;
 import com.onlineshop.model.entity.User;
 import com.onlineshop.repository.UserRepository;
@@ -11,7 +12,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 
@@ -73,6 +77,31 @@ public class UserService {
 
     public User findUserByEmail(String to) {
         return userRepository.findByEmail(to).orElse(null);
+    }
+    public UserViewDTO getCurrentUserProfile() {
+        User user = getCurrentUser();
+        UserViewDTO userViewDTO = modelMapper.map(user, UserViewDTO.class);
+
+        if (user.getProfilePicture() != null) {
+            String base64Image = Base64.getEncoder().encodeToString(user.getProfilePicture());
+            userViewDTO.setProfilePicture(base64Image);
+        }
+        return userViewDTO;
+    }
+
+    public void uploadProfilePicture(MultipartFile profilePicture) throws IOException {
+        User user = getCurrentUser();
+        user.setProfilePicture(profilePicture.getBytes());
+        saveUser(user);
+    }
+
+    public void updateUserProfile(String firstName, String lastName, String email, String username) {
+        User user = getCurrentUser();
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setUsername(username);
+        saveUser(user);
     }
 
 }
