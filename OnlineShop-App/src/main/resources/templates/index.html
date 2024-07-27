@@ -44,8 +44,8 @@
                 </ul>
             </nav>
         </div>
-        <div class="color-stripe"></div>
     </header>
+    <div class="color-stripe"></div>
 </div>
 
 
@@ -69,13 +69,13 @@
 
         <div class="image-card">
 
-            <img src="https://img.freepik.com/premium-photo/toy-shopping-cart-smartphone_135649-2325.jpg" alt="Additional Image 2">
+            <img src="/static/img/index_img.jpg" alt="Additional Image 2">
         </div>
     </section>
 </main>
 
 <footer>
-    <p>&copy; 2024 My Online Store. All rights reserved.</p>
+    <p>&copy; 2024 <span th:text="#{footer.text}"></span></p>
 </footer>
 <script>
     function changeLang(lang) {
