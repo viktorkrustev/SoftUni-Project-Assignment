@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
   mail:
     host: smtp.abv.bg
     port: 465
@@ -40,3 +44,4 @@ logging:
     blog: WARN
 server:
   port: 8080
+
