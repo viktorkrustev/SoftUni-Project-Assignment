@@ -2,7 +2,7 @@ package com.onlineshop.init;
 
 import com.onlineshop.model.entity.Role;
 import com.onlineshop.model.entity.User;
-import com.onlineshop.service.UserService;
+import com.onlineshop.service.impl.UserServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,11 +17,11 @@ import javax.sql.DataSource;
 public class FirstInit implements CommandLineRunner {
 
     private final PasswordEncoder passwordEncoder;
-    private final UserService userService;
+    private final UserServiceImpl userService;
     private final DataSource dataSource;
 
     @Autowired
-    public FirstInit(PasswordEncoder passwordEncoder, UserService userService, DataSource dataSource) {
+    public FirstInit(PasswordEncoder passwordEncoder, UserServiceImpl userService, DataSource dataSource) {
         this.passwordEncoder = passwordEncoder;
         this.userService = userService;
         this.dataSource = dataSource;

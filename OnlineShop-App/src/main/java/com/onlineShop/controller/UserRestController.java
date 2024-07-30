@@ -2,7 +2,7 @@ package com.onlineshop.controller;
 
 import com.onlineshop.model.dto.UserDTO;
 import com.onlineshop.model.entity.User;
-import com.onlineshop.service.UserManagementService;
+import com.onlineshop.service.impl.UserManagementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

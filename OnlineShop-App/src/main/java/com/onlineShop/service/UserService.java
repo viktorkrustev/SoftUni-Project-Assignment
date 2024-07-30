@@ -4,104 +4,32 @@ import com.onlineshop.model.dto.RegisterDTO;
 import com.onlineshop.model.dto.UserViewDTO;
 import com.onlineshop.model.entity.Role;
 import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.UserRepository;
-import com.onlineshop.util.CustomUserDetails;
-import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Base64;
 import java.util.List;
 
+public interface UserService {
+    void save(RegisterDTO registerDTO);
 
-@Service
-public class UserService {
+    boolean existsByUsername(String username);
 
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final ModelMapper modelMapper;
+    User findByUsername(String username);
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.modelMapper = modelMapper;
-    }
+    void saveUser(User user);
 
-    public void save(RegisterDTO registerDTO) {
-        User user = modelMapper.map(registerDTO, User.class);
-        user.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
-        user.setRole(Role.USER);
-        userRepository.save(user);
-    }
+    boolean isAdmin(Authentication authentication);
 
+    User getCurrentUser();
 
-    public boolean existsByUsername(String username) {
-        return userRepository.existsByUsername(username);
-    }
+    List<User> findUserByRole(Role role);
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElse(null);
-    }
+    User findUserByEmail(String email);
 
-    public void saveUser(User user) {
-        userRepository.save(user);
-    }
+    UserViewDTO getCurrentUserProfile();
 
-    public boolean isAdmin(Authentication authentication) {
-        return authentication != null && authentication.getAuthorities().stream()
-                .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
-    }
+    void uploadProfilePicture(MultipartFile profilePicture) throws IOException;
 
-
-    public User getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null || !authentication.isAuthenticated()) {
-            throw new RuntimeException("No authenticated user found");
-        }
-
-        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        Long userId = userDetails.getId();
-
-        return userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found with ID: " + userId));
-    }
-
-
-    public List<User> findUserByRole(Role role) {
-        return userRepository.findByRole(role);
-    }
-
-    public User findUserByEmail(String to) {
-        return userRepository.findByEmail(to).orElse(null);
-    }
-    public UserViewDTO getCurrentUserProfile() {
-        User user = getCurrentUser();
-        UserViewDTO userViewDTO = modelMapper.map(user, UserViewDTO.class);
-
-        if (user.getProfilePicture() != null) {
-            String base64Image = Base64.getEncoder().encodeToString(user.getProfilePicture());
-            userViewDTO.setProfilePicture(base64Image);
-        }
-        return userViewDTO;
-    }
-
-    public void uploadProfilePicture(MultipartFile profilePicture) throws IOException {
-        User user = getCurrentUser();
-        user.setProfilePicture(profilePicture.getBytes());
-        saveUser(user);
-    }
-
-    public void updateUserProfile(String firstName, String lastName, String email, String username) {
-        User user = getCurrentUser();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setUsername(username);
-        saveUser(user);
-    }
-
+    void updateUserProfile(String firstName, String lastName, String email, String username);
 }

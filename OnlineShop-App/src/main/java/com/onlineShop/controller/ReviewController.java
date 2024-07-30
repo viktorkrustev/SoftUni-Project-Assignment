@@ -1,17 +1,10 @@
 package com.onlineshop.controller;
 
 import com.onlineshop.model.dto.ReviewDTO;
-import com.onlineshop.model.dto.ReviewViewDTO;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.Review;
-import com.onlineshop.model.entity.User;
 import com.onlineshop.service.ProductService;
 import com.onlineshop.service.ReviewService;
-import com.onlineshop.service.UserService;
+import com.onlineshop.service.impl.ReviewServiceImpl;
 import jakarta.validation.Valid;
-import org.modelmapper.ModelMapper;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,7 +18,7 @@ public class ReviewController {
     private final ProductService productService;
     private final ReviewService reviewService;
 
-    public ReviewController(ProductService productService, ReviewService reviewService) {
+    public ReviewController(ProductService productService, ReviewServiceImpl reviewService) {
         this.productService = productService;
         this.reviewService = reviewService;
     }
