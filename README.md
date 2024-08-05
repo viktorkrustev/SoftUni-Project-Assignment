@@ -32,6 +32,19 @@ Here are some screenshots:
   <p>About page:</p>
   <img src="https://github.com/user-attachments/assets/e4846f0d-a75e-4f44-8be5-11f2e6db121b" alt="Screenshot 2024-08-05 144432"/>
 </div>
+<div class="image-container">
+  <p>Product page:</p>
+  <img src="https://github.com/user-attachments/assets/fa1b23dd-00a0-44e4-a760-e2561b8d3ec0" alt="Screenshot 2024-08-05 144432"/>
+</div>
+<div class="image-container">
+  <p>Review section:</p>
+  <img src="https://github.com/user-attachments/assets/9bace770-d67b-4959-ab5d-76c04ca492bc" alt="Screenshot 2024-08-05 144432"/>
+</div>
+<div class="image-container">
+  <p>Profile page:</p>
+  <img src="https://github.com/user-attachments/assets/f7ac3f07-f9bf-465d-b700-74cbef06ba36" alt="Screenshot 2024-08-05 144432"/>
+</div>
+
 
 
 ## Technologies Used
