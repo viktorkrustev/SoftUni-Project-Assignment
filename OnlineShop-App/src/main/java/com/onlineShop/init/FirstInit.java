@@ -31,14 +31,24 @@ public class FirstInit implements CommandLineRunner {
     @Transactional
     public void run(String... args) {
         if (!userService.existsByUsername("Viktor")) {
-            User user = new User();
-            user.setFirstName("Viktor");
-            user.setLastName("Krustev");
-            user.setEmail("viktorkrustev03@abv.bg");
-            user.setPassword(passwordEncoder.encode("123456"));
-            user.setRole(Role.ADMIN);
-            user.setUsername("Viktor");
-            userService.saveUser(user);
+            User user1 = new User();
+            user1.setFirstName("Viktor");
+            user1.setLastName("Krustev");
+            user1.setEmail("viktorkrustev03@abv.bg");
+            user1.setPassword(passwordEncoder.encode("123456"));
+            user1.setRole(Role.ADMIN);
+            user1.setUsername("Viktor");
+            userService.saveUser(user1);
+
+            User user2 = new User();
+            user2.setFirstName("Georgi");
+            user2.setLastName("Dimitrov");
+            user2.setEmail("georgid@abv.bg");
+            user2.setPassword(passwordEncoder.encode("111111"));
+            user2.setRole(Role.USER);
+            user2.setUsername("Georgi");
+            userService.saveUser(user2);
+
             executeSqlScripts();
         }
     }

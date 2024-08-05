@@ -1,0 +1,133 @@
+.checkout-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.checkout-container h2 {
+    font-family: 'Dubai Medium', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.order-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item-details h4 {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+}
+
+.order-item-details p {
+    margin: 0;
+    color: #888;
+}
+
+.order-total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.order-confirm {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    border-radius: 8px; 
+    display: block; 
+    margin: 20px auto; 
+}
+
+.order-confirm:hover {
+    background-color: #45a049; 
+    transform: scale(1.05); 
+}
+
+.order-confirm:active {
+    background-color: #3e8e41; 
+    transform: scale(1); 
+}
+.order-confirm {
+    background: linear-gradient(to bottom right, cadetblue, royalblue);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    margin: auto;
+    display: block;
+}
+
+.order-confirm:hover {
+    background-color: #218838;
+}
+
+.order-confirm:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+}
+
+h4 {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.25rem;
+    margin: 20px 0;
+    text-align: center;
+    line-height: 1.4;
+}
+
+

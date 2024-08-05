@@ -3,6 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BeansView">
+    <option name="showSidePanel" value="false" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="57fec7ab-543f-4080-bc05-91ba6c102769" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,9 +13,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OPEN_IN_BROWSER" value="true" />
+    <option name="OUTPUT_DIRECTORY" value="C:\Users\Viktor\Desktop\OMT" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -25,51 +37,207 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.OnlineShopApplication.executor": "Run",
-    "Spring Boot.PaintingsCollectorsApplication.executor": "Run",
-    "Spring Boot.ResellerApplication.executor": "Run",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Viktor/Desktop/OnlineShop-App/src/main/java/com/onlineShop/model/entity",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JUnit.CartControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartRepositoryIntegrationTest.testFindCartByUserUsername.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CartServiceTest.addProductToCart_ShouldAddProductToUserCart.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CustomUserDetailsTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.EmailServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.EmailServiceTest.sendReportToAdmins.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EmailServiceTest.sendReportToAdmins_noAdmins.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HomeControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HomeControllerIntegrationTest.testShowHomePage.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.OrderControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderRepositoryTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.OrderRepositoryUnitTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.OrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.testConvertToProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.testGetOrdersByUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerIntegrationTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ProductControllerIntegrationTest.testGetProducts.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerIntegrationTest.testGetProducts_FilterByCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerIntegrationTest.testGetProducts_SearchByName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductControllerWebMvcTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceImplTest.filterProductsByCategory_InvalidCategory.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ReviewControllerIntegrationTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ReviewControllerIntegrationTest.testAddReview.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewControllerIntegrationTest.testAddReviewUnauthorized.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewControllerIntegrationTest.testAddReviewWhenReviewServiceThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewControllerIntegrationTest.testDeleteReview.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewServiceImplTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReviewServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.ShopApplicationTests.contextLoads.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_passwordMismatch.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_usernameExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerIntegrationTest.testShowRegisterForm.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserControllerTest.testRegisterUserPasswordMismatch.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.testRegisterUserSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserControllerTest.testUploadProfilePicture.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserManagementServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.java in OnlineShop-App.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.OnlineShopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.PaintingsCollectorsApplication.executor&quot;: &quot;Debug&quot;,
+    &quot;Spring Boot.ResellerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Viktor/Desktop/spring exams/Online-Shop-Client&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.onlineshop.service" />
+      <recent name="com.onlineshop.repository" />
+      <recent name="com.onlineshop.model.dto" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources" />
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\java\com\paintingscollectors\model\entity" />
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\java\com\paintingscollectors\model\dto" />
       <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\paintingscollectors\model" />
       <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\paintingscollectors\service" />
-      <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\paintingscollectors\vallidation" />
-      <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\resellerapp\repository" />
-      <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\resellerapp\service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static\img" />
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources" />
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.onlineshop.util" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.paintingscollectors.service" />
+      <recent name="com.paintingscollectors.repository" />
+      <recent name="com.paintingscollectors.controller" />
+      <recent name="com.paintingscollectors.config" />
       <recent name="com.resellerapp.config" />
-      <recent name="com.resellerapp.util" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.OnlineShopApplication">
+    <configuration name="EmailServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.onlineshop.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.onlineshop.service" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.EmailServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductControllerIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.onlineshop.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.onlineshop.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineshop.controller.ProductControllerIntegrationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductControllerIntegrationTest.testGetProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.onlineshop.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.onlineshop.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineshop.controller.ProductControllerIntegrationTest" />
+      <option name="METHOD_NAME" value="testGetProducts" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserManagementServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.onlineshop.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.onlineshop.service" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.UserManagementServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in OnlineShop-App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OnlineShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="OnlineShop-App" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.onlineshop.OnlineShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OnlineShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="OnlineShop-App" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.onlineShop.OnlineShopApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.onlineshop.OnlineShopApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.onlineShop.*" />
+          <option name="PATTERN" value="com.onlineshop.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,9 +245,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.EmailServiceTest" />
+      <item itemvalue="JUnit.ProductControllerIntegrationTest" />
+      <item itemvalue="JUnit.ProductControllerIntegrationTest.testGetProducts" />
+      <item itemvalue="JUnit.UserManagementServiceTest" />
+      <item itemvalue="JUnit.java in OnlineShop-App" />
+      <item itemvalue="Spring Boot.OnlineShopApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.OnlineShopApplication" />
+        <item itemvalue="JUnit.UserManagementServiceTest" />
+        <item itemvalue="JUnit.EmailServiceTest" />
+        <item itemvalue="JUnit.java in OnlineShop-App" />
+        <item itemvalue="JUnit.ProductControllerIntegrationTest" />
+        <item itemvalue="JUnit.ProductControllerIntegrationTest.testGetProducts" />
       </list>
     </recent_temporary>
   </component>
@@ -105,11 +285,149 @@
       <workItem from="1716962370254" duration="4213000" />
       <workItem from="1718104268991" duration="4445000" />
       <workItem from="1718694869679" duration="66000" />
-      <workItem from="1720613869627" duration="321000" />
+      <workItem from="1720132138979" duration="981000" />
+      <workItem from="1720170968342" duration="6274000" />
+      <workItem from="1720215535399" duration="2099000" />
+      <workItem from="1720267062483" duration="5407000" />
+      <workItem from="1720377487974" duration="2644000" />
+      <workItem from="1720603362826" duration="2533000" />
+      <workItem from="1720611173257" duration="1653000" />
+      <workItem from="1720614121684" duration="1180000" />
+      <workItem from="1720624928319" duration="7205000" />
+      <workItem from="1720643172524" duration="11958000" />
+      <workItem from="1720684650083" duration="14695000" />
+      <workItem from="1720708309532" duration="5164000" />
+      <workItem from="1720714945158" duration="2580000" />
+      <workItem from="1720730531693" duration="9269000" />
+      <workItem from="1720775011518" duration="13197000" />
+      <workItem from="1720789791052" duration="13662000" />
+      <workItem from="1720815348685" duration="12129000" />
+      <workItem from="1720861376860" duration="20220000" />
+      <workItem from="1720900482885" duration="7090000" />
+      <workItem from="1720964308852" duration="914000" />
+      <workItem from="1721080351076" duration="1951000" />
+      <workItem from="1721203589926" duration="3012000" />
+      <workItem from="1721218342748" duration="15182000" />
+      <workItem from="1721241356755" duration="3374000" />
+      <workItem from="1721253601648" duration="3196000" />
+      <workItem from="1721327070651" duration="1897000" />
+      <workItem from="1721383618874" duration="11122000" />
+      <workItem from="1721396418306" duration="6404000" />
+      <workItem from="1721467927246" duration="9339000" />
+      <workItem from="1721515694091" duration="606000" />
+      <workItem from="1721554247064" duration="3331000" />
+      <workItem from="1721560602121" duration="2634000" />
+      <workItem from="1721644838200" duration="16274000" />
+      <workItem from="1721731065065" duration="10777000" />
+      <workItem from="1721769082252" duration="10325000" />
+      <workItem from="1721815768281" duration="12349000" />
+      <workItem from="1721830018815" duration="11814000" />
+      <workItem from="1721843950927" duration="14985000" />
+      <workItem from="1721860289712" duration="2240000" />
+      <workItem from="1721926985879" duration="3023000" />
+      <workItem from="1721936030292" duration="1136000" />
+      <workItem from="1721991805506" duration="23972000" />
+      <workItem from="1722018533479" duration="6320000" />
+      <workItem from="1722092622090" duration="6170000" />
+      <workItem from="1722112040591" duration="3713000" />
+      <workItem from="1722157743963" duration="6148000" />
+      <workItem from="1722263465439" duration="6250000" />
+      <workItem from="1722369470678" duration="6220000" />
+      <workItem from="1722419732607" duration="11952000" />
+      <workItem from="1722595098772" duration="8238000" />
+      <workItem from="1722627654722" duration="5563000" />
+      <workItem from="1722633669229" duration="3491000" />
+      <workItem from="1722674156186" duration="3037000" />
+      <workItem from="1722693935784" duration="694000" />
+      <workItem from="1722848749380" duration="1688000" />
+      <workItem from="1722850477817" duration="143000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/onlineshop/service/ProductServiceImplTest.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ShopApplicationTests_contextLoads.ic" NAME="ShopApplicationTests.contextLoads Coverage Results" MODIFIED="1722163364966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ProductServiceImplTest.ic" NAME="ProductServiceImplTest Coverage Results" MODIFIED="1722426425032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$HomeControllerIntegrationTest_testShowHomePage.ic" NAME="HomeControllerIntegrationTest.testShowHomePage Coverage Results" MODIFIED="1722429941767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$OrderServiceTest.ic" NAME="OrderServiceTest Coverage Results" MODIFIED="1722021417549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$CartControllerIntegrationTest.ic" NAME="CartControllerIntegrationTest Coverage Results" MODIFIED="1722429976756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ProductControllerIntegrationTest.ic" NAME="ProductControllerIntegrationTest Coverage Results" MODIFIED="1722633016825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$OrderRepositoryTest.ic" NAME="OrderRepositoryTest Coverage Results" MODIFIED="1722630326652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.repository.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$UserServiceImplTest.ic" NAME="UserServiceImplTest Coverage Results" MODIFIED="1722429467476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$OrderControllerIntegrationTest.ic" NAME="OrderControllerIntegrationTest Coverage Results" MODIFIED="1722429878720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$UserManagementServiceTest.ic" NAME="UserManagementServiceTest Coverage Results" MODIFIED="1722633512616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ReviewControllerIntegrationTest.ic" NAME="ReviewControllerIntegrationTest Coverage Results" MODIFIED="1722599583242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ReviewServiceImplTest.ic" NAME="ReviewServiceImplTest Coverage Results" MODIFIED="1722426781725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$OrderServiceImplTest.ic" NAME="OrderServiceImplTest Coverage Results" MODIFIED="1722425889219" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$EmailServiceTest.ic" NAME="EmailServiceTest Coverage Results" MODIFIED="1722633475638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$CartServiceImplTest.ic" NAME="CartServiceImplTest Coverage Results" MODIFIED="1722425295992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$HomeControllerIntegrationTest.ic" NAME="HomeControllerIntegrationTest Coverage Results" MODIFIED="1722093217096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ProductServiceTest.ic" NAME="ProductServiceTest Coverage Results" MODIFIED="1722022052997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1722023169237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$UserControllerIntegrationTest.ic" NAME="UserControllerIntegrationTest Coverage Results" MODIFIED="1722430070524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1722603517133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.controller.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$ReviewServiceTest.ic" NAME="ReviewServiceTest Coverage Results" MODIFIED="1722022151530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$java_in_OnlineShop_App.ic" NAME="java in OnlineShop-App Coverage Results" MODIFIED="1722631591016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$CustomUserDetailsTest.ic" NAME="CustomUserDetailsTest Coverage Results" MODIFIED="1722630682817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.util.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$CartServiceTest.ic" NAME="CartServiceTest Coverage Results" MODIFIED="1722016491035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.onlineshop.service.*</FILTER>
+    </SUITE>
   </component>
 </project>

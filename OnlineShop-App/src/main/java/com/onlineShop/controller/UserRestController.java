@@ -30,9 +30,25 @@ public class UserRestController {
 
     @PostMapping
     public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
+        System.out.println("Received UserDTO: " + userDTO);
+
+        if (userDTO.getFirstName() == null || userDTO.getFirstName().isEmpty() ||
+                userDTO.getLastName() == null || userDTO.getLastName().isEmpty() ||
+                userDTO.getUsername() == null || userDTO.getUsername().isEmpty() ||
+                userDTO.getEmail() == null || userDTO.getEmail().isEmpty() ||
+                userDTO.getPassword() == null || userDTO.getPassword().isEmpty()) {
+
+            System.err.println("Validation failed for UserDTO: " + userDTO);
+            return ResponseEntity.badRequest().body(null);
+        }
+
         UserDTO createdUser = userManagementService.createUser(userDTO);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
+
+
+
+
 
 
     @PutMapping("/{id}")
@@ -69,7 +85,6 @@ public class UserRestController {
         user.setLastName(userDTO.getLastName());
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
-        // Паролата не се задава директно от DTO-то, за да се избегне излагането на чувствителни данни
         return user;
     }
 }

@@ -27,7 +27,6 @@ public class UserController {
     private final UserService userService;
     private final OrderService orderService;
 
-
     public UserController(UserService userService, OrderService orderService) {
         this.userService = userService;
         this.orderService = orderService;

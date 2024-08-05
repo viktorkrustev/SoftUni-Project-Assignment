@@ -5,8 +5,6 @@ import com.onlineshop.model.entity.Product;
 import com.onlineshop.service.ProductService;
 import com.onlineshop.service.ReviewService;
 import com.onlineshop.service.UserService;
-import com.onlineshop.service.impl.ReviewServiceImpl;
-import com.onlineshop.service.impl.UserServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -58,7 +56,7 @@ public class ProductController {
         model.addAttribute("products", products);
         model.addAttribute("isAdmin", userService.isAdmin(authentication));
         model.addAttribute("currentCategory", category != null ? category : "ALL");
-        model.addAttribute("currentSort", sort);
+        model.addAttribute("currentSort", sort != null ? sort : "");
 
         return "products";
     }

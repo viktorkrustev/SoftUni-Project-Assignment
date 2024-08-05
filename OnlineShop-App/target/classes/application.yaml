@@ -1,4 +1,21 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 3MB
+  mail:
+    host: smtp.abv.bg
+    port: 465
+    username: online_store123@abv.bg
+    password: Store123321
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
   jpa:
     properties:
       hibernate:
@@ -15,7 +32,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     password: '75418321'
     username: 'root'
-    url: jdbc:mysql://localhost:3306/shop_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/shop?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
 logging:
   level:
     org:
@@ -27,3 +44,4 @@ logging:
     blog: WARN
 server:
   port: 8080
+

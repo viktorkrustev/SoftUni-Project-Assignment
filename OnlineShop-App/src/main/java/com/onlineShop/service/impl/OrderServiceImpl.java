@@ -44,7 +44,7 @@ public class OrderServiceImpl implements OrderService {
 
         Order savedOrder = orderRepository.save(order);
 
-        
+
         emailService.sendOrderConfirmationEmail(
                 user.getEmail(),
                 String.valueOf(savedOrder.getOrderDate()),
@@ -62,12 +62,12 @@ public class OrderServiceImpl implements OrderService {
         List<Product> products = new ArrayList<>();
 
         for (ProductsDTO dto : dtos) {
-            Product product = productService.findById(dto.getId()); 
+            Product product = productService.findById(dto.getId());
             if (product != null && product.getStockQuantity() > 0) {
                 product.setStockQuantity(product.getStockQuantity() - 1);
                 products.add(product);
             } else {
-                products.add(null); 
+                products.add(null);
             }
         }
 

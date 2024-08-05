@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="header-container">
+            <h1>Welcome to my store</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="color-stripe"></div>
+
+    <main>
+        <section class="login-form">
+            <div class="form-container">
+                <h2>Login</h2>
+                <form th:action="@{/users/login}" method="post" th:object="${loginDTO}">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" th:field="*{username}">
+                    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-message"></span>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" th:field="*{password}">
+                    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></span>
+
+                    <div th:if="${param.error}">
+                        <span class="error-message">Invalid username or password</span>
+                    </div>
+
+                    <input type="submit" value="Login">
+                </form>
+                <p class="register-text">Don't have an account? <a href="/users/register">Register</a></p>
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <p>&copy; 2024 My Colorful Online Store. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

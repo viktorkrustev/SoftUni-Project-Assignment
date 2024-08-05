@@ -46,9 +46,6 @@ public class ProductServiceImpl implements ProductService {
             return false;
         }
 
-        product.setStockQuantity(product.getStockQuantity() - 1);
-        productRepository.save(product);
-
         cartService.addProductToCart(product);
 
         return true;
@@ -90,7 +87,7 @@ public class ProductServiceImpl implements ProductService {
                         .filter(p -> p.getCategory() == categoryEnum)
                         .collect(Collectors.toList());
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
+                System.out.println("Wrong category!");
                 return products;
             }
         }

@@ -18,7 +18,7 @@ public class ReviewController {
     private final ProductService productService;
     private final ReviewService reviewService;
 
-    public ReviewController(ProductService productService, ReviewServiceImpl reviewService) {
+    public ReviewController(ProductService productService, ReviewService reviewService) {
         this.productService = productService;
         this.reviewService = reviewService;
     }

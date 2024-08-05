@@ -1,0 +1,89 @@
+.registration-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: #333; 
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.5em; 
+    font-weight: bold; 
+    text-align: center; 
+}
+
+
+.registration-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-form label {
+    margin-bottom: 8px;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    background-color: #f5f5f5; 
+    color: #333; 
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.registration-form input[type="text"]:focus,
+.registration-form input[type="email"]:focus,
+.registration-form input[type="password"]:focus {
+    border-color: #007BFF; 
+}
+
+.registration-form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #007BFF; 
+    color: white; 
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form input[type="submit"]:hover {
+    background-color: #0056b3; 
+}
+
+.registration-form .login-text {
+    text-align: center;
+    margin-top: 15px;
+    color: #555; 
+}
+
+.registration-form .login-text a {
+    color: #007BFF; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.registration-form .login-text a:hover {
+    color: #0056b3; 
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

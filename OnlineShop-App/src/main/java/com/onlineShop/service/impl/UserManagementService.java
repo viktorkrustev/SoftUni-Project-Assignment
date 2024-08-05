@@ -53,12 +53,20 @@ public class UserManagementService {
     }
 
     public UserDTO createUser(UserDTO userDTO) {
+        if (userDTO.getPassword() == null || userDTO.getPassword().isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be null or empty");
+        }
+
         User user = new User();
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+
         userRepository.save(user);
         return new UserDTO(user);
     }
+
+
 }

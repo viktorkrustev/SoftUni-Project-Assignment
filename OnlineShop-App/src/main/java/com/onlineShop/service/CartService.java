@@ -5,6 +5,7 @@ import com.onlineshop.model.entity.Cart;
 import com.onlineshop.model.entity.Product;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CartService {
     void addProductToCart(Product product);
@@ -16,5 +17,4 @@ public interface CartService {
     void deleteAllProductsFromCart(Long cartId);
 
     Cart findCartByUsername(String username);
-
 }
