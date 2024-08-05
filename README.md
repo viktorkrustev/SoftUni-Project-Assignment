@@ -20,8 +20,18 @@ The **Online Shop Application** is a comprehensive e-commerce platform built wit
 
 Here are some screenshots:
 
-1. 
-
+<div class="image-container">
+  <p>Home page:</p>
+  <img src="https://github.com/user-attachments/assets/8aa43ae1-5cbb-434c-9d02-3b2ae744aa9a" alt="Screenshot 2024-08-05 143731"/>
+</div>
+<div class="image-container">
+  <p>Products page:</p>
+  <img src="https://github.com/user-attachments/assets/0cad321f-50ae-48a3-9a11-b331be4ae432" alt="image"/>
+</div>
+<div class="image-container">
+  <p>About page:</p>
+  <img src="https://github.com/user-attachments/assets/e4846f0d-a75e-4f44-8be5-11f2e6db121b" alt="Screenshot 2024-08-05 144432"/>
+</div>
 
 
 ## Technologies Used
