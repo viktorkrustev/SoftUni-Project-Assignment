@@ -43,7 +43,7 @@ Here are some screenshots:
 - **Java Mail**: Email services.
 - **Thymeleaf**: Template engine for email templates.
 - **H2 Database**: In-memory database for testing.
-- **MySQL/PostgreSQL**: Primary databases for production.
+- **MySQL**: Primary databases for production.
 
 ## Getting Started
 
