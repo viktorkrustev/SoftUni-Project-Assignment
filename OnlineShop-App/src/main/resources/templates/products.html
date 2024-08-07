@@ -58,7 +58,7 @@
     <main>
         <section class="filter-section">
             <div th:if="${isAdmin}">
-                <a th:href="@{/products/add-product}" class="add-product-button">Add Product</a>
+                <a th:href="@{/products/add-product}" class="add-product-button" th:text="#{add.product}">Add Product</a>
             </div>
             <div class="dropdown">
                 <button class="dropbtn" th:text="#{products.sort.by.price}">Sort by Price</button>
