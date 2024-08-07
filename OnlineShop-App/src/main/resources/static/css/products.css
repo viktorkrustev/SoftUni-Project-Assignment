@@ -492,10 +492,10 @@ button:focus {
     content: "";
     position: absolute;
     margin: auto;
-    top: 19px; /* Коригирано, за да се центрира вертикално */
+    top: 19px;
     right: 0;
     bottom: 0;
-    left: 19px; /* Коригирано, за да се центрира хоризонтално */
+    left: 19px;
     width: 12px;
     height: 2px;
     background: white;
@@ -507,10 +507,10 @@ button:focus {
     content: "";
     position: absolute;
     margin: auto;
-    top: -5px; /* Коригирано, за да се центрира вертикално */
+    top: -5px;
     right: 0;
     bottom: 0;
-    left: -6px; /* Коригирано, за да се центрира хоризонтално */
+    left: -6px;
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -549,7 +549,7 @@ button:focus {
 }
 
 #searchInput:focus {
-    width: 295px;
+    width: 293px;
     opacity: 1;
     cursor: text;
 }

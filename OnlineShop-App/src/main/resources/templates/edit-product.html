@@ -17,14 +17,14 @@
             <h1>Welcome to my store</h1>
             <nav>
                 <ul>
-                    <li><a th:href="@{/}">Home</a></li>
-                    <li><a th:href="@{/products}">Products</a></li>
-                    <li><a th:href="@{/cart}">Cart</a></li>
-                    <li><a th:href="@{/users/profile}">Profile</a></li>
-                    <li><a th:href="@{/about}">About Us</a></li>
-                    <li>
+                    <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
+                    <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
+                    <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
                         <form th:action="@{/users/logout}" method="post">
-                            <button type="">Logout</button>
+                            <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
                         </form>
                     </li>
                 </ul>

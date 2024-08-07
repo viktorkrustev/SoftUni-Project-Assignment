@@ -156,7 +156,7 @@
       <recent name="com.resellerapp.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.java in OnlineShop-App">
+  <component name="RunManager" selected="Spring Boot.OnlineShopApplication">
     <configuration name="EmailServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineShop-App" />
       <extension name="coverage">
@@ -340,6 +340,7 @@
       <workItem from="1722853072054" duration="1953000" />
       <workItem from="1722941396490" duration="19611000" />
       <workItem from="1722989513437" duration="258000" />
+      <workItem from="1723021927035" duration="3284000" />
     </task>
     <servers />
   </component>

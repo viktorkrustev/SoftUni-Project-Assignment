@@ -110,7 +110,7 @@ public class UserControllerTest {
     @WithMockUser
     public void testUpdateProfile() throws Exception {
         mockMvc.perform(post("/users/updateProfile")
-                        .with(csrf())  // Добавяне на CSRF токен
+                        .with(csrf())
                         .param("first_name", "John")
                         .param("last_name", "Doe")
                         .param("email", "john.doe@example.com")
