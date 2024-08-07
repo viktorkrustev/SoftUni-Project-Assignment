@@ -37,95 +37,95 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JUnit.CartControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CartControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CartRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CartRepositoryIntegrationTest.testFindCartByUserUsername.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CartRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CartServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.CartServiceTest.addProductToCart_ShouldAddProductToUserCart.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CartServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CustomUserDetailsTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.EmailServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.EmailServiceTest.sendReportToAdmins.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.EmailServiceTest.sendReportToAdmins_noAdmins.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HomeControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.HomeControllerIntegrationTest.testShowHomePage.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.OrderControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderRepositoryTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.OrderRepositoryUnitTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.OrderServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceTest.testConvertToProducts.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OrderServiceTest.testGetOrdersByUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductControllerIntegrationTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ProductControllerIntegrationTest.testGetProducts.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductControllerIntegrationTest.testGetProducts_FilterByCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductControllerIntegrationTest.testGetProducts_SearchByName.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductControllerWebMvcTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductServiceImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductServiceImplTest.filterProductsByCategory_InvalidCategory.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ReviewControllerIntegrationTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ReviewControllerIntegrationTest.testAddReview.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReviewControllerIntegrationTest.testAddReviewUnauthorized.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReviewControllerIntegrationTest.testAddReviewWhenReviewServiceThrowsException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReviewControllerIntegrationTest.testDeleteReview.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReviewControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReviewServiceImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReviewServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.ShopApplicationTests.contextLoads.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserControllerIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_Success.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_passwordMismatch.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_success.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerIntegrationTest.testRegisterUser_usernameExists.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerIntegrationTest.testShowRegisterForm.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserControllerTest.testRegisterUserPasswordMismatch.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.testRegisterUserSuccess.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserControllerTest.testUploadProfilePicture.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserManagementServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserServiceImplTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.UserServiceImplTest.save_shouldSaveUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.java in OnlineShop-App.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.onlineshop in OnlineShop-App.executor&quot;: &quot;Coverage&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.OnlineShopApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.PaintingsCollectorsApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;Spring Boot.ResellerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Viktor/Desktop/spring exams/Online-Shop-Client&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.CartControllerIntegrationTest.executor": "Run",
+    "JUnit.CartControllerTest.executor": "Run",
+    "JUnit.CartRepositoryIntegrationTest.executor": "Run",
+    "JUnit.CartRepositoryIntegrationTest.testFindCartByUserUsername.executor": "Run",
+    "JUnit.CartRepositoryTest.executor": "Run",
+    "JUnit.CartServiceImplTest.executor": "Coverage",
+    "JUnit.CartServiceTest.addProductToCart_ShouldAddProductToUserCart.executor": "Run",
+    "JUnit.CartServiceTest.executor": "Run",
+    "JUnit.CustomUserDetailsTest.executor": "Coverage",
+    "JUnit.EmailServiceTest.executor": "Coverage",
+    "JUnit.EmailServiceTest.sendReportToAdmins.executor": "Run",
+    "JUnit.EmailServiceTest.sendReportToAdmins_noAdmins.executor": "Run",
+    "JUnit.HomeControllerIntegrationTest.executor": "Run",
+    "JUnit.HomeControllerIntegrationTest.testShowHomePage.executor": "Coverage",
+    "JUnit.OrderControllerIntegrationTest.executor": "Run",
+    "JUnit.OrderRepositoryTest.executor": "Coverage",
+    "JUnit.OrderRepositoryUnitTest.executor": "Run",
+    "JUnit.OrderServiceImplTest.executor": "Coverage",
+    "JUnit.OrderServiceTest.executor": "Run",
+    "JUnit.OrderServiceTest.testConvertToProducts.executor": "Run",
+    "JUnit.OrderServiceTest.testGetOrdersByUser.executor": "Run",
+    "JUnit.ProductControllerIntegrationTest.executor": "Coverage",
+    "JUnit.ProductControllerIntegrationTest.testGetProducts.executor": "Run",
+    "JUnit.ProductControllerIntegrationTest.testGetProducts_FilterByCategory.executor": "Run",
+    "JUnit.ProductControllerIntegrationTest.testGetProducts_SearchByName.executor": "Run",
+    "JUnit.ProductControllerWebMvcTest.executor": "Run",
+    "JUnit.ProductServiceImplTest.executor": "Run",
+    "JUnit.ProductServiceImplTest.filterProductsByCategory_InvalidCategory.executor": "Run",
+    "JUnit.ProductServiceTest.executor": "Coverage",
+    "JUnit.ReviewControllerIntegrationTest.executor": "Coverage",
+    "JUnit.ReviewControllerIntegrationTest.testAddReview.executor": "Run",
+    "JUnit.ReviewControllerIntegrationTest.testAddReviewUnauthorized.executor": "Run",
+    "JUnit.ReviewControllerIntegrationTest.testAddReviewWhenReviewServiceThrowsException.executor": "Run",
+    "JUnit.ReviewControllerIntegrationTest.testDeleteReview.executor": "Run",
+    "JUnit.ReviewControllerTest.executor": "Run",
+    "JUnit.ReviewServiceImplTest.executor": "Run",
+    "JUnit.ReviewServiceTest.executor": "Coverage",
+    "JUnit.ShopApplicationTests.contextLoads.executor": "Coverage",
+    "JUnit.UserControllerIntegrationTest.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.testRegisterUser_Success.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.testRegisterUser_passwordMismatch.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.testRegisterUser_success.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.testRegisterUser_usernameExists.executor": "Run",
+    "JUnit.UserControllerIntegrationTest.testShowRegisterForm.executor": "Run",
+    "JUnit.UserControllerTest.executor": "Coverage",
+    "JUnit.UserControllerTest.testRegisterUserPasswordMismatch.executor": "Run",
+    "JUnit.UserControllerTest.testRegisterUserSuccess.executor": "Run",
+    "JUnit.UserControllerTest.testUploadProfilePicture.executor": "Run",
+    "JUnit.UserManagementServiceTest.executor": "Coverage",
+    "JUnit.UserServiceImplTest.executor": "Coverage",
+    "JUnit.UserServiceImplTest.save_shouldSaveUser.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Coverage",
+    "JUnit.java in OnlineShop-App.executor": "Coverage",
+    "JUnit.onlineshop in OnlineShop-App.executor": "Coverage",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.OnlineShopApplication.executor": "Run",
+    "Spring Boot.PaintingsCollectorsApplication.executor": "Debug",
+    "Spring Boot.ResellerApplication.executor": "Run",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Viktor/Desktop/spring exams/OnlineShop-App",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.onlineshop.service" />
@@ -161,12 +161,12 @@
       <module name="OnlineShop-App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.onlineshop.service.*" />
+          <option name="PATTERN" value="com.onlineShop.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.onlineshop.service" />
-      <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.EmailServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineShop.service.EmailServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,12 +176,12 @@
       <module name="OnlineShop-App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.onlineshop.service.*" />
+          <option name="PATTERN" value="com.onlineShop.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.onlineshop.service" />
-      <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.UserManagementServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineShop.service.UserManagementServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -191,12 +191,12 @@
       <module name="OnlineShop-App" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.onlineshop.service.*" />
+          <option name="PATTERN" value="com.onlineShop.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.onlineshop.service" />
-      <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.UserServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineShop.service.UserServiceImplTest" />
       <option name="METHOD_NAME" value="save_shouldSaveUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -222,7 +222,7 @@
     <configuration name="OnlineShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="OnlineShop-App" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.onlineshop.OnlineShopApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.onlineShop.OnlineShopApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -341,6 +341,8 @@
       <workItem from="1722941396490" duration="19611000" />
       <workItem from="1722989513437" duration="258000" />
       <workItem from="1723021927035" duration="3284000" />
+      <workItem from="1723025844363" duration="37000" />
+      <workItem from="1723058551167" duration="291000" />
     </task>
     <servers />
   </component>
@@ -351,7 +353,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/onlineshop/service/ProductServiceImplTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/com/onlineShop/service/ProductServiceImplTest.java</url>
           <line>27</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
