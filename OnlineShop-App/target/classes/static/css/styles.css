@@ -19,14 +19,24 @@ time, mark, audio, video {
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1; /* Това ще накара съдържанието да расте и да запълва наличното пространство */
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     background-image: linear-gradient(to right, whitesmoke, #f0f0f0);
-    /*background: radial-gradient(circle at -8.9% 51.2%,*/
-    /*orangered 0%, #B9D9EB 15.9%,*/
-    /*whitesmoke 15.9%, cadetblue 24.4%,*/
-    /*whitesmoke 24.5%, #f0f0f0 66%);*/
 }
 .wrapper {
     flex: 1;
@@ -281,6 +291,8 @@ main {
 .social-icons a:hover {
     transform: scale(1.2);
 }
+
+
 
 
 

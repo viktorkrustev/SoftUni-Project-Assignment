@@ -46,4 +46,9 @@ public class Config {
 
         return mailSender;
     }
+
+    @Bean
+    public String getUrl() {
+        return "http://localhost:8080/api";
+    }
 }

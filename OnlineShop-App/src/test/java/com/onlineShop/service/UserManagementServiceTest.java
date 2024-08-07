@@ -3,7 +3,6 @@ package com.onlineshop.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.onlineshop.model.dto.UserDTO;
 import com.onlineshop.model.entity.User;
 import com.onlineshop.repository.UserRepository;
 import com.onlineshop.service.impl.UserManagementService;
@@ -107,29 +106,4 @@ public class UserManagementServiceTest {
         verify(userRepository, times(1)).deleteById(1L);
     }
 
-    @Test
-    void testCreateUser() {
-        UserDTO userDTO = new UserDTO();
-        userDTO.setFirstName("John");
-        userDTO.setLastName("Doe");
-        userDTO.setUsername("johndoe");
-        userDTO.setEmail("john.doe@example.com");
-
-        User user = new User();
-        user.setId(1L);
-        user.setFirstName("John");
-        user.setLastName("Doe");
-        user.setUsername("johndoe");
-        user.setEmail("john.doe@example.com");
-
-        when(userRepository.save(any(User.class))).thenReturn(user);
-
-        UserDTO result = userManagementService.createUser(userDTO);
-
-        assertNotNull(result);
-        assertEquals("John", result.getFirstName());
-        assertEquals("Doe", result.getLastName());
-        assertEquals("johndoe", result.getUsername());
-        assertEquals("john.doe@example.com", result.getEmail());
-    }
 }

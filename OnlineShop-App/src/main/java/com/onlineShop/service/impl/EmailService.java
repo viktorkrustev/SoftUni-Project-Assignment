@@ -86,4 +86,19 @@ public class EmailService {
             System.out.println("No admin users found.");
         }
     }
+
+    public void sendRegistrationConfirmationEmail(String to) {
+        String subject = "Welcome to Online Store!";
+        String text = "Dear User,\n\n" +
+                "Thank you for registering at our online store. We are excited to have you with us.\n\n" +
+                "Best regards,\n" +
+                "Online Store";
+
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(FROM_ADDRESS);
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+        mailSender.send(message);
+    }
 }

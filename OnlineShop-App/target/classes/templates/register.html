@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +46,7 @@
                     <input type="email" id="email" name="email" th:field="*{email}">
                     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"></span>
 
+
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" th:field="*{password}">
                     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></span>
@@ -63,7 +65,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 My Colorful Online Store. All rights reserved.</p>
+    <p>&copy; 2024 My Online Store</p>
 </footer>
 
 </body>

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface UserService {
+    boolean isEmailAlreadyRegistered(String email);
     void save(RegisterDTO registerDTO);
 
     boolean existsByUsername(String username);

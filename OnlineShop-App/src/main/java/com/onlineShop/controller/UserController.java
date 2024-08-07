@@ -54,6 +54,11 @@ public class UserController {
             return "register";
         }
 
+        if (userService.isEmailAlreadyRegistered(registerDTO.getEmail())) {
+            model.addAttribute("registrationError", "E-mail already exists!");
+            return "register";
+        }
+
         userService.save(registerDTO);
         return "redirect:/users/login";
     }

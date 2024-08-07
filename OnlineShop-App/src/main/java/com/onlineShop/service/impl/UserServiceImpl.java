@@ -1,5 +1,6 @@
 package com.onlineshop.service.impl;
 
+import com.onlineshop.event.UserRegistrationEvent;
 import com.onlineshop.model.dto.RegisterDTO;
 import com.onlineshop.model.dto.UserViewDTO;
 import com.onlineshop.model.entity.Role;
@@ -8,6 +9,7 @@ import com.onlineshop.repository.UserRepository;
 import com.onlineshop.service.UserService;
 import com.onlineshop.util.CustomUserDetails;
 import org.modelmapper.ModelMapper;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -25,11 +27,13 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper modelMapper;
+    private final ApplicationEventPublisher eventPublisher;
 
-    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder, ModelMapper modelMapper, ApplicationEventPublisher eventPublisher) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.modelMapper = modelMapper;
+        this.eventPublisher = eventPublisher;
     }
 
     @Override
@@ -38,6 +42,8 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(registerDTO.getPassword()));
         user.setRole(Role.USER);
         userRepository.save(user);
+
+        eventPublisher.publishEvent(new UserRegistrationEvent(this, registerDTO.getEmail()));
     }
 
     @Override
@@ -112,4 +118,11 @@ public class UserServiceImpl implements UserService {
         user.setUsername(username);
         saveUser(user);
     }
+
+    @Override
+    public boolean isEmailAlreadyRegistered(String email) {
+        return userRepository.findByEmail(email).isPresent();
+    }
+
+
 }

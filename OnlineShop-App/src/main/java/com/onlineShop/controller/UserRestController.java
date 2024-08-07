@@ -62,6 +62,7 @@ public class UserRestController {
         }
     }
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         userManagementService.deleteUser(id);

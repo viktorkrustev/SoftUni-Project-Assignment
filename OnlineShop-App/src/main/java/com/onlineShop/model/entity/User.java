@@ -11,7 +11,7 @@ public class User extends BaseEntity {
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
     @Lob
     @Column(name = "profile_picture", columnDefinition = "LONGBLOB")

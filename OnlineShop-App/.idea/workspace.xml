@@ -90,8 +90,10 @@
     &quot;JUnit.UserControllerTest.testUploadProfilePicture.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserManagementServiceTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.UserServiceImplTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.UserServiceImplTest.save_shouldSaveUser.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.UserServiceTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.java in OnlineShop-App.executor&quot;: &quot;Profiler#1&quot;,
+    &quot;JUnit.java in OnlineShop-App.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.onlineshop in OnlineShop-App.executor&quot;: &quot;Coverage&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -138,9 +140,10 @@
       <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\paintingscollectors\service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static" />
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\java\com\onlineshop" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static\img" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources" />
-      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.onlineshop.util" />
@@ -153,7 +156,7 @@
       <recent name="com.resellerapp.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.OnlineShopApplication">
+  <component name="RunManager" selected="JUnit.java in OnlineShop-App">
     <configuration name="EmailServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineShop-App" />
       <extension name="coverage">
@@ -165,37 +168,6 @@
       <option name="PACKAGE_NAME" value="com.onlineshop.service" />
       <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.EmailServiceTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductControllerIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="OnlineShop-App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.onlineshop.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.onlineshop.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.onlineshop.controller.ProductControllerIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductControllerIntegrationTest.testGetProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="OnlineShop-App" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.onlineshop.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.onlineshop.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.onlineshop.controller.ProductControllerIntegrationTest" />
-      <option name="METHOD_NAME" value="testGetProducts" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,10 +187,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceImplTest.save_shouldSaveUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.onlineshop.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.onlineshop.service" />
+      <option name="MAIN_CLASS_NAME" value="com.onlineshop.service.UserServiceImplTest" />
+      <option name="METHOD_NAME" value="save_shouldSaveUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="java in OnlineShop-App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="OnlineShop-App" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="onlineshop in OnlineShop-App" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OnlineShop-App" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java/com/onlineshop" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -246,20 +242,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.UserServiceImplTest.save_shouldSaveUser" />
+      <item itemvalue="JUnit.onlineshop in OnlineShop-App" />
       <item itemvalue="JUnit.EmailServiceTest" />
-      <item itemvalue="JUnit.ProductControllerIntegrationTest" />
-      <item itemvalue="JUnit.ProductControllerIntegrationTest.testGetProducts" />
       <item itemvalue="JUnit.UserManagementServiceTest" />
       <item itemvalue="JUnit.java in OnlineShop-App" />
       <item itemvalue="Spring Boot.OnlineShopApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in OnlineShop-App" />
+        <item itemvalue="JUnit.UserServiceImplTest.save_shouldSaveUser" />
+        <item itemvalue="JUnit.onlineshop in OnlineShop-App" />
         <item itemvalue="JUnit.UserManagementServiceTest" />
         <item itemvalue="JUnit.EmailServiceTest" />
-        <item itemvalue="JUnit.java in OnlineShop-App" />
-        <item itemvalue="JUnit.ProductControllerIntegrationTest" />
-        <item itemvalue="JUnit.ProductControllerIntegrationTest.testGetProducts" />
       </list>
     </recent_temporary>
   </component>
@@ -341,6 +337,9 @@
       <workItem from="1722693935784" duration="694000" />
       <workItem from="1722848749380" duration="1688000" />
       <workItem from="1722850477817" duration="143000" />
+      <workItem from="1722853072054" duration="1953000" />
+      <workItem from="1722941396490" duration="19611000" />
+      <workItem from="1722989513437" duration="258000" />
     </task>
     <servers />
   </component>
@@ -422,7 +421,8 @@
     <SUITE FILE_PATH="coverage/SecurityConfig_java$ReviewServiceTest.ic" NAME="ReviewServiceTest Coverage Results" MODIFIED="1722022151530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.onlineshop.service.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SecurityConfig_java$java_in_OnlineShop_App.ic" NAME="java in OnlineShop-App Coverage Results" MODIFIED="1722631591016" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$onlineshop_in_OnlineShop_App.ic" NAME="onlineshop in OnlineShop-App Coverage Results" MODIFIED="1722983803552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$java_in_OnlineShop_App.ic" NAME="java in OnlineShop-App Coverage Results" MODIFIED="1722989716485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SecurityConfig_java$CustomUserDetailsTest.ic" NAME="CustomUserDetailsTest Coverage Results" MODIFIED="1722630682817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.onlineshop.util.*</FILTER>
     </SUITE>

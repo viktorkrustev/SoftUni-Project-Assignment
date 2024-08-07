@@ -100,7 +100,6 @@ public class OrderServiceImplTest {
 
     @Test
     void convertToProducts() {
-        // Case 1: Product found and stock is sufficient
         List<ProductsDTO> dtos = Collections.singletonList(productsDTO);
 
         when(productService.findById(productsDTO.getId())).thenReturn(product);
@@ -112,7 +111,6 @@ public class OrderServiceImplTest {
         assertEquals(product, products.get(0));
         assertEquals(9, product.getStockQuantity());
 
-        // Case 2: Product not found
         when(productService.findById(productsDTO.getId())).thenReturn(null);
 
         products = orderService.convertToProducts(dtos);
@@ -121,7 +119,6 @@ public class OrderServiceImplTest {
         assertEquals(1, products.size());
         assertNull(products.get(0));
 
-        // Case 3: Product found but stock is insufficient
         product.setStockQuantity(0);
         when(productService.findById(productsDTO.getId())).thenReturn(product);
 

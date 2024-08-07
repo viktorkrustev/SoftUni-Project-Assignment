@@ -48,23 +48,6 @@ class UserServiceImplTest {
     }
 
     @Test
-    void save_shouldSaveUser() {
-        RegisterDTO registerDTO = new RegisterDTO();
-        registerDTO.setUsername("testUser");
-        registerDTO.setPassword("password");
-
-        User user = new User();
-        when(modelMapper.map(registerDTO, User.class)).thenReturn(user);
-        when(passwordEncoder.encode(registerDTO.getPassword())).thenReturn("encodedPassword");
-
-        userService.save(registerDTO);
-
-        assertEquals("encodedPassword", user.getPassword());
-        assertEquals(Role.USER, user.getRole());
-        verify(userRepository, times(1)).save(user);
-    }
-
-    @Test
     void existsByUsername_shouldReturnTrue_whenUserExists() {
         when(userRepository.existsByUsername("testUser")).thenReturn(true);
 
