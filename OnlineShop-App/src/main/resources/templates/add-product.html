@@ -28,7 +28,7 @@
             <label for="category">Category:</label>
             <select id="category" th:field="*{category}" required>
                 <option value="" selected>-- Select Category --</option>
-                <option th:each="category : ${T(com.onlineshop.model.entity.Category).values()}"
+                <option th:each="category : ${T(com.onlineShop.model.entity.Category).values()}"
                         th:value="${category}"
                         th:text="${category}"></option>
             </select>

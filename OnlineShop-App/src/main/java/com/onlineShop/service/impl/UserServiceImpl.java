@@ -1,13 +1,13 @@
-package com.onlineshop.service.impl;
+package com.onlineShop.service.impl;
 
-import com.onlineshop.event.UserRegistrationEvent;
-import com.onlineshop.model.dto.RegisterDTO;
-import com.onlineshop.model.dto.UserViewDTO;
-import com.onlineshop.model.entity.Role;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.UserRepository;
-import com.onlineshop.service.UserService;
-import com.onlineshop.util.CustomUserDetails;
+import com.onlineShop.event.UserRegistrationEvent;
+import com.onlineShop.model.dto.RegisterDTO;
+import com.onlineShop.model.dto.UserViewDTO;
+import com.onlineShop.model.entity.Role;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.UserRepository;
+import com.onlineShop.service.UserService;
+import com.onlineShop.util.CustomUserDetails;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.core.Authentication;

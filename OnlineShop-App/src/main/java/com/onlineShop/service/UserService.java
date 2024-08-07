@@ -1,9 +1,9 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.RegisterDTO;
-import com.onlineshop.model.dto.UserViewDTO;
-import com.onlineshop.model.entity.Role;
-import com.onlineshop.model.entity.User;
+import com.onlineShop.model.dto.RegisterDTO;
+import com.onlineShop.model.dto.UserViewDTO;
+import com.onlineShop.model.entity.Role;
+import com.onlineShop.model.entity.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.multipart.MultipartFile;
 

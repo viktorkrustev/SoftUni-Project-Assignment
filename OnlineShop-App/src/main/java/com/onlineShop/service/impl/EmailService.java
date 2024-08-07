@@ -1,9 +1,9 @@
-package com.onlineshop.service.impl;
+package com.onlineShop.service.impl;
 
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.model.entity.Role;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.service.OrderService;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.model.entity.Role;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.mail.SimpleMailMessage;

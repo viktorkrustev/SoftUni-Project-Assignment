@@ -1,8 +1,8 @@
-package com.onlineshop.service.impl;
+package com.onlineShop.service.impl;
 
-import com.onlineshop.model.dto.UserDTO;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.UserRepository;
+import com.onlineShop.model.dto.UserDTO;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

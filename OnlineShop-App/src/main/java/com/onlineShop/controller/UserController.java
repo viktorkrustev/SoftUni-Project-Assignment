@@ -1,12 +1,11 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.model.dto.LoginDTO;
-import com.onlineshop.model.dto.RegisterDTO;
-import com.onlineshop.model.dto.UserViewDTO;
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.service.OrderService;
-import com.onlineshop.service.UserService;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.dto.LoginDTO;
+import com.onlineShop.model.dto.RegisterDTO;
+import com.onlineShop.model.dto.UserViewDTO;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.service.OrderService;
+import com.onlineShop.service.UserService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

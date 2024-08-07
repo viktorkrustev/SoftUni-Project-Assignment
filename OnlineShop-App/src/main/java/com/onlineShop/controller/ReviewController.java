@@ -1,9 +1,8 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.model.dto.ReviewDTO;
-import com.onlineshop.service.ProductService;
-import com.onlineshop.service.ReviewService;
-import com.onlineshop.service.impl.ReviewServiceImpl;
+import com.onlineShop.model.dto.ReviewDTO;
+import com.onlineShop.service.ProductService;
+import com.onlineShop.service.ReviewService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

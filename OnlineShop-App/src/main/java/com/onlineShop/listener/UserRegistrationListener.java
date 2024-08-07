@@ -1,7 +1,7 @@
-package com.onlineshop.listener;
+package com.onlineShop.listener;
 
-import com.onlineshop.event.UserRegistrationEvent;
-import com.onlineshop.service.impl.EmailService;
+import com.onlineShop.event.UserRegistrationEvent;
+import com.onlineShop.service.impl.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

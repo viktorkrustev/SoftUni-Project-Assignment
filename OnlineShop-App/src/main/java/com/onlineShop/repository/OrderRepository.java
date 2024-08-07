@@ -1,7 +1,7 @@
-package com.onlineshop.repository;
+package com.onlineShop.repository;
 
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.model.entity.User;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,13 +1,13 @@
-package com.onlineshop.service.impl;
+package com.onlineShop.service.impl;
 
-import com.onlineshop.model.dto.ReviewDTO;
-import com.onlineshop.model.dto.ReviewViewDTO;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.Review;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.ReviewRepository;
-import com.onlineshop.service.ReviewService;
-import com.onlineshop.service.ProductService;
+import com.onlineShop.model.dto.ReviewDTO;
+import com.onlineShop.model.dto.ReviewViewDTO;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.model.entity.Review;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.ReviewRepository;
+import com.onlineShop.service.ReviewService;
+import com.onlineShop.service.ProductService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

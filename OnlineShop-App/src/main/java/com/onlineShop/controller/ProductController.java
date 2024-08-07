@@ -1,10 +1,10 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.model.dto.*;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.service.ProductService;
-import com.onlineshop.service.ReviewService;
-import com.onlineshop.service.UserService;
+import com.onlineShop.model.dto.*;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.service.ProductService;
+import com.onlineShop.service.ReviewService;
+import com.onlineShop.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

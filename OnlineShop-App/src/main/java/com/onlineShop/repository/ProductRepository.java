@@ -1,8 +1,6 @@
-package com.onlineshop.repository;
+package com.onlineShop.repository;
 
-import com.onlineshop.model.entity.Product;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.onlineShop.model.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

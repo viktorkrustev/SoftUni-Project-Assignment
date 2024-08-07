@@ -1,6 +1,6 @@
-package com.onlineshop.repository;
+package com.onlineShop.repository;
 
-import com.onlineshop.model.entity.Review;
+import com.onlineShop.model.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

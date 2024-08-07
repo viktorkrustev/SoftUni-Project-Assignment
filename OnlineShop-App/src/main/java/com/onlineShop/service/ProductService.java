@@ -1,9 +1,9 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.AddProductDTO;
-import com.onlineshop.model.dto.ProductViewAdminDTO;
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Product;
+import com.onlineShop.model.dto.AddProductDTO;
+import com.onlineShop.model.dto.ProductViewAdminDTO;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Product;
 
 import java.util.List;
 

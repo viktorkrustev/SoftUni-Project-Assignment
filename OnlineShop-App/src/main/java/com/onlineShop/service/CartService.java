@@ -1,11 +1,10 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Cart;
-import com.onlineshop.model.entity.Product;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Cart;
+import com.onlineShop.model.entity.Product;
 
 import java.util.List;
-import java.util.Map;
 
 public interface CartService {
     void addProductToCart(Product product);

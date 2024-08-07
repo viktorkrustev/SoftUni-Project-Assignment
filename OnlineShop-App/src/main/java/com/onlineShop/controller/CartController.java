@@ -1,11 +1,10 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.service.CartService;
-import com.onlineshop.service.ProductService;
-import com.onlineshop.service.UserService;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.service.CartService;
+import com.onlineShop.service.ProductService;
+import com.onlineShop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

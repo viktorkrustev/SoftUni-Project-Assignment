@@ -1,7 +1,7 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.ReviewDTO;
-import com.onlineshop.model.dto.ReviewViewDTO;
+import com.onlineShop.model.dto.ReviewDTO;
+import com.onlineShop.model.dto.ReviewViewDTO;
 
 import java.util.List;
 

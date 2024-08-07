@@ -1,12 +1,12 @@
-package com.onlineshop.service.impl;
+package com.onlineShop.service.impl;
 
-import com.onlineshop.model.dto.OrderDTO;
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.OrderRepository;
-import com.onlineshop.service.OrderService;
+import com.onlineShop.model.dto.OrderDTO;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.OrderRepository;
+import com.onlineShop.service.OrderService;
 import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,6 @@
-package com.onlineshop.repository;
+package com.onlineShop.repository;
 
-import com.onlineshop.model.entity.Cart;
-import com.onlineshop.model.entity.Product;
+import com.onlineShop.model.entity.Cart;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

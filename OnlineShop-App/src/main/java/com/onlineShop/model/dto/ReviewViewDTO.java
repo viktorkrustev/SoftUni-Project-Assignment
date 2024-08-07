@@ -1,6 +1,6 @@
-package com.onlineshop.model.dto;
+package com.onlineShop.model.dto;
 
-import com.onlineshop.model.entity.User;
+import com.onlineShop.model.entity.User;
 
 public class ReviewViewDTO {
     private Long id;

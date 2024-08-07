@@ -1,10 +1,10 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.OrderDTO;
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.User;
+import com.onlineShop.model.dto.OrderDTO;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.model.entity.User;
 
 import java.time.LocalDate;
 import java.util.List;

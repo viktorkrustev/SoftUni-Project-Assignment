@@ -1,4 +1,4 @@
-package com.onlineshop.model.dto;
+package com.onlineShop.model.dto;
 
 public class UserViewDTO {
     private String email;

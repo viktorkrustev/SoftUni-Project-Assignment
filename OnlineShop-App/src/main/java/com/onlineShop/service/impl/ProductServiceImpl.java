@@ -1,13 +1,13 @@
-package com.onlineshop.service.impl;
+package com.onlineShop.service.impl;
 
-import com.onlineshop.model.dto.AddProductDTO;
-import com.onlineshop.model.dto.ProductViewAdminDTO;
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Category;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.repository.ProductRepository;
-import com.onlineshop.service.CartService;
-import com.onlineshop.service.ProductService;
+import com.onlineShop.model.dto.AddProductDTO;
+import com.onlineShop.model.dto.ProductViewAdminDTO;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Category;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.repository.ProductRepository;
+import com.onlineShop.service.CartService;
+import com.onlineShop.service.ProductService;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

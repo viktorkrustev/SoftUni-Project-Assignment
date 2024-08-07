@@ -1,8 +1,8 @@
-package com.onlineshop.init;
+package com.onlineShop.init;
 
-import com.onlineshop.model.entity.Role;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.entity.Role;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.service.impl.UserServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

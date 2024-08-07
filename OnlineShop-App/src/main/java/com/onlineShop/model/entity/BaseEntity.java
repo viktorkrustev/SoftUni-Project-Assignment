@@ -1,4 +1,4 @@
-package com.onlineshop.model.entity;
+package com.onlineShop.model.entity;
 
 import jakarta.persistence.*;
 @MappedSuperclass

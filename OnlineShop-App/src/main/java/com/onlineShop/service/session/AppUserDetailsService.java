@@ -1,8 +1,8 @@
-package com.onlineshop.service.session;
+package com.onlineShop.service.session;
 
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.UserRepository;
-import com.onlineshop.util.CustomUserDetails;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.UserRepository;
+import com.onlineShop.util.CustomUserDetails;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

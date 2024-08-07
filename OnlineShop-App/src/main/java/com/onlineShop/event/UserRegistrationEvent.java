@@ -1,4 +1,4 @@
-package com.onlineshop.event;
+package com.onlineShop.event;
 
 import org.springframework.context.ApplicationEvent;
 

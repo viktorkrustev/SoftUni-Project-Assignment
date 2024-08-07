@@ -1,4 +1,4 @@
-package com.onlineshop.aspect;
+package com.onlineShop.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    @Before("execution(* com.onlineshop.service.UserService.*(..))")
+    @Before("execution(* com.onlineShop.service.UserService.*(..))")
     public void logBeforeUserServiceMethods(JoinPoint joinPoint) {
         System.out.println("Executing method: " + joinPoint.getSignature().toShortString());
     }
 
-    @After("execution(* com.onlineshop.service.OrderService.*(..))")
+    @After("execution(* com.onlineShop.service.OrderService.*(..))")
     public void logAfterOrderServiceMethods(JoinPoint joinPoint) {
         System.out.println("Finished executing method: " + joinPoint.getSignature().toShortString());
     }

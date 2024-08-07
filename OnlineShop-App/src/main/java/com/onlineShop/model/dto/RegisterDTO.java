@@ -1,9 +1,8 @@
-package com.onlineshop.model.dto;
+package com.onlineShop.model.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.UniqueElements;
 
 public class RegisterDTO {
 

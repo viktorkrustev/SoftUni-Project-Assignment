@@ -1,8 +1,6 @@
-package com.onlineshop.model.dto;
+package com.onlineShop.model.dto;
 
-import com.onlineshop.model.entity.Category;
-
-import java.time.LocalDateTime;
+import com.onlineShop.model.entity.Category;
 
 public class AddProductDTO {
     private Long id;

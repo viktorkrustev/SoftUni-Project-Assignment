@@ -1,6 +1,6 @@
-package com.onlineshop.service.tasks;
+package com.onlineShop.service.tasks;
 
-import com.onlineshop.service.impl.EmailService;
+import com.onlineShop.service.impl.EmailService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
