@@ -1,16 +1,15 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.OrderDTO;
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.OrderRepository;
-import com.onlineshop.service.OrderService;
-import com.onlineshop.service.impl.EmailService;
-import com.onlineshop.service.impl.OrderServiceImpl;
-import com.onlineshop.service.impl.ProductServiceImpl;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.dto.OrderDTO;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.OrderRepository;
+import com.onlineShop.service.impl.EmailService;
+import com.onlineShop.service.impl.OrderServiceImpl;
+import com.onlineShop.service.impl.ProductServiceImpl;
+import com.onlineShop.service.impl.UserServiceImpl;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +17,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.context.annotation.Lazy;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

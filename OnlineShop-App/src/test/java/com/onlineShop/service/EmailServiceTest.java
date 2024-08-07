@@ -1,11 +1,10 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.entity.Order;
-import com.onlineshop.model.entity.Role;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.service.OrderService;
-import com.onlineshop.service.impl.EmailService;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.entity.Order;
+import com.onlineShop.model.entity.Role;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.service.impl.EmailService;
+import com.onlineShop.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

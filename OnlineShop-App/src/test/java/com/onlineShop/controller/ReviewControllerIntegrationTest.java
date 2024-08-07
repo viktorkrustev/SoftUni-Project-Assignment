@@ -1,9 +1,9 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.model.dto.ReviewDTO;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.service.ProductService;
-import com.onlineshop.service.ReviewService;
+import com.onlineShop.model.dto.ReviewDTO;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.service.ProductService;
+import com.onlineShop.service.ReviewService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.util.NestedServletException;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;

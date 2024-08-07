@@ -1,8 +1,6 @@
-package com.onlineshop.util;
+package com.onlineShop.util;
 
-import com.onlineshop.util.CustomUserDetails;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

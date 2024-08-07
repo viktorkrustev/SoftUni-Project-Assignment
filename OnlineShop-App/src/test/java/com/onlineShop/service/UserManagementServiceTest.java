@@ -1,11 +1,11 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.UserRepository;
-import com.onlineshop.service.impl.UserManagementService;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.UserRepository;
+import com.onlineShop.service.impl.UserManagementService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

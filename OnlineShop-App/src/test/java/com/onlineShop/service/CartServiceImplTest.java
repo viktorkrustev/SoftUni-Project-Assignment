@@ -1,13 +1,12 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.ProductsDTO;
-import com.onlineshop.model.entity.Cart;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.CartRepository;
-import com.onlineshop.service.CartService;
-import com.onlineshop.service.impl.CartServiceImpl;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.dto.ProductsDTO;
+import com.onlineShop.model.entity.Cart;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.CartRepository;
+import com.onlineShop.service.impl.CartServiceImpl;
+import com.onlineShop.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

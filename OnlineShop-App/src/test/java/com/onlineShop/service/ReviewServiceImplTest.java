@@ -1,15 +1,13 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.ReviewDTO;
-import com.onlineshop.model.dto.ReviewViewDTO;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.model.entity.Review;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.ReviewRepository;
-import com.onlineshop.service.ProductService;
-import com.onlineshop.service.UserService;
-import com.onlineshop.service.impl.ReviewServiceImpl;
-import com.onlineshop.service.impl.UserServiceImpl;
+import com.onlineShop.model.dto.ReviewDTO;
+import com.onlineShop.model.dto.ReviewViewDTO;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.model.entity.Review;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.ReviewRepository;
+import com.onlineShop.service.impl.ReviewServiceImpl;
+import com.onlineShop.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

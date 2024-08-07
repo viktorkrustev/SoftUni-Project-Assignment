@@ -1,12 +1,10 @@
-package com.onlineshop.service;
+package com.onlineShop.service;
 
-import com.onlineshop.model.dto.RegisterDTO;
-import com.onlineshop.model.dto.UserViewDTO;
-import com.onlineshop.model.entity.Role;
-import com.onlineshop.model.entity.User;
-import com.onlineshop.repository.UserRepository;
-import com.onlineshop.service.impl.UserServiceImpl;
-import com.onlineshop.util.CustomUserDetails;
+import com.onlineShop.model.dto.UserViewDTO;
+import com.onlineShop.model.entity.User;
+import com.onlineShop.repository.UserRepository;
+import com.onlineShop.service.impl.UserServiceImpl;
+import com.onlineShop.util.CustomUserDetails;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

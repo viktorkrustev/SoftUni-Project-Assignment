@@ -1,10 +1,10 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.config.SecurityConfig;
-import com.onlineshop.model.dto.RegisterDTO;
-import com.onlineshop.model.dto.UserViewDTO;
-import com.onlineshop.service.OrderService;
-import com.onlineshop.service.UserService;
+import com.onlineShop.config.SecurityConfig;
+import com.onlineShop.model.dto.RegisterDTO;
+import com.onlineShop.model.dto.UserViewDTO;
+import com.onlineShop.service.OrderService;
+import com.onlineShop.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

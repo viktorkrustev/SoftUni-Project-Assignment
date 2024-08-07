@@ -1,10 +1,10 @@
-package com.onlineshop.controller;
+package com.onlineShop.controller;
 
-import com.onlineshop.model.dto.*;
-import com.onlineshop.model.entity.Product;
-import com.onlineshop.service.ProductService;
-import com.onlineshop.service.ReviewService;
-import com.onlineshop.service.UserService;
+import com.onlineShop.model.dto.*;
+import com.onlineShop.model.entity.Product;
+import com.onlineShop.service.ProductService;
+import com.onlineShop.service.ReviewService;
+import com.onlineShop.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +20,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Collections;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
