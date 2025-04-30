@@ -33,6 +33,18 @@ Here are some screenshots:
   <img src="https://github.com/user-attachments/assets/9ff0910f-9225-453f-b32e-e62c4266c91f" alt="image"/>
 </div>
 <div class="image-container">
+  <p>Cart:</p>
+  <img src="https://github.com/user-attachments/assets/b4035528-2e97-4ccf-a587-86fde10c611e" alt="Screenshot 2024-08-05 144432"/>
+</div>
+<div class="image-container">
+  <p>Checkout:</p>
+  <img src="https://github.com/user-attachments/assets/843e6bb6-3690-4da6-89fe-382b254218fe" alt="Screenshot 2024-08-05 144432"/>
+</div>
+<div class="image-container">
+  <p>Profile page:</p>
+  <img src="https://github.com/user-attachments/assets/6e351fa4-26c8-4397-88f9-059d1690eb18" alt="Screenshot 2024-08-05 144432"/>
+</div>
+<div class="image-container">
   <p>About page:</p>
   <img src="https://github.com/user-attachments/assets/67de89fa-425d-4e40-a793-56e43b5ce914" alt="Screenshot 2024-08-05 144432"/>
 </div>
