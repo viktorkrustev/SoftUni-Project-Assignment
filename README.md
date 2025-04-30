@@ -30,7 +30,7 @@ Here are some screenshots:
 </div>
 <div class="image-container">
   <p>About page:</p>
-  <img src="https://github.com/user-attachments/assets/e4846f0d-a75e-4f44-8be5-11f2e6db121b" alt="Screenshot 2024-08-05 144432"/>
+  <img src="https://github.com/user-attachments/assets/67de89fa-425d-4e40-a793-56e43b5ce914" alt="Screenshot 2024-08-05 144432"/>
 </div>
 <div class="image-container">
   <p>Product page:</p>
