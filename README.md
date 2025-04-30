@@ -22,11 +22,15 @@ Here are some screenshots:
 
 <div class="image-container">
   <p>Home page:</p>
-  <img src="https://github.com/user-attachments/assets/8aa43ae1-5cbb-434c-9d02-3b2ae744aa9a" alt="Screenshot 2024-08-05 143731"/>
+  <img src="https://github.com/user-attachments/assets/c28dbad3-7b2a-4229-ae50-dc8a64c90ef2" alt="Screenshot 2024-08-05 143731"/>
+</div>
+<div class="image-container">
+  <p>Login:</p>
+  <img src="https://github.com/user-attachments/assets/46dae9dc-ba37-4ec2-81a3-c552972738f1" alt="Screenshot 2024-08-05 143731"/>
 </div>
 <div class="image-container">
   <p>Products page:</p>
-  <img src="https://github.com/user-attachments/assets/0cad321f-50ae-48a3-9a11-b331be4ae432" alt="image"/>
+  <img src="https://github.com/user-attachments/assets/9ff0910f-9225-453f-b32e-e62c4266c91f" alt="image"/>
 </div>
 <div class="image-container">
   <p>About page:</p>
@@ -34,15 +38,15 @@ Here are some screenshots:
 </div>
 <div class="image-container">
   <p>Product page:</p>
-  <img src="https://github.com/user-attachments/assets/fa1b23dd-00a0-44e4-a760-e2561b8d3ec0" alt="Screenshot 2024-08-05 144432"/>
+  <img src="https://github.com/user-attachments/assets/83cefee1-4dd3-4695-ad51-a759a66764b1" alt="Screenshot 2024-08-05 144432"/>
 </div>
 <div class="image-container">
   <p>Review section:</p>
-  <img src="https://github.com/user-attachments/assets/9bace770-d67b-4959-ab5d-76c04ca492bc" alt="Screenshot 2024-08-05 144432"/>
+  <img src="https://github.com/user-attachments/assets/7598936f-30bc-496e-b8da-0904779d99db" alt="Screenshot 2024-08-05 144432"/>
 </div>
 <div class="image-container">
   <p>Profile page:</p>
-  <img src="https://github.com/user-attachments/assets/f7ac3f07-f9bf-465d-b700-74cbef06ba36" alt="Screenshot 2024-08-05 144432"/>
+  <img src="https://github.com/user-attachments/assets/6e351fa4-26c8-4397-88f9-059d1690eb18" alt="Screenshot 2024-08-05 144432"/>
 </div>
 
 
