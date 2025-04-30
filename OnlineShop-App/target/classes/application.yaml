@@ -30,7 +30,7 @@ spring:
         enabled: 'true'
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    password: '75418321'
+    password: '1234'
     username: 'root'
     url: jdbc:mysql://localhost:3306/shop?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
 logging:
@@ -43,5 +43,7 @@ logging:
       nodeValue: WARN
     blog: WARN
 server:
+  address: 0.0.0.0
   port: 8080
+
 

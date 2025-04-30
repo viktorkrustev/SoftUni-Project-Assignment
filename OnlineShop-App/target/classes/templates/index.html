@@ -2,57 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <link rel="icon" type="image/png" href="/favicon.png">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="#{title}">Home</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
-
 </head>
-<body>
-<div class="wrapper">
-    <header>
+
+<main>
+    <section class="hero">
         <div class="header-container">
-            <h1 th:text="#{welcome.message}"></h1>
-            <nav>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+            <nav id="nav-menu" class="nav-menu">
                 <ul>
                     <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
                     <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
-
-
                     <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
                     <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
                     <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
-
-
                     <li th:if="${#authorization.expression('isAuthenticated()')}">
                         <form th:action="@{/users/logout}" method="post">
                             <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
                         </form>
                     </li>
-                    <div class="language-switcher">
-                        <button class="language-button" onclick="changeLang('en')">
-                            <img src="/static/img/english.png" alt="English Flag">
-                        </button>
-                        <button class="language-button" onclick="changeLang('bg')">
-                            <img src="/static/img/bg.png" alt="Bulgarian Flag">
-                        </button>
-
-                    </div>
-
                 </ul>
+                <div class="language-switcher">
+                    <button class="language-button" onclick="changeLang('en')">
+                        <img src="/static/img/english.png" alt="English Flag">
+                    </button>
+                    <button class="language-button" onclick="changeLang('bg')">
+                        <img src="/static/img/bg.png" alt="Bulgarian Flag">
+                    </button>
+                </div>
             </nav>
         </div>
-    </header>
-    <div class="color-stripe"></div>
-</div>
-
-
-
-<main>
-    <section class="hero">
         <div class="hero-content">
+            <h1 th:text="#{welcome.message}">Welcome to my store</h1>
             <h2 th:text="#{explore.message}">Explore the Latest in Electronics</h2>
             <p th:text="#{upgrade.message}">Upgrade your lifestyle with our electronic marvels.</p>
             <div class="buttons" sec:authorize="isAnonymous()">
@@ -60,27 +46,174 @@
                 <button onclick="location.href='/users/register'" th:text="#{register.button}">Register</button>
             </div>
         </div>
-    </section>
-
-    <section class="additional-images">
-        <div class="image-card">
-            <img src="/static/img/index_img1.jpg" alt="Additional Image 3">
-        </div>
-
-        <div class="image-card">
-
-            <img src="/static/img/index_img.jpg" alt="Additional Image 2">
+        <div class="image-grid">
+            <div class="image-item image-item-1" style="background-image: url('https://webobjects2.cdw.com/is/image/CDW/multi-product-apple-feb-2024?$transparent$');"></div>
+            <div class="image-item image-item-2" style="background-image: url('https://www.midowatches.com/media/catalog/category/Multifort_TV_M049.526.17.081.00.jpg');"></div>
+            <div class="image-item image-item-3" style="background-image: url('https://www.honor.com/content/dam/honor/common/new-home/new-home-banner-component/two-product-one-img/honor-200-and-200-pro/green-green/200-200pro-pc.jpg');"></div>
+            <div class="image-item image-item-4" style="background-image: url('https://thegoodguys.sirv.com/Content/2025FY/Brands/Sony/wk05/Group%205436%402x.png?q=50');"></div>
         </div>
     </section>
+
+    <!-- Други секции -->
+    <section class="scroll-section left-section1">
+        <div class="scroll-content">
+            <div class="text">
+                <h2 th:text="#{amazing.message}">Amazing Offers</h2>
+                <p th:text="#{selected.electronics}"> Don't miss our limited-time offers on selected electronics!</p>
+            </div>
+            <div class="image">
+                <img src="https://hd2.tudocdn.net/1003645?w=824&h=484" alt="Special Offer Image">
+            </div>
+        </div>
+    </section>
+
+    <section class="scroll-section right-section">
+        <div class="scroll-content">
+            <div class="image">
+                <img src="https://img.etimg.com/thumb/width-1600,height-900,imgsize-21824,resizemode-75,msid-102179093/industry/cons-products/electronics/sony-india-aims-40-growth-in-audio-business-in-fy24.jpg" alt="Exclusive Brands Image">
+            </div>
+            <div class="text">
+                <h2 th:text="#{exclusive.brands}">Exclusive Brands</h2>
+                <p th:text="#{exclusive.offers}">We bring you exclusive products from the world's leading tech brands.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="scroll-section left-section">
+        <div class="scroll-content">
+            <div class="text">
+                <h2 th:text="#{customer.favorites}">Customer Favorites</h2>
+                <p th:text="#{customer.favorites.description}">Explore our top-rated products, loved by thousands of customers.</p>
+
+            </div>
+            <div class="image">
+                <img src="https://blog.novmac.com/wp-content/uploads/2023/10/hq720.jpg" alt="Customer Favorites Image">
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <footer>
     <p>&copy; 2024 <span th:text="#{footer.text}"></span></p>
 </footer>
+
 <script>
+    function toggleMenu() {
+        const menu = document.getElementById("nav-menu");
+        menu.classList.toggle("active");
+    }
+    // Функция за смяна на езика
     function changeLang(lang) {
         window.location.href = '?lang=' + lang;
     }
+
+    // Анимация на секции при скролиране
+    document.addEventListener("scroll", function () {
+        let sections = document.querySelectorAll('.scroll-section, .interactive-section');
+        sections.forEach(function (section) {
+            let rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                section.classList.add('fade-in');
+            } else {
+                section.classList.remove('fade-in');
+            }
+        });
+    });
+
+    // Плавно преместване на страница при клик на линкове
+    document.addEventListener('DOMContentLoaded', function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({behavior: 'smooth'});
+                }
+            });
+        });
+    });
+
+
+        window.addEventListener('scroll', function() {
+        var languageSwitcher = document.querySelector('.language-switcher');
+        if (window.scrollY > 100) {
+        languageSwitcher.classList.add('hidden'); // Скрива бутоните при скрол надолу
+    } else {
+        languageSwitcher.classList.remove('hidden'); // Показва бутоните при скрол нагоре
+    }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const imageItems = document.querySelectorAll('.image-item');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            // Скриваме текущото изображение
+            imageItems[currentIndex].classList.remove('active');
+
+            // Определяме следващото изображение
+            currentIndex = (currentIndex + 1) % imageItems.length;
+
+            // Показваме следващото изображение
+            imageItems[currentIndex].classList.add('active');
+        }
+
+        // Показваме първото изображение
+        imageItems[currentIndex].classList.add('active');
+
+        // Настройваме интервала за смяна на изображенията
+        setInterval(showNextImage, 5000); // 3000 ms = 3 секунди
+    });
+
+
+    document.addEventListener('scroll', function () {
+        let sections = document.querySelectorAll('.scroll-section');
+
+        sections.forEach(function (section) {
+            let rect = section.getBoundingClientRect();
+
+            // Проверяваме дали секцията е видима в прозореца
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                // Добавяме клас за анимация (например fade-in)
+                section.classList.add('fade-in');
+            } else {
+                // Премахваме клас за анимация, когато секцията не е видима
+                section.classList.remove('fade-in');
+            }
+        });
+    });
+
+
+    function wrapLetters(element) {
+        const text = element.innerText;
+        element.innerHTML = text.split('').map((letter, index) =>
+            letter === ' ' ? '&nbsp;' : `<span style="--i:${index}">${letter}</span>`
+        ).join('');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        wrapLetters(document.querySelector('.hero h1'));
+        wrapLetters(document.querySelector('.hero h2'));
+        wrapLetters(document.querySelector('.hero p'));
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+        });
+    });
+
+
+
+
+
 </script>
 </body>
 </html>

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/add-product.css">
 </head>
 <body>
@@ -28,7 +27,7 @@
             <label for="category">Category:</label>
             <select id="category" th:field="*{category}" required>
                 <option value="" selected>-- Select Category --</option>
-                <option th:each="category : ${T(com.onlineshop.model.entity.Category).values()}"
+                <option th:each="category : ${T(com.onlineShop.model.entity.Category).values()}"
                         th:value="${category}"
                         th:text="${category}"></option>
             </select>
@@ -47,9 +46,7 @@
             <button type="submit">Add Product</button>
         </form>
     </main>
-    <footer>
-        <p>&copy; 2024 My Online Shop</p>
-    </footer>
+
 </div>
 </body>
 </html>

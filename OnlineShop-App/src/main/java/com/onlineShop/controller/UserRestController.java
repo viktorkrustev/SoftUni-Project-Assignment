@@ -46,11 +46,6 @@ public class UserRestController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
-
-
-
-
-
     @PutMapping("/{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
         User user = convertToEntity(userDTO);

@@ -1,133 +1,121 @@
-.checkout-container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+/* Основни стилове за професионален и изчистен вид */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.checkout-container h2 {
-    font-family: 'Dubai Medium', cursive;
-    font-size: 2rem;
-    margin-bottom: 20px;
+.wrapper {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.checkout-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
 
-.checkout-form {
-    display: flex;
-    flex-direction: column;
+h2 {
+    font-size: 28px;
+    color: #222;
+    margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
-.form-group label {
+label {
     display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 6px;
+    color: #444;
 }
 
-.form-group input {
+input[type="text"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 .order-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
 }
 
 .order-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
+    width: 65px;
+    height: 65px;
+    border-radius: 8px;
     margin-right: 15px;
-}
-
-.order-item-details {
-    display: flex;
-    flex-direction: column;
+    object-fit: cover;
 }
 
 .order-item-details h4 {
-    margin: 0 0 5px;
-    font-size: 1.2rem;
+    margin: 0;
+    font-size: 18px;
+    color: #222;
 }
 
 .order-item-details p {
-    margin: 0;
-    color: #888;
+    margin: 5px 0;
+    color: #555;
+    font-size: 15px;
 }
 
 .order-total {
-    text-align: right;
-    font-size: 1.2rem;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
-}
-.order-confirm {
-    background-color: #4CAF50; 
-    color: white; 
-    border: none; 
-    padding: 15px 30px; 
-    font-size: 1.2rem; 
-    cursor: pointer; 
-    transition: background-color 0.3s, transform 0.3s; 
-    border-radius: 8px; 
-    display: block; 
-    margin: 20px auto; 
+    color: #222;
 }
 
-.order-confirm:hover {
-    background-color: #45a049; 
-    transform: scale(1.05); 
-}
-
-.order-confirm:active {
-    background-color: #3e8e41; 
-    transform: scale(1); 
-}
-.order-confirm {
-    background: linear-gradient(to bottom right, cadetblue, royalblue);
+button.order-confirm {
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
     border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    padding: 14px 22px;
     font-size: 18px;
-    border-radius: 25px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 8px;
     cursor: pointer;
-    outline: none;
-    margin: auto;
-    display: block;
-}
-
-.order-confirm:hover {
-    background-color: #218838;
-}
-
-.order-confirm:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
-}
-
-h4 {
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 20px;
     font-weight: bold;
-    color: #333;
-    font-size: 1.25rem;
-    margin: 20px 0;
-    text-align: center;
-    line-height: 1.4;
 }
 
+button.order-confirm:hover {
+    background: linear-gradient(135deg, #0056b3, #004494);
+    transform: scale(1.03);
+}
 
+button.order-confirm:active {
+    transform: scale(0.98);
+}

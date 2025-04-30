@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="shop@localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.51">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
@@ -1069,14 +1069,14 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
     <column id="320" parent="313" name="cart_id">
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="321" parent="313" name="product_id">
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <foreign-key id="322" parent="313" name="FKbilp3o9irlsvmbot68kfpthom">
       <ColNames>cart_id</ColNames>
@@ -1098,13 +1098,13 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </index>
     <column id="326" parent="314" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="327" parent="314" name="user_id">
-      <DasType>bigint(20)|0s</DasType>
       <Position>2</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <foreign-key id="328" parent="314" name="FKb5o626f86h46m4s7ms6ginnop">
       <ColNames>user_id</ColNames>
@@ -1126,14 +1126,14 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="332" parent="315" name="product_id">
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="333" parent="315" name="order_id">
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <foreign-key id="334" parent="315" name="FKdxjduvg7991r4qja26fsckxv8">
       <ColNames>product_id</ColNames>
@@ -1155,33 +1155,33 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </index>
     <column id="338" parent="316" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="339" parent="316" name="contact_phone">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="340" parent="316" name="delivery_address">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="341" parent="316" name="order_date">
-      <DasType>date|0s</DasType>
       <Position>4</Position>
+      <StoredType>date|0s</StoredType>
     </column>
     <column id="342" parent="316" name="status">
-      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="343" parent="316" name="total_amount">
-      <DasType>double|0s</DasType>
       <Position>6</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="344" parent="316" name="user_id">
-      <DasType>bigint(20)|0s</DasType>
       <Position>7</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <foreign-key id="345" parent="316" name="FK32ql8ubntj5uh44ph9659tiih">
       <ColNames>user_id</ColNames>
@@ -1204,39 +1204,39 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </key>
     <column id="349" parent="317" name="id">
       <AutoIncrement>49</AutoIncrement>
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="350" parent="317" name="brand">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="351" parent="317" name="category">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="352" parent="317" name="description">
-      <DasType>text|0s</DasType>
       <Position>4</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="353" parent="317" name="image_url">
-      <DasType>text|0s</DasType>
       <Position>5</Position>
+      <StoredType>text|0s</StoredType>
     </column>
     <column id="354" parent="317" name="name">
-      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="355" parent="317" name="price">
-      <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
+      <StoredType>double|0s</StoredType>
     </column>
     <column id="356" parent="317" name="stock_quantity">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <index id="357" parent="317" name="PRIMARY">
       <ColNames>id</ColNames>
@@ -1250,26 +1250,26 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </key>
     <column id="359" parent="318" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="360" parent="318" name="comment">
-      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="361" parent="318" name="rating">
-      <DasType>int(11)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
+      <StoredType>int(11)|0s</StoredType>
     </column>
     <column id="362" parent="318" name="product_id">
-      <DasType>bigint(20)|0s</DasType>
       <Position>4</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="363" parent="318" name="user_id">
-      <DasType>bigint(20)|0s</DasType>
       <Position>5</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <foreign-key id="364" parent="318" name="FKpl51cejpw4gy5swfar8br9ngi">
       <ColNames>product_id</ColNames>
@@ -1301,39 +1301,39 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </key>
     <column id="370" parent="319" name="id">
       <AutoIncrement>2</AutoIncrement>
-      <DasType>bigint(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <StoredType>bigint(20)|0s</StoredType>
     </column>
     <column id="371" parent="319" name="email">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="372" parent="319" name="first_name">
-      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="373" parent="319" name="last_name">
-      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="374" parent="319" name="password">
-      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="375" parent="319" name="profile_picture">
-      <DasType>longblob|0s</DasType>
       <Position>6</Position>
+      <StoredType>longblob|0s</StoredType>
     </column>
     <column id="376" parent="319" name="role">
-      <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <column id="377" parent="319" name="username">
-      <DasType>varchar(255)|0s</DasType>
       <Position>8</Position>
+      <StoredType>varchar(255)|0s</StoredType>
     </column>
     <index id="378" parent="319" name="PRIMARY">
       <ColNames>id</ColNames>

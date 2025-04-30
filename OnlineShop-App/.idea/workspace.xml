@@ -94,6 +94,7 @@
     "JUnit.UserServiceTest.executor": "Coverage",
     "JUnit.java in OnlineShop-App.executor": "Coverage",
     "JUnit.onlineshop in OnlineShop-App.executor": "Coverage",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -103,8 +104,9 @@
     "Spring Boot.OnlineShopApplication.executor": "Run",
     "Spring Boot.PaintingsCollectorsApplication.executor": "Debug",
     "Spring Boot.ResellerApplication.executor": "Run",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Viktor/Desktop/spring exams/OnlineShop-App",
+    "last_opened_file_path": "D:/desctop/spring exams/OnlineShop-App",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -133,16 +135,17 @@
       <recent name="com.onlineshop.model.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static\img" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\java\com\paintingscollectors\model\entity" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\java\com\paintingscollectors\model\dto" />
       <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\paintingscollectors\model" />
-      <recent name="C:\Users\User\Videos\PaintingsCollectors-App\src\main\java\com\paintingscollectors\service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\desctop\spring exams\OnlineShop-App\src\main\resources\static\img" />
+      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static\img" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\java\com\onlineshop" />
-      <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources\static\img" />
       <recent name="C:\Users\Viktor\Desktop\spring exams\OnlineShop-App\src\main\resources" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -262,7 +265,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
       </set>
     </attachedChunks>
   </component>
@@ -343,6 +347,46 @@
       <workItem from="1723021927035" duration="3284000" />
       <workItem from="1723025844363" duration="37000" />
       <workItem from="1723058551167" duration="291000" />
+      <workItem from="1723060691761" duration="210000" />
+      <workItem from="1723061117172" duration="21000" />
+      <workItem from="1723207655812" duration="2183000" />
+      <workItem from="1723281316842" duration="8804000" />
+      <workItem from="1723326127431" duration="4403000" />
+      <workItem from="1723360284747" duration="1474000" />
+      <workItem from="1723460372563" duration="16000" />
+      <workItem from="1725631188737" duration="718000" />
+      <workItem from="1725720648710" duration="1468000" />
+      <workItem from="1726176025049" duration="6037000" />
+      <workItem from="1726222953255" duration="6076000" />
+      <workItem from="1726231226710" duration="3975000" />
+      <workItem from="1726432383839" duration="4275000" />
+      <workItem from="1726572947437" duration="11406000" />
+      <workItem from="1726598419777" duration="18038000" />
+      <workItem from="1726652616781" duration="14784000" />
+      <workItem from="1726676910991" duration="5094000" />
+      <workItem from="1726735201935" duration="16236000" />
+      <workItem from="1726783052812" duration="8666000" />
+      <workItem from="1726828507971" duration="8233000" />
+      <workItem from="1726947343513" duration="4251000" />
+      <workItem from="1727175760933" duration="354000" />
+      <workItem from="1727943976186" duration="1345000" />
+      <workItem from="1728687935814" duration="830000" />
+      <workItem from="1731668487874" duration="396000" />
+      <workItem from="1734457200869" duration="2513000" />
+      <workItem from="1734823594765" duration="752000" />
+      <workItem from="1738275893891" duration="809000" />
+      <workItem from="1738355042822" duration="10409000" />
+      <workItem from="1738660490832" duration="18538000" />
+      <workItem from="1738698600581" duration="284000" />
+      <workItem from="1739386200010" duration="1599000" />
+      <workItem from="1739540314835" duration="4572000" />
+      <workItem from="1739564830300" duration="806000" />
+      <workItem from="1739614214061" duration="7801000" />
+      <workItem from="1739729797889" duration="8839000" />
+      <workItem from="1740064757831" duration="1489000" />
+      <workItem from="1740163061981" duration="2285000" />
+      <workItem from="1741392453041" duration="595000" />
+      <workItem from="1746033070551" duration="2150000" />
     </task>
     <servers />
   </component>
@@ -356,6 +400,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/onlineShop/service/ProductServiceImplTest.java</url>
           <line>27</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/onlineShop/controller/CartControllerIntegrationTest.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -425,7 +474,7 @@
       <FILTER>com.onlineshop.service.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SecurityConfig_java$onlineshop_in_OnlineShop_App.ic" NAME="onlineshop in OnlineShop-App Coverage Results" MODIFIED="1722983803552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SecurityConfig_java$java_in_OnlineShop_App.ic" NAME="java in OnlineShop-App Coverage Results" MODIFIED="1722989716485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SecurityConfig_java$java_in_OnlineShop_App.ic" NAME="java in OnlineShop-App Coverage Results" MODIFIED="1723333164822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SecurityConfig_java$CustomUserDetailsTest.ic" NAME="CustomUserDetailsTest Coverage Results" MODIFIED="1722630682817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.onlineshop.util.*</FILTER>
     </SUITE>

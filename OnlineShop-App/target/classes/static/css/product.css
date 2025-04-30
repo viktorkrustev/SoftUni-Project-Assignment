@@ -1,234 +1,390 @@
-.product-card {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.product-card img {
-    max-width: 40%;
-    height: auto;
-    margin-bottom: 10px;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-.product-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: white; /* Fallback background color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.product-card p {
-    margin-bottom: 10px;
+/* Хедър */
+header {
+    background: rgb(52, 54, 65);
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* За да се уверим, че псевдо-елементът не излиза извън границите */
 }
 
-form .logout-button {
-    background-color: orangered;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-form .logout-button:hover {
-    background-color: #555;
-}
-
-
-.admin-button {
-    background-color: #f44336;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.admin-button:hover {
-    background-color: #d32f2f;
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, red, yellow, greenyellow, deepskyblue);
+    z-index: 1; /* За да се уверим, че градиентната лента е над съдържанието на заглавката */
 }
 
 
-.rating {
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+form {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+}
+/* Основни стилове за навигацията */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px; /* Разстояние между елементите */
 }
 
-.rating .star {
-    font-size: 2rem;
-    color: #ccc;
-    cursor: pointer;
-    transition: color 0.3s ease;
+nav li {
+    position: relative;
 }
 
-.rating .star.active {
-    color: #f1c40f;
-}
-
-.add-review {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.add-review h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.add-review form {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.add-review label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-}
-
-.add-review textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.add-review button.submit-review {
-    background-color: royalblue;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+/* Стилове за линковете в навигацията */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem; /* Размер на шрифта */
+    letter-spacing: 0.5px; /* Разстояние между буквите */
+    padding: 10px 15px; /* Паддинг около текста */
     display: inline-block;
-    margin-top: 10px;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
 
-.add-review button.submit-review:hover {
-    background-color: darkslategrey;
+/* Стилове за линковете при задържане на курсора */
+nav ul li a:hover {
+    color: #ffda79; /* Цвят на текста при задържане */
+    letter-spacing: 1px; /* Разстояние между буквите при задържане */
 }
 
-
-
-.product-reviews {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* Анимирано подчертаване при задържане */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffda79;
+    transition: all 0.4s ease;
 }
 
-.product-reviews h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
 }
 
-.review-card {
-    background-color: #f9f9f9;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+/* Фонов преливен ефект при задържане */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 218, 121, 0.5), rgba(255, 218, 121, 0));
+    z-index: -1;
+    transition: all 0.4s ease;
 }
 
-.review-card h4 {
-    margin-bottom: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
+nav ul li a:hover::after {
+    left: 0;
 }
 
-.review-card p {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #666;
+/* Стилове за активен линк */
+nav ul li a.active {
+    color: #ffda79; /* Цвят на текста за активния линк */
+    letter-spacing: 1px; /* Разстояние между буквите за активния линк */
 }
 
-.review-card .delete-button {
-    background-color: #d32f2f;
-    color: #fff;
+nav ul li a.active::before {
+    width: 100%;
+    left: 0;
+}
+.logout-button {
+    background-color: red;
+    color: white;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 0.9rem;
     transition: background-color 0.3s ease;
-    margin-top: 5px;
 }
 
-.review-card .delete-button:hover {
-    background-color: #b71c1c;
+.logout-button:hover {
+    background-color: darkred;
 }
 
 
+/* Footer */
 footer {
-    background-color: #2c2c2c;
-    color: #bbb;
+    background-color: white;
+    color: #29323C;
+    padding: 50px;
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #333;
 }
 
 footer p {
-    font-size: 0.9em;
+    font-size: 18px;
 }
 
-.footer-nav {
-    margin-top: 10px;
+/* Product Details Styles */
+.product-details {
+    background-color: white;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.footer-nav ul {
-    list-style-type: none;
-    padding: 0;
+.product-card {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.footer-nav ul li {
-    margin: 0 15px;
+.product-card img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.footer-nav ul li a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 1em;
-    transition: color 0.3s ease;
+.product-card .product-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
 }
 
-.footer-nav ul li a:hover {
-    color: #f1c40f;
-    text-shadow: 0 0 5px #f1c40f;
+.product-card h3 {
+    font-size: 2rem;
+    margin: 0;
 }
 
+.product-card p {
+    font-size: 1.1rem;
+    margin: 0;
+}
 
-.product-card button.add-to-cart {
-    background: linear-gradient(80deg, #0066CC 0%, #eb5050 100%);
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
+/* Button Group Styles */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.button-wrapper {
+    display: inline-block;
+    width: auto;
+}
+
+.button-wrapper form,
+.button-wrapper a {
     display: inline-block;
 }
 
-.product-card button.add-to-cart:hover {
-    background: linear-gradient(80deg, #0066CC 0%, black 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.add-to-cart,
+.admin-button {
+    background-color: #24446b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover,
+.admin-button:hover {
+    background-color: #2980b9;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Product Reviews Styles */
+.product-reviews {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    margin-top: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-reviews h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.review-details {
+    margin-bottom: 15px;
+}
+
+.review-details h4 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.star-rating {
+    color: gold;
+    margin: 5px 0;
+}
+
+.star-rating i {
+    font-size: 1.4rem;
+}
+
+.review-details p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: #666;
+}
+
+.admin-button.delete-button {
+    background-color: #e74c3c;
+}
+
+.admin-button.delete-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Стилове за формата за добавяне на отзиви */
+.add-review {
+    background-color: #f9f9f9;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 30px auto 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.add-review h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.rating {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.star {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #f1c40f;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.star:hover,
+.star.selected {
+    color: #e67e22;
+    transform: scale(1.15);
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #24446b;
+    outline: none;
+}
+
+.submit-review {
+    background-color: #24446b;
+    color: white;
+    padding: 10px 15px;
+    margin-left: 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-review:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-review:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
 }

@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/product.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -39,7 +38,7 @@
 <div class="wrapper">
     <header>
         <div class="header-container">
-            <h1 th:text="#{welcome.message}">Welcome to my store</h1>
+            <h1>Products</h1>
             <nav>
                 <ul>
                     <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
@@ -56,16 +55,6 @@
                             <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
                         </form>
                     </li>
-                    <div class="language-switcher">
-                        <button class="language-button" onclick="changeLang('en')">
-                            <img src="/static/img/english.png" alt="English Flag">
-                        </button>
-                        <button class="language-button" onclick="changeLang('bg')">
-                            <img src="/static/img/bg.png" alt="Bulgarian Flag">
-                        </button>
-
-                    </div>
-
                 </ul>
             </nav>
         </div>
@@ -76,27 +65,37 @@
         <section class="product-details">
             <div class="product-card">
                 <img th:src="${product.imageUrl}" alt="Product Image">
-                <h3 th:text="${product.name}"></h3>
-                <p th:text="'Price: $' + ${product.price}"></p>
-                <p th:text="'Brand: ' + ${product.brand}"></p>
+                <div class="product-text">
+                    <h3 th:text="${product.name}"></h3>
+                    <p class="price" th:text="'Price: $' + ${product.price}"></p>
+                    <p class="brand" th:text="'Brand: ' + ${product.brand}"></p>
+                    <p th:text="'Description: ' + ${product.description}"></p>
 
-                <p th:text="'Description: ' + ${product.description}"></p>
+                    <!-- Бутони под описанията и на един ред -->
+                    <div class="button-group">
+                        <!-- Add to Cart бутон -->
+                        <div class="button-wrapper">
+                            <form th:action="@{/cart/add}" method="post">
+                                <input type="hidden" th:name="productId" th:value="${product.id}" />
+                                <button type="submit" class="add-to-cart">Add to Cart</button>
+                            </form>
+                        </div>
 
-                <form th:action="@{/cart/add}" method="post">
-                    <input type="hidden" th:name="productId" th:value="${product.id}" />
-                    <button type="submit" class="add-to-cart">Add to Cart</button>
-                </form>
-
-
-                <div th:if="${isAdmin}">
-                    <a th:href="@{/products/{productId}/edit(productId=${product.id})}" class="admin-button edit-button">Edit Product</a>
-                    <form th:action="@{/products/{productId}/delete(productId=${product.id})}" method="post">
-                        <button type="submit" class="admin-button delete-button">Delete Product</button>
-                    </form>
+                        <!-- Административни бутони -->
+                        <div th:if="${isAdmin}" class="button-wrapper">
+                            <a th:href="@{/products/{productId}/edit(productId=${product.id})}" class="admin-button edit-button">Edit Product</a>
+                        </div>
+                        <div th:if="${isAdmin}" class="button-wrapper">
+                            <form th:action="@{/products/{productId}/delete(productId=${product.id})}" method="post">
+                                <button type="submit" class="admin-button delete-button">Delete Product</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Ревюта за продукта -->
         <section class="product-reviews" th:if="${not #lists.isEmpty(reviews)}">
             <h2>Reviews for Product: <span th:text="${product.name}"></span></h2>
             <ul>
@@ -116,7 +115,7 @@
             </ul>
         </section>
 
-
+        <!-- Добавяне на ревю -->
         <section class="add-review" th:if="${#authorization.expression('isAuthenticated()')}">
             <h2>Add Review:</h2>
             <form id="reviewForm" th:action="@{/products/{productId}/add-review(productId=${product.id})}" method="post" onsubmit="return validateForm()">
@@ -141,10 +140,8 @@
             </form>
         </section>
 
-
-
-
     </main>
+
 
     <footer>
         <p>&copy; 2024 My Online Store</p>

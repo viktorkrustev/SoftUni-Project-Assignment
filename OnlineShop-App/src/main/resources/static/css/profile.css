@@ -1,529 +1,400 @@
-body, ul {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
 body {
-    background-image: linear-gradient(to right, red, lightcyan);
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: rgb(227, 227, 229);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
+/* Хедър */
+header {
+    position: relative; /* За да може ::after да се позиционира спрямо него */
+    background: rgb(52, 54, 65);
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 2; /* Уверяваме се, че хедърът е над линията */
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: -3px; /* Премества линията под хедъра */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, red, yellow, greenyellow, deepskyblue);
+    z-index: 1; /* Уверяваме се, че линията е под хедъра */
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #c44f4f;
+    position: relative; /* За да може да позиционираш елементи вътре */
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffda79;
+    letter-spacing: 1px;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffda79;
+    transition: all 0.4s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+
+nav ul li a:hover::after {
+    left: 0;
+}
+
+nav ul li a.active {
+    color: #ffda79;
+    letter-spacing: 1px;
+}
+
+nav ul li a.active::before {
+    width: 100%;
+    left: 0;
+}
+
+.logout-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+form {
+    margin-left: 20px;
+}
+
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eef1f6;
+}
 
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 100px;
-    background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-out;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-
-h3{
-    font-size: 2rem;
-    background: linear-gradient(90deg, darkgray, dimgray);
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 0px;
-}
-
-.profile-image-section {
+h3 {
+    margin-bottom: 20px;
+    color: #333;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    background: radial-gradient(circle, #fff 10%, #f0f0f0 80%);
-    animation: pulse 2s infinite alternate;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    margin-bottom: 10%;
 }
 
-.profile-image-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+/* Button Styling */
+.btn, .toggle-orders-button {
+    background-color:#24446b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
 }
 
-.profile-icon {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: cadetblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 80px;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.profile-icon:hover {
+.btn:hover, .toggle-orders-button:hover {
+    background-color: #24446b;
     transform: scale(1.05);
 }
 
+/* Profile Image Section */
+.profile-image-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 4px solid #24446b;
+}
+
+.profile-icon {
+    font-size: 60px;
+    color: #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile Section */
 .profile-section {
-    margin-bottom: 15px;
-    animation: slideIn 1s ease-out;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    text-align: center;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
 }
 
-.profile-section label {
-    font-weight: bold;
-    display: inline-block;
-    width: 200px;
-    color: #666;
-}
-
-.profile-section span {
-    display: inline-block;
-    vertical-align: middle;
+.profile-info {
+    margin-bottom: 12px;
     font-size: 18px;
+    color: #444;
 }
 
+.profile-info label {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.profile-info span {
+    font-size: 18px;
+    color: #222;
+}
+
+/* Edit Form */
+.edit-form {
+    display: none; /* по подразбиране скрита */
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* При активиране (клас open) показваме формата като блок */
+.edit-form.open {
+    display: block;
+}
+
+/* Настройваме вътрешния form да подрежда елементите вертикално */
+.edit-form form {
+    display: block;
+    flex-direction: column;
+    gap: 15px; /* разстояние между отделните редове */
+}
+
+.edit-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.edit-form input {
+    width: 100%;
+    height: 40px;               /* Фиксирана височина за всички полета */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    -webkit-appearance: none;   /* Премахва браузърната стилизация (за Chrome, Safari) */
+    -moz-appearance: none;      /* За Firefox */
+    appearance: none;
+}
+.edit-form input[type="email"] {
+    display: block !important;
+    width: 100% !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    line-height: 40px !important; /* Задава височината на линията */
+    border: 1px solid #ccc !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    margin: 0 !important;
+}
+
+
+
+
+.edit-form button {
+    background-color: #24446b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.edit-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.edit-form button[type="button"] {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.edit-form button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+/* Orders Section */
 .orders-section {
-    margin-top: 30px;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease-out, background-color 0.3s ease-out;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: slideIn 1s ease-out;
+    margin-top: 20px;
+    display: none;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .orders-section.open {
-    max-height: 1000000px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.orders-section h2 {
-    padding: 15px 20px;
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-    border-bottom: 1px solid #ccc;
-    border-radius: 10px 10px 0 0;
-    background-color: #ffffff;
+    display: block;
 }
 
 .orders-section ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
-.orders-section li {
-    padding: 15px 20px;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
+.orders-section ul li {
+    background-color: #fff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.orders-section li:last-child {
-    border-bottom: none;
+.orders-section ul li p {
+    font-size: 16px;
+    color: #333;
 }
 
 .orders-section .product-item {
     display: flex;
     align-items: center;
+    margin-top: 8px;
 }
 
 .orders-section .product-item img {
-    width: 80px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
     border-radius: 5px;
-    margin-right: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.orders-section .product-item span {
-    color: #555;
-}
-
-.orders-section .order-details {
-    flex: 1;
-    text-align: right;
-}
-
-.orders-section .order-details h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #333;
-}
-
-.orders-section .order-details p {
-    margin: 5px 0 0;
-    color: #666;
-}
-
-.orders-section .order-status {
-    font-weight: bold;
-    color: #007bff;
-}
-
-.orders-section .toggle-orders-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    display: block;
-    margin: auto;
-}
-
-.orders-section .toggle-orders-button:hover {
-    background-color: #0056b3;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.05);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-.product-item {
-    display: flex;
-    align-items: center;
-    animation: slideIn 1s ease-out;
-    cursor: pointer;
-    padding: 15px;
-    transition: background-color 0.3s ease;
-}
-
-.product-item:hover {
-    background-color: #f5f5f5;
-}
-
-.product-item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.toggle-orders-button {
-    background: linear-gradient(to right, lightsteelblue, cadetblue);
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 25px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    outline: none;
-    margin: auto;
-    display: block;
-}
-
-.toggle-orders-button:hover {
-    background: linear-gradient(to right, steelblue, black);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
-
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .profile-icon {
-        font-size: 80px;
-    }
-
-    .profile-section label {
-        width: 80px;
-    }
-
-    .orders-section .product-image {
-        flex: 0 0 60px;
-        height: 60px;
-    }
-
-    .orders-section .product-details h3 {
-        font-size: 16px;
-    }
-}
-
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.05);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
-body, ul {
-    margin: 0;
-    padding: 0;
-}
-
-
-body {
-    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-}
-
-
-.form-container {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.form-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-header h2 {
-    color: #333;
-}
-
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #666;
-}
-
-.form-group input {
-    width: calc(100% - 12px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.form-group input[type="submit"] {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.form-group input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-
-@media (max-width: 768px) {
-    .form-container {
-        max-width: 300px;
-    }
-}
-
-.profile-section form button {
-    padding: 10px 20px;
-    margin: 10px;
-    background: linear-gradient(to right, lightsteelblue, cadetblue);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.profile-section form button:hover {
-    background: linear-gradient(to right, steelblue, black);
-    color: whitesmoke;
-    border: solid 0px black;
-}
-
-.profile-section form input[type="file"] {
-    margin-bottom: 15px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    transition: border-color 0.3s ease;
-}
-
-.profile-section form input[type="file"]:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-
-
-/* Основной контейнер формы */
-.edit-form {
-    max-width: 500px;
-    margin: 45px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Стили для каждого элемента формы */
-.edit-form div {
-    margin-bottom: 15px;
-}
-
-/* Стили для меток (label) */
-.edit-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-/* Стили для текстовых полей ввода */
-.edit-form input[type="text"],
-.edit-form input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-/* Стили для кнопок */
-.edit-form button[type="submit"],
-.edit-form button[type="button"] {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    font-size: 14px;
-    cursor: pointer;
     margin-right: 10px;
 }
 
-/* Стили для кнопки "Сохранить изменения" */
-.edit-form button[type="submit"] {
-    background-color: cadetblue;
-    color: white;
+/* Smooth Transitions */
+.profile-section,
+.edit-form,
+.orders-section {
+    transition: all 0.3s ease-in-out;
 }
 
-/* Стили для кнопки "Отмена" */
-.edit-form button[type="button"] {
-    background-color: #dc3545;
-    color: white;
-}
-
-/* Добавление эффекта наведения на кнопки */
-.edit-form button[type="submit"]:hover,
-.edit-form button[type="button"]:hover {
-    opacity: 0.9;
-}
-
-.container {
-    position: relative;
-}
-.profile-section {
-    margin-bottom: 15px;
-}
-.edit-form {
+/* Profile Image Upload Section (Hidden by default) */
+.profile-upload-section {
     display: none;
-}
-.edit-form.open {
-    display: block;
-}
-.btn {
-    font-family: 'Roboto', sans-serif;
-    margin-left: -50px;
-    font-weight: 400;
-    font-size: 14px;
-    color: #fff;
-    background: linear-gradient(80deg, lightsteelblue 0%, lightseagreen 100%);
-    padding: 8px 17px;
-    border: solid #260707 1px;
-    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-    border-radius: 0px 50px 50px;
-    transition: 1000ms;
-    transform: translateY(0);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    cursor: pointer;
+    margin-top: 20px;
     text-align: center;
-    text-decoration: none;
-    position: absolute; /* Position relative to the container */
-    top: 10px; /* Adjust as needed for spacing from the top */
-    right: 10px; /* Adjust as needed for spacing from the right */
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn:hover {
-    transition: 1000ms;
-    padding: 10px 50px;
-    transform: translateY(-0px);
-    background: linear-gradient(80deg, lightblue 0%, black 100%);
-    color: whitesmoke;
-    border: solid 1px #0066cc;
+.profile-upload-section.open {
+    display: block;
 }
+
+.profile-upload-section input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 80%;
+}
+
+/* Show only when editing */
+.profile-upload-section.open {
+    display: block;
+}
+
+
+
+
 

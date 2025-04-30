@@ -11,6 +11,8 @@ import com.onlineShop.service.ProductService;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -115,6 +117,7 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findByNameContainingIgnoreCase(name).stream().map(p -> modelMapper.map(p, ProductsDTO.class)).collect(Collectors.toList());
     }
 
+
     @Override
     @Transactional
     public Product updateProduct(Long productId, ProductViewAdminDTO productDTO) {
@@ -129,4 +132,6 @@ public class ProductServiceImpl implements ProductService {
         }
         return null;
     }
+    
+
 }

@@ -5,33 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/checkout.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
-    <header>
-        <div class="header-container">
-            <h1>Welcome to my store</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/products">Products</a></li>
-                    <li><a href="/cart">Cart</a></li>
-                    <li><a href="/users/profile">Profile</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li>
-                        <form th:action="@{/users/logout}" method="post">
-                            <button type="submit" class="logout-button">Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="color-stripe"></div>
-
     <div class="checkout-container">
         <h2>Checkout</h2>
         <div class="checkout-form">
@@ -70,12 +48,6 @@
         </div>
     </div>
 
-
-    <footer>
-        <div class="footer-container">
-            <p>&copy; 2024 Online Shop</p>
-        </div>
-    </footer>
 </div>
 </body>
 </html>

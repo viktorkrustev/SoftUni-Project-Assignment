@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="#{products.title}">Products</title>
-    <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/products.css">
 </head>
 <body>
@@ -21,19 +20,13 @@
                 </div>
             </form>
 
-
-
             <nav>
                 <ul>
                     <li><a href="/" th:text="#{home.link}">Home</a></li>
                     <li><a href="/products" th:text="#{products.title}">Products</a></li>
-
-
                     <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
                     <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
                     <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
-
-
                     <li th:if="${#authorization.expression('isAuthenticated()')}">
                         <form th:action="@{/users/logout}" method="post">
                             <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
@@ -46,64 +39,87 @@
                         <button class="language-button" onclick="changeLang('bg')">
                             <img src="/static/img/bg.png" alt="Bulgarian Flag">
                         </button>
-
                     </div>
-
                 </ul>
             </nav>
         </div>
     </header>
-    <div class="color-stripe"></div>
 
     <main>
-        <section class="filter-section">
-            <div th:if="${isAdmin}">
-                <a th:href="@{/products/add-product}" class="add-product-button">Add Product</a>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn" th:text="#{products.sort.by.price}">Sort by Price</button>
-                <div class="dropdown-content">
-                    <a th:href="@{/products(sort='asc', category=${currentCategory})}" th:text="#{products.sort.low.to.high}">Low to High</a>
-                    <a th:href="@{/products(sort='desc', category=${currentCategory})}" th:text="#{products.sort.high.to.low}">High to Low</a>
-                </div>
-            </div>
-
-            <div class="dropdown">
-                <button class="dropbtn" th:text="#{products.filter.by.category}">Filter by Category</button>
-                <div class="dropdown-content">
-                    <a th:href="@{/products(category='ALL', sort=${currentSort})}" th:text="#{products.filter.all}">All</a>
-                    <a th:href="@{/products(category='LAPTOPS', sort=${currentSort})}" th:text="#{products.filter.laptops}">Laptops</a>
-                    <a th:href="@{/products(category='WATCHES', sort=${currentSort})}" th:text="#{products.filter.watches}">Watches</a>
-                    <a th:href="@{/products(category='PHONES', sort=${currentSort})}" th:text="#{products.filter.phones}">Phones</a>
-                    <a th:href="@{/products(category='HEADPHONES', sort=${currentSort})}" th:text="#{products.filter.headphones}">Headphones</a>
-                    <a th:href="@{/products(category='TELEVISIONS', sort=${currentSort})}" th:text="#{products.filter.televisions}">Televisions</a>
-                </div>
+        <div class="filter-section-mobile">
+            <button class="filter-button" onclick="toggleFilter()">
+                <h3 th:text="#{products.filter.by.category}">Filter by Category</h3>
+            </button>
+            <div class="filter-options category">
+                <a th:classappend="${currentCategory == 'ALL'} ? 'active'" th:href="@{/products(category='ALL', sort=${currentSort})}" th:text="#{products.filter.all}">All</a>
+                <a th:classappend="${currentCategory == 'LAPTOPS'} ? 'active'" th:href="@{/products(category='LAPTOPS', sort=${currentSort})}" th:text="#{products.filter.laptops}">Laptops</a>
+                <a th:classappend="${currentCategory == 'WATCHES'} ? 'active'" th:href="@{/products(category='WATCHES', sort=${currentSort})}" th:text="#{products.filter.watches}">Watches</a>
+                <a th:classappend="${currentCategory == 'PHONES'} ? 'active'" th:href="@{/products(category='PHONES', sort=${currentSort})}" th:text="#{products.filter.phones}">Phones</a>
+                <a th:classappend="${currentCategory == 'HEADPHONES'} ? 'active'" th:href="@{/products(category='HEADPHONES', sort=${currentSort})}" th:text="#{products.filter.headphones}">Headphones</a>
+                <a th:classappend="${currentCategory == 'TELEVISIONS'} ? 'active'" th:href="@{/products(category='TELEVISIONS', sort=${currentSort})}" th:text="#{products.filter.televisions}">Televisions</a>
             </div>
 
-        </section>
+            <button class="sort-button" onclick="toggleSort()">
+                <h3 th:text="#{products.sort.by.price}">Sort by Price</h3>
+            </button>
+            <div class="filter-options sort">
+                <a th:classappend="${currentSort == 'asc'} ? 'active'" th:href="@{/products(sort='asc', category=${currentCategory})}" th:text="#{products.sort.low.to.high}">Low to High</a>
+                <a th:classappend="${currentSort == 'desc'} ? 'active'" th:href="@{/products(sort='desc', category=${currentCategory})}" th:text="#{products.sort.high.to.low}">High to Low</a>
+            </div>
+        </div>
 
-        <section class="products-list">
-            <div th:each="product : ${products}" class="product-card" th:data-price="${product.price}" th:data-category="${product.category}">
-                <a th:href="@{/products/{productId}(productId=${product.id})}">
-                    <img th:src="${product.imageUrl}" alt="Product Image">
-                    <div class="product-details">
-                        <h3 th:text="${product.name}"></h3>
-                        <p th:text="#{products.price} + ${product.price}"></p>
-                        <p th:text="#{products.brand} + ${product.brand}"></p>
+        <div class="main-content">
+            <section class="filter-section">
+                <div class="filter-sidebar">
+                    <div th:if="${isAdmin}">
+                        <a th:href="@{/products/add-product}" class="add-product-button" th:text="#{add.product}">Add Product</a>
                     </div>
-                </a>
 
-                <form th:action="@{/cart/add}" method="post">
-                    <input type="hidden" th:name="productId" th:value="${product.id}" />
-                    <button type="submit" class="add-to-cart-btn" th:text="#{products.add.to.cart}">Add to Cart</button>
-                </form>
+                    <div class="filter-button" onclick="this.parentNode.classList.toggle('active')">
+                        <h3 th:text="#{products.filter.by.category}">Filter by Category</h3>
+                    </div>
+                    <div class="filter-options">
+                        <a th:classappend="${currentCategory == 'ALL'} ? 'active'" th:href="@{/products(category='ALL', sort=${currentSort})}" th:text="#{products.filter.all}">All</a>
+                        <a th:classappend="${currentCategory == 'LAPTOPS'} ? 'active'" th:href="@{/products(category='LAPTOPS', sort=${currentSort})}" th:text="#{products.filter.laptops}">Laptops</a>
+                        <a th:classappend="${currentCategory == 'WATCHES'} ? 'active'" th:href="@{/products(category='WATCHES', sort=${currentSort})}" th:text="#{products.filter.watches}">Watches</a>
+                        <a th:classappend="${currentCategory == 'PHONES'} ? 'active'" th:href="@{/products(category='PHONES', sort=${currentSort})}" th:text="#{products.filter.phones}">Phones</a>
+                        <a th:classappend="${currentCategory == 'HEADPHONES'} ? 'active'" th:href="@{/products(category='HEADPHONES', sort=${currentSort})}" th:text="#{products.filter.headphones}">Headphones</a>
+                        <a th:classappend="${currentCategory == 'TELEVISIONS'} ? 'active'" th:href="@{/products(category='TELEVISIONS', sort=${currentSort})}" th:text="#{products.filter.televisions}">Televisions</a>
+                    </div>
+
+                    <div class="sort-button" onclick="this.parentNode.classList.toggle('active')">
+                        <h3 th:text="#{products.sort.by.price}">Sort by Price</h3>
+                    </div>
+                    <div class="filter-options">
+                        <a th:classappend="${currentSort == 'asc'} ? 'active'" th:href="@{/products(sort='asc', category=${currentCategory})}" th:text="#{products.sort.low.to.high}">Low to High</a>
+                        <a th:classappend="${currentSort == 'desc'} ? 'active'" th:href="@{/products(sort='desc', category=${currentCategory})}" th:text="#{products.sort.high.to.low}">High to Low</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-list">
+                <div th:each="product : ${products}" class="product-card" th:data-price="${product.price}" th:data-category="${product.category}">
+                    <a th:href="@{/products/{productId}(productId=${product.id})}">
+                        <img th:src="${product.imageUrl}" alt="Product Image">
+                        <div class="product-details">
+                            <h3 th:text="${product.name}"></h3>
+                            <p th:text="#{products.price} + ${product.price}"></p>
+                            <p th:text="#{products.brand} + ${product.brand}"></p>
+                        </div>
+                    </a>
+
+                    <form th:action="@{/cart/add}" method="post">
+                        <input type="hidden" th:name="productId" th:value="${product.id}" />
+                        <button type="submit" class="add-to-cart-btn" th:text="#{products.add.to.cart}">Add to Cart</button>
+                    </form>
+                </div>
+            </section>
+
+            <div class="pagination">
+                <button class="prev-page" onclick="prevPage()">Previous</button>
+                <span class="page-numbers"></span>
+                <button class="next-page" onclick="nextPage()">Next</button>
             </div>
-        </section>
-
-        <div class="pagination">
-            <button class="prev-page" onclick="prevPage()">Previous</button>
-            <span class="page-numbers"></span>
-            <button class="next-page" onclick="nextPage()">Next</button>
         </div>
     </main>
 
@@ -181,6 +197,59 @@
     document.addEventListener('DOMContentLoaded', () => {
         updatePagination();
     });
+
+
+    // Добавяне на event listener за DOMContentLoaded за да се уверим, че елементи са заредени
+    document.addEventListener('DOMContentLoaded', () => {
+        // Взимане на всички филтър елементи
+        const filterItems = document.querySelectorAll('.filter-item');
+
+        // Зареждане на избрания филтър от localStorage
+        const activeFilter = localStorage.getItem('activeFilter');
+        if (activeFilter) {
+            const activeElement = document.querySelector(`.filter-item[data-filter="${activeFilter}"]`);
+            if (activeElement) {
+                activeElement.classList.add('active');
+            }
+        }
+
+        // Добавяне на събитие при клик върху филтър елементите
+        filterItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Премахване на 'active' клас от всички филтри
+                filterItems.forEach(i => i.classList.remove('active'));
+
+                // Добавяне на 'active' клас към текущия елемент
+                this.classList.add('active');
+
+                // Запазване на избрания филтър в localStorage
+                localStorage.setItem('activeFilter', this.getAttribute('data-filter'));
+            });
+        });
+    });
+    function toggleFilter() {
+        const filterSidebar = document.querySelector('.filter-options.category');
+        filterSidebar.style.display = filterSidebar.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function toggleSort() {
+        const sortOptions = document.querySelector('.filter-options.sort');
+        sortOptions.style.display = sortOptions.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchIcon = document.querySelector('.search');
+        const searchInput = document.querySelector('#searchInput');
+
+        searchIcon.addEventListener('click', () => {
+            searchInput.classList.toggle('active');
+            searchInput.focus(); // Автоматично фокусиране при показване на полето
+        });
+    });
+
+
 
 </script>
 

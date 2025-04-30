@@ -5,35 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
-    <link rel="stylesheet" href="/css/styles.css">
+
     <link rel="stylesheet" href="/css/edit-product.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
 
 </head>
 <body>
 <div class="wrapper">
-    <header>
-        <div class="header-container">
-            <h1>Welcome to my store</h1>
-            <nav>
-                <ul>
-                    <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
-                    <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
-                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
-                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
-                    <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
-                    <li th:if="${#authorization.expression('isAuthenticated()')}">
-                        <form th:action="@{/users/logout}" method="post">
-                            <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="color-stripe"></div>
-
-
     <main>
         <section class="edit-product">
             <h2>Edit Product</h2>
@@ -60,9 +38,6 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 My Online Store</p>
-    </footer>
 </div>
 </body>
 </html>

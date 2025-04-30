@@ -1,459 +1,747 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+/* Основни стилове за прозрачен хедър и футър с ефект при задържане на мишката */
+header, footer {
+    background-color: rgba(0, 0, 0, 0.3); /* Прозрачен черен фон */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Плавен преход за цвета на фона */
+}
+
+header:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Тъмен фон при задържане на мишката */
+}
+
+footer:hover {
+    background-color: rgba(0, 0, 0, 0.6); /* Тъмен фон при задържане на мишката */
+}
+
+/* Основни стилове */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
     box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1; /* Това ще накара съдържанието да расте и да запълва наличното пространство */
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-image: linear-gradient(to right, whitesmoke, #f0f0f0);
-}
-.wrapper {
-    flex: 1;
-}
-
-header {
-    position: static;
-    background-color: #2c2c2c;
-    //background: linear-gradient(to right,#A36464, #003153, black);
-    color: #fff;
-    top: 50%;
-    padding: 15px 0;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3em;
-    font-weight: normal;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.color-stripe {
-    position: static;
-    z-index: 100;
-    left: 0;
-    width: 100%;
-    height: 3px; /* Adjust the height of the stripe here */
-    background: linear-gradient(to right, deepskyblue, orangered,yellow,aqua, greenyellow); /* Adjust the colors and direction of the gradient here */
-}
-
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: black;
+    color: #e7e7e7;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background 0.5s ease, color 0.3s ease;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Оригиналните стилове за навигацията */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
 }
 
 nav ul li {
-    margin: 0 15px;
+    position: relative;
+    overflow: hidden;
 }
+
+/* Добавяме преходи за плавно скриване и показване */
+
+
+nav ul li a.hidden {
+    transform: translateY(-100%); /* Плъзга навигацията извън видимата част на екрана */
+    opacity: 0; /* Изчезване */
+}
+
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
+    color: black;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    padding: 1px;
+    margin-top: 2.5em;
+    margin-left: 1em;
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
 }
+
 
 nav ul li a:hover {
-    color: #f1c40f;
-    text-shadow: 0 0 5px #f1c40f;
+    color: #ffda79;
+    letter-spacing: 2px;
 }
 
+/* Добавяне на анимирано подчертаване при задържане */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffda79;
+    transition: all 0.4s ease;
+}
 
-form .logout-button {
-    background-color: orangered;
-    color: #fff;
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Анимация за фонов преливен ефект */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 218, 121, 0.5), rgba(255, 218, 121, 0));
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+nav ul li a:hover::after {
+    left: 0;
+}
+
+/* Добавяне на интересна анимация при активен елемент */
+nav ul li a.active {
+    color: #ffda79;
+    letter-spacing: 2px;
+}
+
+nav ul li a.active::before {
+    width: 100%;
+    left: 0;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.language-switcher {
+    display: flex;
+    gap: 10px;
+}
+
+.language-button {
+    background: none;
     border: none;
-    padding: 5px 10px;
     cursor: pointer;
-    font-size: 1rem;
+    transition: transform 0.2s ease;
 }
 
-form .logout-button:hover {
-    background-color: #555;
+.language-button img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #fff;
 }
 
+.language-button:hover {
+    transform: scale(1.1);
+}
 
 main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 5.5);
-    animation: slideIn 1s ease-in-out;
+    width: 100%;
 }
 
 .hero {
-    //background-color: #2ecc71;
-    color: white;
+    margin-top: -50px;
+    background-color: #fff;
+    color: #fff;
+    padding: 30px;
+    border-radius: 0px;
     text-align: center;
-    padding: 80px 0;
-    background-image: radial-gradient(circle at -8.9% 51.2%, #E6F8F8, #003153);
-    animation: zoomIn 2s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    //background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-wooden-board-empty-table-with-blur-background-picture-image_1160853.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+/* Основен стил за заглавието */
+.hero h1 {
+    font-size: 2.5rem;
+    margin-top: 0.5em;
+    color: black;
+    padding: 0.2em;
+    animation: color-change 5s infinite; /* Приложение на анимацията */
 }
 
+/* Определяне на анимацията за промяна на цвета */
+@keyframes color-change {
+    0% {
+        color: black;
+        opacity: 1;
+    }
+    25% {
+        color: #ff0000;
+        opacity: 1;
+    }
+    50% {
+        color: #6363d2;
+        opacity: 1;
+    }
+    75% {
+        color: #69d269;
+        opacity: 1;
+    }
+    100% {
+        color: #000000;
+        opacity: 1;
+    }
+}
+
+/* Анимация за плавно показване и скриване на заглавието */
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Прилагане на анимацията за плавно показване и скриване */
+.hero h1 {
+    animation: color-change 5s infinite, fade-in-out 5s infinite;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .hero h2 {
-    font-size: 3em;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: black;
 }
 
 .hero p {
-    font-size: 1.2em;
-    margin-bottom: 40px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: rgba(51, 138, 140, 0.91);
+}
+.hero span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
 }
 
-.buttons {
-    margin-top: 30px;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
+.hero span {
+    animation: fadeInUp 0.5s forwards;
+    animation-delay: calc(var(--i) * 0.05s);
+}
+
 
 .buttons button {
-    background-color: #f39c12;
-    color: white;
+    padding: 12px 24px;
+    background-color: #FFDA79FF;
+    color: #000;
     border: none;
-    padding: 10px 20px;
-    font-size: 1em;
+    border-radius: 30px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: bold;
     margin: 0 10px;
 }
 
 .buttons button:hover {
-    background-color: #f39c12;
-    transform: translateY(-3px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    animation: pulse 1s infinite;
+    background-color: #c5a85a;
 }
 
-.home-featured-products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-    justify-items: center;
-    margin-top: 40px;
-}
-
-.product-card {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-.product-details {
-    padding: 10px 0;
-}
-
-.product-details h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #f1c40f;
-}
-
-.product-details p {
-    font-size: 1.1em;
-    color: #b0b0b0;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    animation: shake 0.5s;
-}
-.about-us {
-    background-color: #ddd;
-    color: #333;
-    padding: 40px 20px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.about-us h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
-
-.about-us p {
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-.contact-info {
+.scroll-section {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: space-between;
+    gap: 0px;
+    padding: 40px;
+    border-radius: 0px;
+    margin-bottom: 40px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.5s ease-in-out;
+    color: #fff;
 }
 
-.contact-info span {
-    display: block;
-    font-size: 1.2em;
-    margin-bottom: 15px;
+.scroll-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.contact-info span a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.scroll-section.left-section {
+    flex-direction: row;
+    background-color: #FFDA79FF;
 }
 
-.contact-info span a:hover {
-    color: #666;
+.scroll-section.right-section {
+    background: linear-gradient(45deg, #000000, darkgrey);
+    flex-direction: row-reverse;
 }
 
-
-
-.social-icons {
-    margin-top: 10px;
+.scroll-content {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
 }
 
-.social-icons a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0 5px;
+.scroll-content .text {
+    flex: 1;
 }
 
-.social-icons a.instagram {
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/900px-Instagram_logo_2022.svg.png');
+.scroll-content .text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-.social-icons a.facebook {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_9wfZE_iva3OX8b_mVIHE-ohdIFMlZAxs4A&s');
+.scroll-content .text p {
+    font-size: 1.1rem;
 }
 
-
-.social-icons a:before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
+.scroll-content .image {
+    flex: 1;
 }
 
-
-.social-icons a:hover {
-    transform: scale(1.2);
+.scroll-content .image img {
+    max-width: 100%;
 }
-
-
-
-
 
 footer {
-    background-color: #2c2c2c;
-    color: #bbb;
+    background-color: rgba(0, 0, 0, 0.3); /* Прозрачен фон за тъмен режим */
+    margin-top: 40px;
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
 }
 
 footer p {
-    font-size: 0.9em;
+    margin: 0;
 }
 
-.footer-nav {
-    margin-top: 10px;
+/* Стилове за хедър и футър */
+header, footer {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.footer-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-.footer-nav ul li {
-    margin: 0 15px;
-}
-
-.footer-nav ul li a {
-    color: #bbb;
-    text-decoration: none;
-    font-size: 1em;
-    transition: color 0.3s ease;
-}
-
-.footer-nav ul li a:hover {
-    color: #f1c40f;
-    text-shadow: 0 0 5px #f1c40f;
-}
-
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25%, 75% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-}
-
-
-
-
-.additional-images {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    margin-top: 40px;
-}
-
-.image-card {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-
-.image-card:nth-child(3) {
-    grid-column: span 2;
-}
-
-
-.image-card:hover {
-    transform: translateY(-5px);
-}
-
-
-.image-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-
-.image-card:hover img {
-    transform: scale(1.05);
-}
-
-
-.error-message {
-    color: #ff0000;
-    font-size: 0.8em;
-    display: block;
-
-}
-
-
+/* Падащо меню за езиците */
+/* Основен контейнер */
 .language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     display: flex;
-    justify-content: right;
-    margin-top: -8px;
+    flex-direction: row; /* Промяна на подреждането на бутоните хоризонтално */
+    gap: 10px; /* Разстояние между бутоните */
+    transition: opacity 0.5s ease; /* Анимация за плавно скриване и показване */
+}
+
+.language-switcher.hidden {
+    opacity: 0; /* Скриване на бутоните */
+    pointer-events: none; /* Изключваме възможността за кликане, докато са скрити */
 }
 
 .language-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Кръгла форма на бутоните */
     border: none;
-    background: none;
-    cursor: pointer;
-    margin-right: -90px;
     padding: 0;
-    border-radius: 50%;
     overflow: hidden;
-    width: 40px;
-    height: 40px;
-    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
 }
 
 .language-button img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-
-.language-button:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
+    object-fit: cover; /* Картинката запълва цялото бутонче */
 }
 
 
-@media (max-width: 600px) {
-    ol {
+.logout-button {
+    position: inherit;
+    background-color: red;
+    margin-top: 35px;
+    margin-left: 48em;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+
+/* Стилове за секции */
+.scroll-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.scroll-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-section img {
+    transition: transform 0.3s ease;
+}
+
+.scroll-section img:hover {
+    transform: scale(1.05);
+}
+.scroll-section.left-section1 {
+    margin-top: -5.5em;
+    position: relative;
+    z-index: 10000;
+    background-color: #FFDA79FF;
+}
+
+
+/* Стилове за херо секцията */
+.hero-content {
+    text-align: center;
+}
+
+.hero-content h2, .hero-content p {
+    margin: 0;
+}
+
+.hero-content .buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    margin: 0 10px;
+}
+
+/* Стилове за новите секции */
+.interactive-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0;
+    position: relative;
+}
+
+.interactive-section .text, .interactive-section .image {
+    flex: 1;
+}
+
+.interactive-section img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.interactive-section .text {
+    margin: 20px;
+}
+
+.interactive-section .text h2 {
+    margin-bottom: 10px;
+}
+
+.interactive-section .text p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.interactive-section .image:hover .overlay {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 1.5em;
+}
+/* Основен стил за .image-grid */
+.image-grid {
+    margin-top: 0.3em;
+    position: relative;
+    width: 100%;
+    height: 450px; /* Може да промените размера, както желаете */
+    overflow: hidden;
+}
+
+.image-item {
+    position: absolute;
+    top: 0.5em;
+    left: 10em;
+    width: 80%;
+    height: 80%;
+    background-size: cover; /* Покрива целия контейнер */
+    background-position: center; /* Центрира изображението */
+    background-repeat: no-repeat; /* Не повтаря изображението */
+    opacity: 0;
+    transform: scale(1.05); /* Леко увеличение на изображението */
+    transition: opacity 1s ease, transform 1s ease;
+    filter: brightness(90%) contrast(100%); /* Леко намаляване на яркостта за по-добра видимост на следващото изображение */
+    border-radius: 10px; /* Леко закръглени ръбове */
+
+}
+
+.image-item.active {
+    opacity: 1;
+    transform: scale(1); /* Връща изображението в нормалния му размер */
+    filter: brightness(100%) contrast(100%); /* Възстановява яркостта и контраста на активното изображение */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.05); /* Леко увеличение при началото на анимацията */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1); /* Връща изображението в нормалния му размер */
+    }
+}
+
+.image-item.next {
+    animation: fadeIn 1s forwards; /* Анимация при преминаване на изображението */
+}
+
+
+.scroll-section {
+    height: 80vh; /* Всеки раздел заема целия изглед на екрана */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+
+    /* Приспособяване на header и footer */
+    header, footer {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    /* Оформяне на навигацията за таблети */
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        margin-top: 1em;
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    /* Приспособяване на хиро секцията */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    /* Промяна на изгледа на секциите при скролиране */
+    .scroll-section {
+        padding: 20px 10px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Адаптиране на изображенията в секциите */
+    .scroll-content .image img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Адаптиране на бутоните */
+    .buttons button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Приспособяване на интерактивните секции */
+    .interactive-section {
+        flex-direction: column;
+    }
+
+    .interactive-section .text {
+        margin-bottom: 20px;
+    }
+
+    .interactive-section img {
+        max-width: 100%;
+    }
+
+    .hero-content h1, .hero-content h2, .hero-content p {
+        font-size: 1.5rem;
+    }
+
+    .scroll-section {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .scroll-content {
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    ol li {
-        margin-bottom: 10px;
+    .scroll-content img {
+        width: 100%;
+        max-width: 300px;
     }
 
-    ol li a {
-        font-size: 14px;
-        padding: 8px 15px;
+    /* Бутон за менюто */
+    /* Стилове за мобилно меню */
+    .menu-toggle {
+        background-color: #444;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1100;
+    }
+
+    .menu-toggle:hover {
+        background-color: #555;
+    }
+
+    /* Основни стилове за менюто */
+    .nav-menu {
+        display: none; /* Скриваме менюто по подразбиране */
+        background-color: #333;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Стилове за менюто, когато е активно (показано) */
+    .nav-menu.active {
+        transform: translateX(0);
+        display: block; /* Показваме менюто при активиране */
+    }
+
+    /* Навигационни линкове */
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 60px;
+    }
+
+    nav ul li {
+        border-bottom: 1px solid #444;
+    }
+
+    nav ul li a {
+        color: white;
+        display: block;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+
+
+    .language-switcher {
+        display: none;
+    }
+
+    /* Отместване на съдържанието под бутона */
+    body {
+        margin: 0;
+    }
+
+    /* Оставяне на разстояние за бутона */
+    .content {
+        padding-top: 50px; /* Височина, която позволява статично позициониране на бутона */
     }
 }
-
 
 

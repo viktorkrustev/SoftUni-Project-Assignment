@@ -5,69 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title th:text="#{about.link}">About Us</title>
-    <link rel="stylesheet" href="/css/styles.css">
+
     <link rel="stylesheet" href="/css/about.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="wrapper">
-    <header>
-        <div class="header-container">
-            <h1 th:text="#{about.link}">About us</h1>
-            <nav>
-                <ul>
-                    <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
-                    <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
-
-                    
-                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
-                    <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
-                    <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
-
-                    
-                    <li th:if="${#authorization.expression('isAuthenticated()')}">
-                        <form th:action="@{/users/logout}" method="post">
-                            <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
-                        </form>
-                    </li>
-                    <div class="language-switcher">
-                        <button class="language-button" onclick="changeLang('en')"> 
-                            <img src="/static/img/english.png" alt="English Flag">
-                        </button>
-                        <button class="language-button" onclick="changeLang('bg')">
-                            <img src="/static/img/bg.png" alt="Bulgarian Flag">
-                        </button>
-
-                    </div>
-
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <div class="color-stripe"></div>
-</div>
+<header>
+    <div class="header-container">
+        <h1 th:text="#{about.link}">About Us</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}" th:text="#{home.link}">Home</a></li>
+                <li><a th:href="@{/products}" th:text="#{products.link}">Products</a></li>
+                <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/cart}" th:text="#{cart.link}">Cart</a></li>
+                <li th:if="${#authorization.expression('isAuthenticated()')}"><a th:href="@{/users/profile}" th:text="#{profile.link}">Profile</a></li>
+                <li><a th:href="@{/about}" th:text="#{about.link}">About Us</a></li>
+                <li th:if="${#authorization.expression('isAuthenticated()')}">
+                    <form th:action="@{/users/logout}" method="post">
+                        <button type="submit" class="logout-button" th:text="#{logout.button}">Logout</button>
+                    </form>
+                </li>
+                <div class="language-switcher">
+                    <button class="language-button" onclick="changeLang('en')">
+                        <img src="/static/img/english.png" alt="English Flag">
+                    </button>
+                    <button class="language-button" onclick="changeLang('bg')">
+                        <img src="/static/img/bg.png" alt="Bulgarian Flag">
+                    </button>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <main>
-    <section class="about-content">
-        <h2 th:text="#{about.link}">About Us</h2>
-        <p th:text="#{about.description}">Welcome to our online electronics store! We offer a wide range of electronics including the latest smartphones, laptops, and accessories. Our mission is to provide top-quality products at competitive prices while delivering exceptional customer service.</p>
-        <p th:text="#{about.browse}">Browse our extensive collection and find the perfect gadget to suit your needs. Whether you're looking for the newest tech or reliable everyday electronics, we've got you covered.</p>
+    <section class="about-section">
+        <div class="about-content">
+            <h2 th:text="#{about.us}">About Us</h2>
+
+            <p th:text="#{about.description}">Welcome to our premier electronics store! We specialize in offering a vast array of high-quality electronics, including the latest smartphones, laptops, and accessories. Our goal is to deliver exceptional value and outstanding customer service.</p>
+            <p th:text="#{about.browse}">Explore our diverse range of products to find the ideal tech solutions for your needs. From cutting-edge gadgets to everyday essentials, we have everything you need to stay connected and informed.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h3 th:text="#{our.services}">Our Services</h3>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <h4 th:text="#{residential.electronics}">Residential Electronics</h4>
+                <p th:text="#{residential.electronics.description}">We provide a full range of residential electronics including smart home devices, entertainment systems, and more.</p>
+
+            </div>
+            <div class="service-card">
+                <h4 th:text="#{commercial.electronics}">Commercial Electronics</h4>
+                <p th:text="#{commercial.electronics.description}">Our commercial services offer advanced electronic solutions for businesses, including security systems and office technology.</p>
+            </div>
+
+            <div class="service-card">
+                <h4 th:text="#{automotive.electronics}">Available Electronics</h4>
+                <p th:text="#{automotive.electronics.description}">We offer a selection of high-quality electronics, including phones, laptops, headphones, watches, and televisions.</p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Connect with Us Section -->
+    <section class="connect-section">
         <h3 th:text="#{connectWithUs}">Connect with Us</h3>
-        <p th:text="#{followUs}">Stay updated with our latest news and promotions by following us on social media:</p>
+        <p th:text="#{followUs}">Keep up with our latest updates and promotions by following us on social media:</p>
         <ul class="social-media-links">
             <li><a href="https://www.facebook.com/" target="_blank"><img src="/static/img/facebook_icon.png" alt="Facebook"></a></li>
             <li><a href="https://www.instagram.com/viktor_krstev/" target="_blank"><img src="/static/img/Instagram_icon.png" alt="Instagram"></a></li>
             <li><a href="https://www.twitter.com" target="_blank"><img src="/static/img/twitter_icon.png" alt="Twitter"></a></li>
             <li><a href="https://passport.abv.bg/app/profiles/login?email=viktorkrustev03@abv.bg&retpath=https%3A%2F%2Fnm.abv.bg%2FMail.html&dest=home"><img src="/static/img/abv_icon.png" alt="Email"></a></li>
         </ul>
-
     </section>
-</main>
 
-<footer>
-    <p>&copy; 2024 <span th:text="#{footer.text}"></span></p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 <span th:text="#{footer.text}">Your Company</span></p>
+    </footer>
+</main>
 
 <script>
     function changeLang(lang) {

@@ -1,163 +1,505 @@
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+* {
     margin: 0;
-    background-color: #e9ecef;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header, footer {
-    flex-shrink: 0;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-main {
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: white; /* Fallback background color */
+    background-image: url('https://wallpapers.com/images/hd/website-background-sdki780prxb1nfs5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Хедър */
+header {
+    background: rgb(52, 54, 65);
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* За да се уверим, че псевдо-елементът не излиза извън границите */
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, red, yellow, greenyellow, deepskyblue);
+    z-index: 1; /* За да се уверим, че градиентната лента е над съдържанието на заглавката */
+}
+
+
+.header-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+/* Основни стилове за навигацията */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px; /* Разстояние между елементите */
+}
+
+nav li {
+    position: relative;
+}
+
+/* Стилове за линковете в навигацията */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem; /* Размер на шрифта */
+    letter-spacing: 0.5px; /* Разстояние между буквите */
+    padding: 10px 15px; /* Паддинг около текста */
+    display: inline-block;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* Стилове за линковете при задържане на курсора */
+nav ul li a:hover {
+    color: #ffda79; /* Цвят на текста при задържане */
+    letter-spacing: 1px; /* Разстояние между буквите при задържане */
+}
+
+/* Анимирано подчертаване при задържане */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffda79;
+    transition: all 0.4s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Фонов преливен ефект при задържане */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 218, 121, 0.5), rgba(255, 218, 121, 0));
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+nav ul li a:hover::after {
+    left: 0;
+}
+
+/* Стилове за активен линк */
+nav ul li a.active {
+    color: #ffda79; /* Цвят на текста за активния линк */
+    letter-spacing: 1px; /* Разстояние между буквите за активния линк */
+}
+
+nav ul li a.active::before {
+    width: 100%;
+    left: 0;
+}
+.logout-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+
+/* Филтърно меню */
+/* Основни настройки за базовото оформление */
+
+/* Основен стил за линкове */
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+/* Бутоните за смяна на езика */
+.language-switcher {
+    position: static;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: row; /* Промяна на подреждането на бутоните хоризонтално */
+    gap: 10px; /* Разстояние между бутоните */
+    transition: opacity 0.5s ease; /* Анимация за плавно скриване и показване */
+}
+
+.language-switcher.hidden {
+    opacity: 0; /* Скриване на бутоните */
+    pointer-events: none; /* Изключваме възможността за кликане, докато са скрити */
+}
+
+.language-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Кръгла форма на бутоните */
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.language-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинката запълва цялото бутонче */
+}
+.filter-section-mobile{
+    display: none;
+}
+
+
+/* About Section */
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light white background with opacity */
+}
+
+.about-content {
     flex: 1;
     padding: 20px;
 }
 
-.content-container {
-    max-width: 800px;
-    width: 100%;
-    background-color: #f8f9fa;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    animation: fadeIn 1s ease-in-out;
-    transition: transform 0.3s ease-in-out;
-}
-
-.content-container:hover {
-    transform: translateY(-10px);
-}
-
 .about-content h2 {
+    font-size: 36px;
     margin-bottom: 20px;
-    color: #1a535c;
-    font-family: 'Merriweather', serif;
-    font-size: 2.5rem;
-    position: relative;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
+
 
 .about-content p {
-    margin-bottom: 20px;
-    font-size: 1.125rem;
-    color: #343a40;
+    font-size: 18px;
     line-height: 1.6;
-    opacity: 0;
-    animation: slideIn 1s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.about-content h3 {
     margin-bottom: 20px;
-    color: #1a535c;
-    font-family: 'Merriweather', serif;
-    font-size: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.about-images {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-images img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+/* Services Section */
+.services-section {
+    background-color: rgba(255, 255, 255, 0.8); /* Light white background with opacity */
+    padding: 50px;
+    text-align: center;
+}
+
+.services-section h3 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: #f4f4f4;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.service-card a {
+    text-decoration: none;
+    color: #ff6849;
+    font-weight: bold;
+}
+
+.service-card a:hover {
+    color: #e65b3b;
+}
+
+/* Connect with Us Section */
+.connect-section {
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light white background with opacity */
+    text-align: center;
+}
+
+.connect-section h3 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.connect-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
 .social-media-links {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
+    padding: 0;
 }
 
 .social-media-links li {
-    display: inline-block;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    display: inline;
+    margin: 0 10px;
 }
 
-.social-media-links li:hover {
-    transform: scale(1.1) rotate(5deg);
+.social-media-links a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
 }
 
 .social-media-links img {
-    width: 40px;
-    height: 40px;
-    transition: filter 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
-.social-media-links img:hover {
-    filter: brightness(1.2);
-    transform: rotate(5deg);
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .content-container, .about-content p, .social-media-links {
-        animation: none;
-        transition: none;
-    }
-}
-.contact-info {
+/* Footer */
+footer {
+    background-color: white;
+    color: #29323C;
+    padding: 50px;
     text-align: center;
-    margin-top: 40px;
-}
-ol {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    background: none;
 }
 
-
-ol li {
-    display: inline;
-    margin-right: 10px;
+footer p {
+    font-size: 18px;
 }
 
+/* Мобилни устройства (ширина до 768px) */
+@media only screen and (max-width: 768px) {
 
-ol li a {
-    text-decoration: none;
-    color:  #333;
-    font-weight: bold;
-    padding: 5px 10px;
-    border: 2px solid #333;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    position: relative;
-    background: none;
+    /* Обща настройка за body */
+    body {
+        background-position: top;
+        background-size: cover;
+    }
+
+    /* Заглавна част - header */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Секция About */
+    .about-section {
+        padding: 20px;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .about-content p {
+        font-size: 16px;
+    }
+
+    .about-images img {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Секция Services */
+    .services-section h3 {
+        font-size: 28px;
+    }
+
+    .services-grid {
+        flex-direction: column;
+    }
+
+    .service-card {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .service-card h4 {
+        font-size: 20px;
+    }
+
+    .service-card p {
+        font-size: 14px;
+    }
+
+    /* Секция Connect with Us */
+    .connect-section h3 {
+        font-size: 28px;
+    }
+
+    .connect-section p {
+        font-size: 16px;
+    }
+
+    /* Social Media */
+    .social-media-links li {
+        margin: 0 5px;
+    }
+
+    .social-media-links a {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 20px;
+    }
+
+    footer p {
+        font-size: 16px;
+    }
 }
 
+/* Мобилни устройства (ширина до 480px) */
+@media only screen and (max-width: 480px) {
 
-ol li a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-color: darkorange;
-    color: darkorange;
-}
+    /* Заглавие и навигация */
+    header {
+        padding: 10px 15px;
+    }
 
+    nav ul li a {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
 
-ol li a.active {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: darkorange;
-    border-color: darkorange;
+    /* Секция About */
+    .about-section {
+        padding: 15px;
+    }
+
+    .about-content h2 {
+        font-size: 24px;
+    }
+
+    .about-content p {
+        font-size: 14px;
+    }
+
+    .about-images img {
+        max-width: 100%;
+    }
+
+    /* Секция Services */
+    .services-section {
+        padding: 20px;
+    }
+
+    .services-section h3 {
+        font-size: 24px;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .service-card h4 {
+        font-size: 18px;
+    }
+
+    .service-card p {
+        font-size: 12px;
+    }
+
+    /* Секция Connect with Us */
+    .connect-section h3 {
+        font-size: 24px;
+    }
+
+    .connect-section p {
+        font-size: 14px;
+    }
+
+    .social-media-links a {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Footer */
+    footer p {
+        font-size: 14px;
+    }
 }

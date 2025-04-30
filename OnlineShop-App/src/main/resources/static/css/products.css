@@ -1,24 +1,459 @@
-* {
+@media (min-width: 700px) {
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+
+/* Хедър */
+header {
+    background: rgb(52, 54, 65);
+    padding: 15px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* За да се уверим, че псевдо-елементът не излиза извън границите */
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(45deg, red, yellow, greenyellow, deepskyblue);
+    z-index: 1; /* За да се уверим, че градиентната лента е над съдържанието на заглавката */
 }
 
 
-.products-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    border-radius: 10em;
+    padding: 12px 40px 12px 15px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+    height: 15px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+input[type="text"]:focus {
+    border-color: #ffcc00;
+    background-color: #f9f9f9;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: #333;
+}
+
+button, .add-product-button, .add-to-cart-btn {
+    background: linear-gradient(90deg, royalblue, orangered); /* Линейна градиентна боя */
+    color: white; /* Цветът на текста */
+    border: none; /* Без рамка */
+    border-radius: 4px; /* Радиус на ъглите */
+    padding: 10px 15px; /* Вътрешни отстояния */
+    font-size: 1rem; /* Размер на шрифта */
+    cursor: pointer; /* Курсор на ръка */
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Преходи */
+}
+
+button:hover, .add-product-button:hover, .add-to-cart-btn:hover {
+    background: linear-gradient(45deg, red, royalblue); /* Линейна градиентна боя при задържане на мишката */
+}
+
+
+button:hover, .add-to-cart-btn:hover, .add-product-button:hover {
+    background-color: #4d5783;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled, .add-to-cart-btn:disabled, .add-product-button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/* Основни стилове за навигацията */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px; /* Разстояние между елементите */
+}
+
+nav li {
+    position: relative;
+}
+
+/* Стилове за линковете в навигацията */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem; /* Размер на шрифта */
+    letter-spacing: 0.5px; /* Разстояние между буквите */
+    padding: 10px 15px; /* Паддинг около текста */
+    display: inline-block;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+/* Стилове за линковете при задържане на курсора */
+nav ul li a:hover {
+    color: #ffda79; /* Цвят на текста при задържане */
+    letter-spacing: 1px; /* Разстояние между буквите при задържане */
+}
+
+/* Анимирано подчертаване при задържане */
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #ffda79;
+    transition: all 0.4s ease;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Фонов преливен ефект при задържане */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 218, 121, 0.5), rgba(255, 218, 121, 0));
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+nav ul li a:hover::after {
+    left: 0;
+}
+
+/* Стилове за активен линк */
+nav ul li a.active {
+    color: #ffda79; /* Цвят на текста за активния линк */
+    letter-spacing: 1px; /* Разстояние между буквите за активния линк */
+}
+
+nav ul li a.active::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Филтърно меню */
+/* Основни настройки за базовото оформление */
+
+/* Основен стил за линкове */
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* Филтърен панел, фиксиран вляво на страницата */
+.filter-sidebar {
+    position: absolute;
+    top: 4.9em;
+    left: 0;
+    width: 200px; /* Ширина на панела */
+    max-height: 100vh; /* Максимална височина */
+    background-color: #ffffff;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    animation: slideInSidebar 0.8s ease forwards;
+}
+
+/* Анимация за отваряне на панела */
+@keyframes slideInSidebar {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Стилове за бутон "Add Product" */
+.add-product-button {
+    display: block;
+    width: calc(100% - 20px); /* Ширина на бутона */
+    padding: 15px;
+    background-color: royalblue;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 30px; /* Разстояние от долната част */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стилове при hover и активиране на бутона */
+.add-product-button:hover {
+    background-color: #40688f;
+    transform: translateY(-5px);
+}
+
+.add-product-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Заглавия на секции */
+.filter-sidebar h3 {
+    font-size: 20px;
+    color: #24446b;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #24446b;
+    font-weight: 700;
+}
+
+/* Модерен ефект при задържане на заглавията */
+.filter-sidebar h3:hover {
+    color: #0f1e31;
+}
+
+/* Опции за филтриране */
+.filter-sidebar .filter-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-sidebar .filter-options a {
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #333;
+    border-left: 4px solid transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Модерен ефект при задържане на филтър опции */
+.filter-options a::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #24446b;
+    border-radius: 50%;
+    margin-right: 12px;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.filter-options a:hover::before,
+.filter-options a.active::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.filter-options a:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Плавна анимация за показване на филтър опции */
+.filter-options a {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.filter-options a:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.filter-options a:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.filter-options a:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.filter-options a:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.filter-options a:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.filter-options a:nth-child(6) {
+    animation-delay: 1.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Плавен преход за цялата страница */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Модерна тъмна тема */
+body.dark-mode {
+    background-color: #222;
+    color: #f5f5f5;
+}
+
+body.dark-mode .filter-sidebar {
+    background-color: #333;
+    box-shadow: none;
+}
+
+body.dark-mode .filter-options a {
+    background-color: #444;
+    color: #ddd;
+    border-left-color: transparent;
+}
+
+body.dark-mode .filter-options a.active,
+body.dark-mode .filter-options a:hover {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+
+/* Лява секция с меню */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
+}
+
+.sidebar h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.sidebar .dropdown-content {
+    display: block;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 0;
+}
+
+.sidebar .dropdown-content a {
+    color: #333;
+    padding: 12px 24px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar .dropdown-content a:hover {
+    background-color: #f4f4f4;
+    color: #0066cc;
+}
+
+.sidebar .dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+/* Съдържание отдясно на секцията */
+.content {
+    margin-left: 270px; /* Приспособете ширината според ширината на sidebar */
     padding: 20px;
 }
+
+/* Продуктови карти */
+.products-list {
+    margin-left: 300px; /* Увеличаваме стойността, за да отместим продуктите надясно */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Оставете това, за да имате 4 продукта на ред */
+    gap: 45px;
+}
+
 
 .product-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    background-image: linear-gradient(to right,white, whitesmoke, #f0ffff, ghostwhite);
+    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -35,16 +470,16 @@
     width: 100%;
     height: 250px;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     border-radius: 8px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
+
 .product-card a {
     text-decoration: none;
     color: inherit;
 }
-
 
 .product-card a:hover {
     text-decoration: none;
@@ -56,7 +491,7 @@
 
 .product-details {
     text-align: left;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .product-info {
@@ -89,7 +524,7 @@
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -97,7 +532,7 @@
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s, transform 0.3s ease;
-    margin-top: 12px; 
+    margin-top: 12px;
 }
 
 .product-details button:hover {
@@ -105,328 +540,34 @@
     transform: translateY(-2px);
 }
 
-
-.admin-button {
-    background-color: #ff5733;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s ease;
-    margin-top: 8px; 
-}
-
-.admin-button:hover {
-    background-color: #e14c2d;
-    transform: translateY(-2px);
-}
-
-.delete-button {
-    background-color: #ff4c4c;
-    color: white; 
-}
-
-.delete-button:hover {
-    background-color: #e12d2d;
-}
-
-.edit-button {
-    background-color: #4c8cff;
-}
-
-.edit-button:hover {
-    background-color: #007bff;
-}
-
-
-.product-reviews {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.product-reviews h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 16px;
-}
-
-.review-card {
-    margin-bottom: 16px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.review-card .review-details {
-    margin-bottom: 8px;
-}
-
-.review-card h4 {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 4px;
-}
-
-.review-card p {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 4px;
-}
-
-.review-card button {
-    background-color: #ff4c4c;
-    color: white; 
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
-}
-
-.review-card button:hover {
-    background-color: #e12d2d;
-    transform: translateY(-2px);
-}
-
-
-@media (max-width: 768px) {
-    .products-list {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        padding: 10px;
-    }
-
-    .product-card {
-        padding: 12px;
-    }
-
-    .product-details h3 {
-        font-size: 16px;
-    }
-
-    .product-details p {
-        font-size: 12px;
-    }
-
-    .product-card img {
-        max-width: 30%;
-    }
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-right: 20px;
-    font-family: 'Arial', sans-serif;
-}
-
-
-.dropbtn {
-    background: none;
-    color: black;
-    padding: 8px 16px;
-    font-size: 16px;
-    border: 2px solid black;
-    border-radius: 12px; 
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.dropdown:hover .dropbtn {
-    background: royalblue;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
-
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: linear-gradient(135deg, #f9f9f9, #e0e0e0);
-    min-width: 105%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    border-radius: 10px; 
-    overflow: hidden;
-    animation: fadeIn 0.5s; 
-}
-
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 2; transform: translateY(0); }
-}
-
-
-.dropdown-content a {
-    color: black;
-    padding: 8px 12px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease, padding-left 0.3s ease; 
-    position: relative; 
-}
-
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    padding-left: 20px; 
-}
-
-
-.dropdown-content a:before {
-    content: '•'; 
-    margin-right: 10px;
-    font-size: 12px;
-    color: #007bff;
-    transition: transform 0.3s ease; 
-}
-
-
-.dropdown-content a:hover:before {
-    transform: translateX(5px);
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-@media (max-width: 600px) {
-    .dropbtn {
-        font-size: 14px;
-        padding: 6px 12px;
-    }
-
-    .dropdown-content a {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-}
-
-
-form {
-    display: inline-block; 
-}
-
-
-.add-to-cart-btn  {
-    background: linear-gradient(80deg, #0066CC 0%, #eb5050 100%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.3s ease;
-    outline: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-button:hover {
-    background-color: #f39c12;
-    transform: translateY(-2px);
-}
-
-button:active {
-    background-color: #f39c12;
-}
-
-
-button:focus {
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
-}
-
-
-.add-product-button {
-    display: initial;
-    padding: 6px 12px;
-    margin-bottom: -350px;
-    margin-top: 2px;
-    margin-right: 100px;
-    background: linear-gradient(80deg, #0066CC 0%, dodgerblue 100%);
-    color: white;
-    text-align: right;
-    border: 1px solid black;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    float: right; 
-    text-decoration: none;
-}
-
-.add-product-button:hover {
-    background: linear-gradient(80deg, #004a99 0%, #d94d4d 100%); /* Darker gradient on hover */
-    color: #fff;
-    transform: scale(1.05); /* Slightly enlarges the button */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow */
-}
-
-.add-product-button:active {
-    background: linear-gradient(80deg, #003366 0%, #b33d3d 100%); /* Even darker gradient when clicked */
-    transform: scale(0.98); /* Slightly shrinks the button */
-}
-
-.add-product-button:focus {
-    outline: none; /* Removes default outline */
-    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.5); /* Adds a focus ring */
-}
-
-.add-product-button.disabled {
-    background: #d3d3d3; /* Light grey for disabled state */
-    color: #a9a9a9; /* Darker grey text */
-    cursor: not-allowed; /* Shows a not-allowed cursor */
-    pointer-events: none; /* Disables click events */
-}
-
-
-
+/* Пагинация */
 .pagination {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 20px 0;
-    font-family: Arial, sans-serif;
+    margin: 30px 0;
 }
 
-.prev-page,
-.next-page {
-    background: transparent;
-    color: dodgerblue;
-    border: 1px solid dodgerblue;
-    padding: 10px 20px;
-    margin: 0 10px;
+.prev-page, .next-page {
+    background: transparent; /* Прозрачен фон */
+    color: royalblue; /* Цветът на текста */
+    border: 2px solid royalblue; /* Рамка с цвят */
+    border-radius: 50px;
+    padding: 12px 20px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
+    margin: 0 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.prev-page:hover,
-.next-page:hover {
-    background-color: dodgerblue;
-    color: white;
+.prev-page:disabled, .next-page:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.prev-page:hover, .next-page:hover {
+    background: #40688f;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .page-numbers {
@@ -435,150 +576,273 @@ button:focus {
 }
 
 .page-number {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    border-radius: 30%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0 5px;
     cursor: pointer;
+    padding: 8px 14px;
+    border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-.page-number.active {
-    background-color: red;
-    color: red;
 }
 
 .page-number.current {
-    color: #ffffff;
-    background: linear-gradient(80deg, royalblue 0%, dodgerblue 100%);
-    padding: 5px 10px; 
-    border-radius: 10px; 
+    background-color: royalblue;
+    color: white;
 }
 
-
-
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:700');
-
-.container {
-    position: relative;
-    margin: auto;
-    width: 300px;
-    height: 50px;
+.page-number:hover {
+    background-color: #ddd;
+    color: #030303;
 }
 
-.search {
-    position: absolute;
-    margin: auto;
+/* Footer */
+footer {
+    margin-left: 32em;
+    width: 30em;
+    background-color: white; /* Прозрачен фон за тъмен режим */
+    margin-top: 40px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+footer p {
+    margin: 0;
+    color: black;
+}
+
+/* Бутоните за смяна на езика */
+.language-switcher {
+    position: static;
     top: 10px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 43px;
-    height: 43px;
-    background: linear-gradient(80deg, royalblue, royalblue);
-    border-radius: 50%;
-    transition: all 1s;
-    z-index: 4;
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+    right: 20px;
+    display: flex;
+    flex-direction: row; /* Промяна на подреждането на бутоните хоризонтално */
+    gap: 10px; /* Разстояние между бутоните */
+    transition: opacity 0.5s ease; /* Анимация за плавно скриване и показване */
+}
+
+.language-switcher.hidden {
+    opacity: 0; /* Скриване на бутоните */
+    pointer-events: none; /* Изключваме възможността за кликане, докато са скрити */
+}
+
+.language-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Кръгла форма на бутоните */
+    border: none;
+    padding: 0;
+    overflow: hidden;
     cursor: pointer;
 }
 
-.search::before {
-    content: "";
-    position: absolute;
-    margin: auto;
-    top: 19px;
-    right: 0;
-    bottom: 0;
-    left: 19px;
-    width: 12px;
-    height: 2px;
-    background: white;
-    transform: rotate(45deg);
-    transition: all .5s;
+.language-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинката запълва цялото бутонче */
+}
+.filter-section-mobile{
+    display: none;
+}
 }
 
-.search::after {
-    content: "";
-    position: absolute;
-    margin: auto;
-    top: -5px;
-    right: 0;
-    bottom: 0;
-    left: -6px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 3px solid white;
-    transition: all .5s;
-}
+/* Основни настройки за мобилна версия */
+@media (max-width: 900px) {
+    nav ul {
+        display: inline-block;
+        flex-direction: column; /* Вертикално подреждане на елементите */
+        padding: 20px; /* Падинг за навигацията */
+        background-color: #fff; /* Фон на навигацията */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Лека сянка */
+        border-radius: 5px; /* Закръглени ъгли */
+        position: absolute; /* Абсолютно позициониране за падащо меню, ако е нужно */
+        top: 60px; /* Позициониране под заглавието */
+        left: 0;
+        right: 0;
+    }
 
-#searchInput {
-    font-family: 'Inconsolata', monospace;
-    position: absolute;
-    margin: auto;
-    top: 10px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 43px;
-    height: 43px;
-    outline: none;
-    border: none;
-    background: transparent;
-    color: white;
-    text-shadow: 0 0 10px dodgerblue;
-    padding: 0 80px 0 20px;
-    border-radius: 30px;
-    box-shadow: 0 0 25px 0 royalblue,
-    0 20px 25px 0 rgba(0, 0, 0, 0.2);
-    transition: all 1s;
-    opacity: 0;
-    z-index: 5;
-    font-weight: bolder;
-    letter-spacing: 0.1em;
-}
+    nav ul li {
+        width: 100%; /* Пълна ширина на всеки елемент */
+    }
 
-#searchInput:hover {
-    cursor: pointer;
-}
+    nav ul li a {
+        font-size: 1.2rem; /* Увеличаване на размера на шрифта */
+        padding: 15px; /* Увеличаване на падинга */
+        text-align: center; /* Центриране на текста */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Плавни преходи */
+    }
 
-#searchInput:focus {
-    width: 293px;
-    opacity: 1;
-    cursor: text;
-}
+    nav ul li a:hover {
+        background-color: rgba(255, 218, 121, 0.2); /* Лека промяна на фона при задържане */
+        color: #ffda79; /* Промяна на цвета на текста при задържане */
+    }
 
-#searchInput:focus ~ .search {
-    right: -250px;
-    background: #151515;
-    z-index: 6;
-}
+    nav ul li a.active {
+        color: #ffda79; /* Активен линк с жълт цвят */
+        font-weight: bold; /* Увеличаване на шрифта за активен линк */
+    }
 
-#searchInput:focus ~ .search::before {
-    top: 0;
-    left: 0;
-    width: 25px;
-}
+    .auth-buttons {
+        flex-direction: column; /* Вертикално подреждане на бутоните */
+        gap: 10px; /* Разстояние между бутоните */
+        align-items: center; /* Центриране на бутоните */
+    }
 
-#searchInput:focus ~ .search::after {
-    top: 0;
-    left: 0;
-    width: 25px;
-    height: 2px;
-    border: none;
-    background: white;
-    border-radius: 0%;
-    transform: rotate(-45deg);
-}
+    .language-switcher {
+        flex-direction: column; /* Вертикално подреждане на езиковите бутони */
+        align-items: center; /* Центриране на бутоните */
+    }
 
-#searchInput::placeholder {
-    color: white;
-    opacity: 0.5;
-    font-weight: bolder;
+
+    /* Мобилни бутони за филтриране и сортиране */
+    .mobile-filter-sort {
+        display: flex;
+        justify-content: space-around;
+        margin: 10px 0;
+    }
+
+    .mobile-filter-btn, .mobile-sort-btn {
+        background-color: #4CAF50;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        color: white;
+        width: 45%;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    .mobile-filter-btn:hover, .mobile-sort-btn:hover {
+        background-color: #45a049;
+    }
+
+    /* Продуктови карти */
+    .products-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+    }
+
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .product-details {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .product-details h3 {
+        font-size: 18px;
+        color: #333;
+    }
+
+    .product-details p {
+        font-size: 14px;
+        color: #777;
+    }
+
+    /* Стил за бутоните за странициране */
+    .pagination {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    .prev-page, .next-page {
+        width: 45%;
+        padding: 10px;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .prev-page:hover, .next-page:hover {
+        background-color: #45a049;
+    }
+
+    /* Езикова смяна */
+    .language-switcher {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .language-button {
+        margin: 0 5px;
+    }
+
+    .language-button img {
+        width: 30px;
+        height: auto;
+    }
+
+    /* Футер */
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .filter-section{display: none}
+
+    .filter-section-mobile{
+        display: flow;
+    }
+    .filter-options {
+        display: none;
+    }
+
+    .logout-button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .logout-button:hover {
+        background-color: darkred;
+    }
+
+
 }

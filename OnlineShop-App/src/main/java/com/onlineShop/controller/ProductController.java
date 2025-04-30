@@ -2,11 +2,15 @@ package com.onlineShop.controller;
 
 import com.onlineShop.model.dto.*;
 import com.onlineShop.model.entity.Product;
+import com.onlineShop.repository.ProductRepository;
 import com.onlineShop.service.ProductService;
 import com.onlineShop.service.ReviewService;
 import com.onlineShop.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,8 +42,7 @@ public class ProductController {
     public String getProducts(Model model,
                               @RequestParam(name = "name", required = false, defaultValue = "") String name,
                               @RequestParam(required = false) String sort,
-                              @RequestParam(required = false) String category,
-                              @AuthenticationPrincipal Principal principal) {
+                              @RequestParam(required = false) String category) {
 
         List<ProductsDTO> products;
 
@@ -132,4 +135,5 @@ public class ProductController {
         productService.deleteProduct(productId);
         return "redirect:/products";
     }
+
 }

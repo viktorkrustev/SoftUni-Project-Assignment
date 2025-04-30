@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профил</title>
-    <link rel="stylesheet" href="/css/styles.css">
+
     <link rel="stylesheet" href="/css/profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Sacramento&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -44,14 +44,16 @@
             <i class="fas fa-user-circle"></i>
         </div>
     </div>
-    <!-- Upload Profile Picture Section -->
-    <div class="profile-section">
+
+    <!-- Upload Profile Picture Section (Initially hidden) -->
+    <div class="profile-upload-section" style="display: none;">
         <form th:action="@{/users/uploadProfilePicture}" method="post" enctype="multipart/form-data">
             <section for="profilePicture">Upload Profile Picture:</section>
             <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
             <button type="submit">Upload</button>
         </form>
     </div>
+
 
     <!-- Profile Information -->
     <div class="profile-section" id="info-section">
@@ -102,7 +104,7 @@
 
     <!-- Orders Section -->
     <button class="toggle-orders-button" id="toggle-orders-btn" onclick="toggleOrders()">Toggle My Orders</button>
-    <div class="orders-section" id="orders-section">
+    <div class="orders-section" id="orders-section" style="display: none;">
         <h3>My Orders:</h3>
         <ul>
             <li th:if="${orders.isEmpty()}">No orders to show!</li>
@@ -120,44 +122,48 @@
             </li>
         </ul>
     </div>
-</div>
 
-<footer>
-    <p>&copy; 2024 My Online Store</p>
-</footer>
 
-<script>
+    <script>
     function toggleEdit() {
         var infoSection = document.getElementById('info-section');
         var editForm = document.getElementById('edit-form');
         var profileSection = document.querySelector('.profile-section');
-        var editButton = document.querySelector('.btn'); // Adjust selector if needed
+        var editButton = document.querySelector('.btn');
+        var uploadSection = document.querySelector('.profile-upload-section'); // Profile upload section
 
         if (editForm.classList.contains('open')) {
             editForm.classList.remove('open');
-            infoSection.style.display = 'block';
-            profileSection.style.display = 'block'; // Show the profile section
+            infoSection.style.display = 'block'; // Ensure profile info is always shown
+            profileSection.style.display = 'block'; // Keep profile section visible
+            uploadSection.style.display = 'none'; // Hide the upload section when cancelling edit
             editButton.textContent = 'Edit';
         } else {
             editForm.classList.add('open');
-            infoSection.style.display = 'none';
-            profileSection.style.display = 'none'; // Hide the profile section
+            infoSection.style.display = 'none'; // Hide the profile info section
+            profileSection.style.display = 'none'; // Hide profile section for editing
+            uploadSection.style.display = 'block'; // Show the upload section when editing
             editButton.textContent = 'Cancel';
         }
     }
 
     function toggleOrders() {
         var ordersSection = document.getElementById("orders-section");
-        ordersSection.classList.toggle("open");
-
         var toggleButton = document.getElementById("toggle-orders-btn");
-        if (ordersSection.classList.contains("open")) {
-            toggleButton.textContent = "Hide My Orders";
+
+        // Toggle the visibility of the orders section
+        if (ordersSection.style.display === "none" || ordersSection.style.display === "") {
+            ordersSection.style.display = "block"; // Show the orders section
+            toggleButton.textContent = "Hide My Orders"; // Change the button text
         } else {
-            toggleButton.textContent = "Toggle My Orders";
+            ordersSection.style.display = "none"; // Hide the orders section
+            toggleButton.textContent = "Toggle My Orders"; // Reset the button text
         }
     }
-</script>
+
+
+
+    </script>
 
 </body>
 </html>
